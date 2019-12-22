@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  web:
+    container_name: lunchPickerApi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    links:
+      - db
+  db:
+    container_name: mongo
+    image: mongo:4.0
+    ports:
+      - 27017:27017
