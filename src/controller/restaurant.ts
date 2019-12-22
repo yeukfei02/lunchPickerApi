@@ -1,13 +1,17 @@
+import { Request, Response } from 'express';
+import * as mongoose from 'mongoose';
+import * as _ from 'lodash';
 const axios = require('axios');
-const mongoose = require('mongoose');
-const _ = require('lodash');
 
-const Restaurant = require('../model/restaurant');
-const RestaurantDetails = require('../model/restaurantDetails');
-const RestaurantDetailsReview = require('../model/restaurantDetailsReview');
+import * as env from 'dotenv';
+env.config();
 
-async function addDataToRestaurantTable(resultData) {
-  const formattedResultDataBusinesses = resultData.businesses.map((item, i) => {
+import Restaurant from '../model/restaurant';
+import RestaurantDetails from '../model/restaurantDetails';
+import RestaurantDetailsReview from '../model/restaurantDetailsReview';
+
+async function addDataToRestaurantTable(resultData: any) {
+  const formattedResultDataBusinesses = resultData.businesses.map((item: any, i: Number) => {
     const obj = {
       total: resultData.total,
       region: resultData.region
@@ -15,7 +19,7 @@ async function addDataToRestaurantTable(resultData) {
     return Object.assign(item, obj);
   });
   if (!_.isEmpty(formattedResultDataBusinesses)) {
-    formattedResultDataBusinesses.map(async (item, i) => {
+    formattedResultDataBusinesses.map(async (item: any, i: Number) => {
       const record = await Restaurant.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurant = new Restaurant({
@@ -47,7 +51,7 @@ async function addDataToRestaurantTable(resultData) {
   }
 }
 
-async function addDataToRestaurantDetailsTable(resultData) {
+async function addDataToRestaurantDetailsTable(resultData: any) {
   const record = await RestaurantDetails.findOne({ id: resultData.id });
   if (_.isEmpty(record)) {
     const restaurantDetails = new RestaurantDetails({
@@ -77,8 +81,8 @@ async function addDataToRestaurantDetailsTable(resultData) {
   }
 }
 
-async function addDataToRestaurantDetailsReviewTable(resultData) {
-  const formattedResultDataReviews = resultData.reviews.map((item, i) => {
+async function addDataToRestaurantDetailsReviewTable(resultData: any) {
+  const formattedResultDataReviews = resultData.reviews.map((item: any, i: Number) => {
     const obj = {
       total: resultData.total,
       possible_languages: resultData.possible_languages
@@ -86,7 +90,7 @@ async function addDataToRestaurantDetailsReviewTable(resultData) {
     return Object.assign(item, obj);
   });
   if (!_.isEmpty(formattedResultDataReviews)) {
-    formattedResultDataReviews.map(async (item, i) => {
+    formattedResultDataReviews.map(async (item: any, i: Number) => {
       const record = await RestaurantDetailsReview.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurantDetailsReview = new RestaurantDetailsReview({
@@ -108,7 +112,7 @@ async function addDataToRestaurantDetailsReviewTable(resultData) {
   }
 }
 
-module.exports.getAllRestaurantsByLatLong = (req, res) => {
+export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/businesses/search`, {
     params: {
       term: req.query.term,
@@ -119,7 +123,7 @@ module.exports.getAllRestaurantsByLatLong = (req, res) => {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
@@ -129,7 +133,7 @@ module.exports.getAllRestaurantsByLatLong = (req, res) => {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
@@ -137,7 +141,7 @@ module.exports.getAllRestaurantsByLatLong = (req, res) => {
     });
 }
 
-module.exports.getAllRestaurantsByLocation = (req, res) => {
+export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/businesses/search`, {
     params: {
       term: req.query.term,
@@ -147,7 +151,7 @@ module.exports.getAllRestaurantsByLocation = (req, res) => {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
@@ -157,7 +161,7 @@ module.exports.getAllRestaurantsByLocation = (req, res) => {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
@@ -165,7 +169,7 @@ module.exports.getAllRestaurantsByLocation = (req, res) => {
     });
 }
 
-module.exports.getRestaurantByPhone = (req, res) => {
+export const getRestaurantByPhone = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/businesses/search/phone`, {
     params: {
       phone: req.query.phone
@@ -174,13 +178,13 @@ module.exports.getRestaurantByPhone = (req, res) => {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       res.status(200).json({
         message: 'Get restaurant by phone!',
         restaurant: result.data
       });
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
@@ -188,13 +192,13 @@ module.exports.getRestaurantByPhone = (req, res) => {
     });
 }
 
-module.exports.getRestaurantDetailsById = (req, res) => {
+export const getRestaurantDetailsById = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsTable(result.data);
 
@@ -204,7 +208,7 @@ module.exports.getRestaurantDetailsById = (req, res) => {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
@@ -212,13 +216,13 @@ module.exports.getRestaurantDetailsById = (req, res) => {
     });
 }
 
-module.exports.getRestaurantDetailsReviewById = (req, res) => {
+export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsReviewTable(result.data);
 
@@ -228,7 +232,7 @@ module.exports.getRestaurantDetailsReviewById = (req, res) => {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'

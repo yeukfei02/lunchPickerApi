@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import * as mongoose from 'mongoose';
 
-const restaurantDetailsSchema = mongoose.Schema({
+const restaurantDetailsSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   id: { type: String, required: true },
   alias: { type: String, required: true },
@@ -26,4 +26,4 @@ restaurantDetailsSchema.set('timestamps', true);
 
 const restaurantDetailsModel = mongoose.model('RestaurantDetails', restaurantDetailsSchema);
 
-module.exports = restaurantDetailsModel;
+export default restaurantDetailsModel;

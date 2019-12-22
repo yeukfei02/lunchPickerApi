@@ -1,8 +1,8 @@
-const express = require('express');
+import * as express from 'express';
 const router = express.Router();
 const expressListRoutes = require('express-list-routes');
 
-const restaurantController = require('../controller/restaurant');
+import * as restaurantController from '../controller/restaurant';
 
 router.get('/find-restaurants-by-lat-long', restaurantController.getAllRestaurantsByLatLong);
 router.get('/find-restaurants-by-location', restaurantController.getAllRestaurantsByLocation);
@@ -12,4 +12,4 @@ router.get('/get-restaurant-details-review/:id', restaurantController.getRestaur
 
 expressListRoutes({ prefix: '/api/restaurant' }, 'RESTAURANT API:', router);
 
-module.exports = router;
+export default router;
