@@ -9,6 +9,7 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 
 const restaurantRoutes = require('./api/routes/restaurant');
+const categoryRoutes = require('./api/routes/category');
 
 const environment = app.get('env');
 if (environment === 'development') {
@@ -30,6 +31,7 @@ app.use(helmet());
 app.use(compression());
 
 app.use('/api/restaurant', restaurantRoutes);
+app.use('/api/category', categoryRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({

@@ -9,8 +9,6 @@ router.get('/find-restaurants-by-location', restaurantController.getAllRestauran
 router.get('/find-restaurant-by-phone', restaurantController.getRestaurantByPhone);
 router.get('/get-restaurant-details/:id', restaurantController.getRestaurantDetailsById);
 router.get('/get-restaurant-details-review/:id', restaurantController.getRestaurantDetailsReviewById);
-router.get('/get-categories', restaurantController.getCategories);
-router.get('/get-category/:alias', restaurantController.getCategoryByAlias);
 
 expressListRoutes({ prefix: '/api/restaurant' }, 'RESTAURANT API:', router);
 
