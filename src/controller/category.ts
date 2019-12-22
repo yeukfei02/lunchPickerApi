@@ -9,22 +9,24 @@ env.config();
 import Category from '../model/category';
 
 function addDataToCategoryTable(resultData: any) {
-  resultData.categories.map(async (item: any, i: Number) => {
-    const record = await Category.findOne({ alias: item.alias });
-    if (_.isEmpty(record)) {
-      const category = new Category({
-        _id: new mongoose.Types.ObjectId(),
-        alias: item.alias,
-        title: item.title,
-        parent_aliases: item.parent_aliases,
-        country_whitelist: item.country_whitelist,
-        country_blacklist: item.country_blacklist,
-      });
+  if (!_.isEmpty(resultData.categories)) {
+    resultData.categories.map(async (item: any, i: Number) => {
+      const record = await Category.findOne({ alias: item.alias });
+      if (_.isEmpty(record)) {
+        const category = new Category({
+          _id: new mongoose.Types.ObjectId(),
+          alias: item.alias,
+          title: item.title,
+          parent_aliases: item.parent_aliases,
+          country_whitelist: item.country_whitelist,
+          country_blacklist: item.country_blacklist,
+        });
 
-      const result = await category.save();
-      console.log("result = ", result);
-    }
-  });
+        const result = await category.save();
+        console.log("result = ", result);
+      }
+    });
+  }
 }
 
 export const getCategories = (req: Request, res: Response) => {

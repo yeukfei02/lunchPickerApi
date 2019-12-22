@@ -11,15 +11,8 @@ import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
 
 async function addDataToRestaurantTable(resultData: any) {
-  const formattedResultDataBusinesses = resultData.businesses.map((item: any, i: Number) => {
-    const obj = {
-      total: resultData.total,
-      region: resultData.region
-    }
-    return Object.assign(item, obj);
-  });
-  if (!_.isEmpty(formattedResultDataBusinesses)) {
-    formattedResultDataBusinesses.map(async (item: any, i: Number) => {
+  if (!_.isEmpty(resultData.businesses)) {
+    resultData.businesses.map(async (item: any, i: Number) => {
       const record = await Restaurant.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurant = new Restaurant({
@@ -40,8 +33,6 @@ async function addDataToRestaurantTable(resultData: any) {
           phone: item.phone,
           display_phone: item.display_phone,
           distance: item.distance,
-          total: item.total,
-          region: item.region
         });
 
         const result = await restaurant.save();
@@ -82,15 +73,8 @@ async function addDataToRestaurantDetailsTable(resultData: any) {
 }
 
 async function addDataToRestaurantDetailsReviewTable(resultData: any) {
-  const formattedResultDataReviews = resultData.reviews.map((item: any, i: Number) => {
-    const obj = {
-      total: resultData.total,
-      possible_languages: resultData.possible_languages
-    }
-    return Object.assign(item, obj);
-  });
-  if (!_.isEmpty(formattedResultDataReviews)) {
-    formattedResultDataReviews.map(async (item: any, i: Number) => {
+  if (!_.isEmpty(resultData.reviews)) {
+    resultData.reviews.map(async (item: any, i: Number) => {
       const record = await RestaurantDetailsReview.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurantDetailsReview = new RestaurantDetailsReview({
@@ -101,8 +85,6 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
           rating: item.rating,
           time_created: item.time_created,
           user: item.user,
-          total: item.total,
-          possible_languages: item.possible_languages
         });
 
         const result = await restaurantDetailsReview.save();
