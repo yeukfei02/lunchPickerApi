@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import * as mongoose from 'mongoose';
 
-const restaurantDetailsReviewSchema = mongoose.Schema({
+const restaurantDetailsReviewSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   id: { type: String, required: true },
   url: { type: String, required: false },
@@ -16,4 +16,4 @@ restaurantDetailsReviewSchema.set('timestamps', true);
 
 const restaurantDetailsReviewModel = mongoose.model('RestaurantDetailsReview', restaurantDetailsReviewSchema);
 
-module.exports = restaurantDetailsReviewModel;
+export default restaurantDetailsReviewModel;

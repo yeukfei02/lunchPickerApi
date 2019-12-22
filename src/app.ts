@@ -1,15 +1,15 @@
-const express = require('express');
+import * as express from 'express';
 const app = express();
 
-const cors = require('cors');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
-const compression = require('compression');
-const mongoose = require('mongoose');
+import * as cors from 'cors';
+import * as morgan from 'morgan';
+import * as bodyParser from 'body-parser';
+import * as helmet from 'helmet';
+import * as compression from 'compression';
+import * as mongoose from 'mongoose';
 
-const restaurantRoutes = require('./api/routes/restaurant');
-const categoryRoutes = require('./api/routes/category');
+import restaurantRoutes from './routes/restaurant';
+import categoryRoutes from './routes/category';
 
 const environment = app.get('env');
 if (environment === 'development') {
@@ -39,4 +39,4 @@ app.use((req, res, next) => {
   });
 });
 
-module.exports = app;
+export default app;

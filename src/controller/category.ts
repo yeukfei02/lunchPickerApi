@@ -1,11 +1,15 @@
+import { Request, Response } from 'express';
+import * as mongoose from 'mongoose';
+import * as _ from 'lodash';
 const axios = require('axios');
-const mongoose = require('mongoose');
-const _ = require('lodash');
 
-const Category = require('../model/category');
+import * as env from 'dotenv';
+env.config();
 
-function addDataToCategoryTable(resultData) {
-  resultData.categories.map(async (item, i) => {
+import Category from '../model/category';
+
+function addDataToCategoryTable(resultData: any) {
+  resultData.categories.map(async (item: any, i: Number) => {
     const record = await Category.findOne({ alias: item.alias });
     if (_.isEmpty(record)) {
       const category = new Category({
@@ -23,13 +27,13 @@ function addDataToCategoryTable(resultData) {
   });
 }
 
-module.exports.getCategories = (req, res) => {
+export const getCategories = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/categories`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToCategoryTable(result.data);
 
@@ -39,7 +43,7 @@ module.exports.getCategories = (req, res) => {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
@@ -47,19 +51,19 @@ module.exports.getCategories = (req, res) => {
     });
 }
 
-module.exports.getCategoryByAlias = (req, res) => {
+export const getCategoryByAlias = (req: Request, res: Response) => {
   axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`
     }
   })
-    .then((result) => {
+    .then((result: any) => {
       res.status(200).json({
         message: 'Get category by alias!',
         category: result.data
       });
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("error = ", error);
       res.status(404).json({
         message: 'Not found'
