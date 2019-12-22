@@ -18,8 +18,6 @@ const restaurantSchema = new mongoose.Schema({
   phone: { type: String, required: false },
   display_phone: { type: String, required: false },
   distance: { type: Number, required: false },
-  total: { type: Number, required: false },
-  region: { type: mongoose.Schema.Types.Mixed, required: false },
 });
 
 restaurantSchema.set('timestamps', true);
