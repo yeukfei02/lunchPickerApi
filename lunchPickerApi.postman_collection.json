@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "4247d24c-ed91-457c-8e15-18b3a8232ef3",
+		"name": "lunchPickerApi",
+		"description": "lunchPickerApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "/find-restaurants-by-lat-long",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/find-restaurants-by-lat-long?term=food&latitude=1.309160&longitude=103.852130",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"find-restaurants-by-lat-long"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "food"
+								},
+								{
+									"key": "latitude",
+									"value": "1.309160"
+								},
+								{
+									"key": "longitude",
+									"value": "103.852130"
+								}
+							]
+						},
+						"description": "/find-restaurants-by-lat-long"
+					},
+					"response": []
+				},
+				{
+					"name": "/find-restaurants-by-location",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/find-restaurants-by-location?term=food&location=singapore farrer park",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"find-restaurants-by-location"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "food"
+								},
+								{
+									"key": "location",
+									"value": "singapore farrer park"
+								}
+							]
+						},
+						"description": "/find-restaurants-by-location"
+					},
+					"response": []
+				},
+				{
+					"name": "/find-restaurant-by-phone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/find-restaurant-by-phone?phone=+6596908184",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"find-restaurant-by-phone"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "+6596908184"
+								}
+							]
+						},
+						"description": "/find-restaurant-by-phone"
+					},
+					"response": []
+				},
+				{
+					"name": "/get-restaurant-details/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"get-restaurant-details",
+								"X7b2izv3qhklnCDjoF37tA"
+							]
+						},
+						"description": "/get-restaurant-details/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "/get-restaurant-details-review/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"get-restaurant-details-review",
+								"X7b2izv3qhklnCDjoF37tA"
+							]
+						},
+						"description": "/get-restaurant-details-review/{id}"
+					},
+					"response": []
+				}
+			],
+			"description": "restaurant",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "/get-categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/category/get-categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"get-categories"
+							]
+						},
+						"description": "/get-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "/get-category/{alias}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/category/get-category/seafood",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"get-category",
+								"seafood"
+							]
+						},
+						"description": "/get-category/{alias}"
+					},
+					"response": []
+				}
+			],
+			"description": "category",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a233cedf-6e54-4fef-944b-9ea54a58eb3b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "981946fa-8543-4119-adc5-99fab0f3dc83",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
