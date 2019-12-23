@@ -10,7 +10,7 @@ import Category from '../model/category';
 
 function addDataToCategoryTable(resultData: any) {
   if (!_.isEmpty(resultData.categories)) {
-    resultData.categories.map(async (item: any, i: Number) => {
+    resultData.categories.map(async (item: any, i: number) => {
       const record = await Category.findOne({ alias: item.alias });
       if (_.isEmpty(record)) {
         const category = new Category({
