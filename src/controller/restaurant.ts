@@ -12,7 +12,7 @@ import RestaurantDetailsReview from '../model/restaurantDetailsReview';
 
 async function addDataToRestaurantTable(resultData: any) {
   if (!_.isEmpty(resultData.businesses)) {
-    resultData.businesses.map(async (item: any, i: Number) => {
+    resultData.businesses.map(async (item: any, i: number) => {
       const record = await Restaurant.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurant = new Restaurant({
@@ -74,7 +74,7 @@ async function addDataToRestaurantDetailsTable(resultData: any) {
 
 async function addDataToRestaurantDetailsReviewTable(resultData: any) {
   if (!_.isEmpty(resultData.reviews)) {
-    resultData.reviews.map(async (item: any, i: Number) => {
+    resultData.reviews.map(async (item: any, i: number) => {
       const record = await RestaurantDetailsReview.findOne({ id: item.id });
       if (_.isEmpty(record)) {
         const restaurantDetailsReview = new RestaurantDetailsReview({
