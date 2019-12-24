@@ -30,11 +30,13 @@ function addDataToCategoryTable(resultData: any) {
 }
 
 export const getCategories = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/categories`, {
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/categories`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToCategoryTable(result.data);
@@ -54,11 +56,13 @@ export const getCategories = (req: Request, res: Response) => {
 }
 
 export const getCategoryByAlias = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       res.status(200).json({
         message: 'Get category by alias!',

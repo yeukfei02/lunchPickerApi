@@ -95,16 +95,18 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
 }
 
 export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/businesses/search`, {
-    params: {
-      term: req.query.term,
-      latitude: req.query.latitude,
-      longitude: req.query.longitude,
-    },
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/businesses/search`,
+    {
+      params: {
+        term: req.query.term,
+        latitude: req.query.latitude,
+        longitude: req.query.longitude,
+      },
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
@@ -124,15 +126,17 @@ export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
 }
 
 export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/businesses/search`, {
-    params: {
-      term: req.query.term,
-      location: req.query.location
-    },
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/businesses/search`,
+    {
+      params: {
+        term: req.query.term,
+        location: req.query.location
+      },
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
@@ -152,14 +156,16 @@ export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
 }
 
 export const getRestaurantByPhone = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/businesses/search/phone`, {
-    params: {
-      phone: req.query.phone
-    },
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/businesses/search/phone`,
+    {
+      params: {
+        phone: req.query.phone
+      },
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       res.status(200).json({
         message: 'Get restaurant by phone!',
@@ -175,11 +181,13 @@ export const getRestaurantByPhone = (req: Request, res: Response) => {
 }
 
 export const getRestaurantDetailsById = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsTable(result.data);
@@ -199,11 +207,13 @@ export const getRestaurantDetailsById = (req: Request, res: Response) => {
 }
 
 export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
-  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`, {
-    headers: {
-      Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
     }
-  })
+  )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsReviewTable(result.data);

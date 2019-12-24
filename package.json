@@ -30,10 +30,11 @@
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",
     "ts-node": "^8.5.4",
+    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.7.4"
   },
   "scripts": {
-    "dev": "ts-node ./src/server.ts",
+    "dev": "ts-node-dev ./src/server.ts",
     "start": "tsc && nodemon ./dist/server.js"
   }
 }
