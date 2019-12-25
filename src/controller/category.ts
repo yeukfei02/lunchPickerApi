@@ -31,7 +31,7 @@ function addDataToCategoryTable(resultData: any) {
 }
 
 export const getCategories = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getCategories');
   axios.get(`${process.env.YELP_HOST}/categories`,
     {
       headers: {
@@ -58,7 +58,7 @@ export const getCategories = (req: Request, res: Response) => {
 }
 
 export const getCategoryByAlias = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getCategoryByAlias');
   axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
     {
       headers: {
