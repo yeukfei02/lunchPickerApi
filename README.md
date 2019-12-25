@@ -6,7 +6,7 @@ Lunch picker is the tool you’ll turn to to answer this question.
 
 ### Requirement:
  - install yarn
- - install node
+ - install node (v11+)
  - install mongodb
 
 ### Testing and run:
