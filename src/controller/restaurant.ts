@@ -96,7 +96,7 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
 }
 
 export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getAllRestaurantsByLatLong');
   axios.get(`${process.env.YELP_HOST}/businesses/search`,
     {
       params: {
@@ -128,7 +128,7 @@ export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
 }
 
 export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getAllRestaurantsByLocation');
   axios.get(`${process.env.YELP_HOST}/businesses/search`,
     {
       params: {
@@ -159,7 +159,7 @@ export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
 }
 
 export const getRestaurantByPhone = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getRestaurantByPhone');
   axios.get(`${process.env.YELP_HOST}/businesses/search/phone`,
     {
       params: {
@@ -185,7 +185,7 @@ export const getRestaurantByPhone = (req: Request, res: Response) => {
 }
 
 export const getRestaurantDetailsById = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getRestaurantDetailsById');
   axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`,
     {
       headers: {
@@ -212,7 +212,7 @@ export const getRestaurantDetailsById = (req: Request, res: Response) => {
 }
 
 export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req);
+  addDataToUserConnectionDetails(req, 'getRestaurantDetailsReviewById');
   axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`,
     {
       headers: {

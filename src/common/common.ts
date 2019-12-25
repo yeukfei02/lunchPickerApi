@@ -5,7 +5,7 @@ const DeviceDetector = require('node-device-detector');
 
 import UserConnectionDetails from '../model/userConnectionDetails';
 
-export const addDataToUserConnectionDetails = async (req: Request) => {
+export const addDataToUserConnectionDetails = async (req: Request, routeName: string) => {
   const userAgent = req.get('User-Agent');
   const detector = new DeviceDetector;
   const detectorUserAgentResult = detector.detect(userAgent);
@@ -29,6 +29,7 @@ export const addDataToUserConnectionDetails = async (req: Request) => {
     os: os,
     client: client,
     device: device,
+    routeName: routeName
   });
 
   const result = await userConnectionDetails.save();

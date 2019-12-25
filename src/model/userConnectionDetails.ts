@@ -6,6 +6,7 @@ const userConnectionDetailsSchema = new mongoose.Schema({
   os: { type: mongoose.Schema.Types.Mixed, required: false },
   client: { type: mongoose.Schema.Types.Mixed, required: false },
   device: { type: mongoose.Schema.Types.Mixed, required: false },
+  routeName: { type: String, required: false },
 });
 
 userConnectionDetailsSchema.set('timestamps', true);
