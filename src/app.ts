@@ -7,6 +7,7 @@ import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as mongoose from 'mongoose';
+import * as requestIp from 'request-ip';
 
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(compression());
+app.use(requestIp.mw());
 
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/category', categoryRoutes);

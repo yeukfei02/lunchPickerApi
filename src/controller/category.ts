@@ -7,6 +7,7 @@ import * as env from 'dotenv';
 env.config();
 
 import Category from '../model/category';
+import { addDataToUserConnectionDetails } from '../common/common';
 
 function addDataToCategoryTable(resultData: any) {
   if (!_.isEmpty(resultData.categories)) {
@@ -23,13 +24,14 @@ function addDataToCategoryTable(resultData: any) {
         });
 
         const result = await category.save();
-        console.log("result = ", result);
+        // console.log("result = ", result);
       }
     });
   }
 }
 
 export const getCategories = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req);
   axios.get(`${process.env.YELP_HOST}/categories`,
     {
       headers: {
@@ -56,6 +58,7 @@ export const getCategories = (req: Request, res: Response) => {
 }
 
 export const getCategoryByAlias = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req);
   axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
     {
       headers: {
