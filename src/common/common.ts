@@ -12,7 +12,7 @@ export const log = (message: string, item: any) => {
 
   // timber
   const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
-  timber.log(`${item}`);
+  timber.log(`${JSON.stringify(item)}`);
 }
 
 export const addDataToUserConnectionDetails = async (req: Request, routeName: string) => {
