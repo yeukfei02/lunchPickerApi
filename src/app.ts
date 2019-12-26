@@ -9,11 +9,17 @@ import * as compression from 'compression';
 import * as mongoose from 'mongoose';
 import * as requestIp from 'request-ip';
 import * as Sentry from '@sentry/node';
+import { Timber } from "@timberio/node";
 
 import * as env from 'dotenv';
 env.config();
 
+// sentry
 Sentry.init({ dsn: process.env.SENTRY_DSN });
+
+// timber
+const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
+timber.pipe(process.stdout);
 
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
