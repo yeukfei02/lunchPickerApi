@@ -3,9 +3,6 @@ import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 const axios = require('axios');
 
-import * as env from 'dotenv';
-env.config();
-
 import Category from '../model/category';
 
 function addDataToCategoryTable(resultData: any) {

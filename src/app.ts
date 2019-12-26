@@ -8,6 +8,9 @@ import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as mongoose from 'mongoose';
 
+import * as env from 'dotenv';
+env.config();
+
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
 
@@ -24,7 +27,7 @@ if (environment === 'development') {
 }
 
 app.use(cors());
-app.use(morgan('tiny'));
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());

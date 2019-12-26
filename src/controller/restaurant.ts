@@ -3,9 +3,6 @@ import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 const axios = require('axios');
 
-import * as env from 'dotenv';
-env.config();
-
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
