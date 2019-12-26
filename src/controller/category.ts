@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 const axios = require('axios');
 
 import Category from '../model/category';
-import { addDataToUserConnectionDetails } from '../common/common';
+import { log, addDataToUserConnectionDetails } from '../common/common';
 
 function addDataToCategoryTable(resultData: any) {
   if (!_.isEmpty(resultData.categories)) {
@@ -21,7 +21,7 @@ function addDataToCategoryTable(resultData: any) {
         });
 
         const result = await category.save();
-        // console.log("result = ", result);
+        // log("result = ", result);
       }
     });
   }
@@ -47,7 +47,7 @@ export const getCategories = (req: Request, res: Response) => {
       }
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });
@@ -70,7 +70,7 @@ export const getCategoryByAlias = (req: Request, res: Response) => {
       });
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });

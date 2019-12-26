@@ -6,7 +6,7 @@ const axios = require('axios');
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
-import { addDataToUserConnectionDetails } from '../common/common';
+import { log, addDataToUserConnectionDetails } from '../common/common';
 
 async function addDataToRestaurantTable(resultData: any) {
   if (!_.isEmpty(resultData.businesses)) {
@@ -34,7 +34,7 @@ async function addDataToRestaurantTable(resultData: any) {
         });
 
         const result = await restaurant.save();
-        // console.log("result = ", result);
+        // log("result = ", result);
       }
     });
   }
@@ -66,7 +66,7 @@ async function addDataToRestaurantDetailsTable(resultData: any) {
     });
 
     const result = await restaurantDetails.save();
-    // console.log("result = ", result);
+    // log("result = ", result);
   }
 }
 
@@ -86,7 +86,7 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
         });
 
         const result = await restaurantDetailsReview.save();
-        // console.log("result = ", result);
+        // log("result = ", result);
       }
     });
   }
@@ -117,7 +117,7 @@ export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
       }
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });
@@ -148,7 +148,7 @@ export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
       }
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });
@@ -174,7 +174,7 @@ export const getRestaurantByPhone = (req: Request, res: Response) => {
       });
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });
@@ -201,7 +201,7 @@ export const getRestaurantDetailsById = (req: Request, res: Response) => {
       }
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });
@@ -228,7 +228,7 @@ export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
       }
     })
     .catch((error: any) => {
-      console.log("error = ", error);
+      log("error = ", error);
       res.status(404).json({
         message: 'Not found'
       });

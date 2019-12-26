@@ -1,9 +1,19 @@
 import { Request, Response } from 'express';
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
+import { Timber } from "@timberio/node";
+
 const DeviceDetector = require('node-device-detector');
 
 import UserConnectionDetails from '../model/userConnectionDetails';
+
+export const log = (message: string, item: any) => {
+  console.log(message, item);
+
+  // timber
+  const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
+  timber.log(`${item}`);
+}
 
 export const addDataToUserConnectionDetails = async (req: Request, routeName: string) => {
   const userAgent = req.get('User-Agent');
@@ -33,5 +43,5 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
   });
 
   const result = await userConnectionDetails.save();
-  // console.log("result = ", result);
+  // log("result = ", result);
 }
