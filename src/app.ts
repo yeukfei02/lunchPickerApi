@@ -19,7 +19,7 @@ Sentry.init({ dsn: process.env.SENTRY_DSN });
 
 // timber
 const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
-timber.pipe(process.stdout);
+timber.log("timber log start");
 
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
