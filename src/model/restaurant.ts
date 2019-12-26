@@ -1,4 +1,9 @@
 import * as mongoose from 'mongoose';
+import * as moment from 'moment';
+import * as momenttz from 'moment-timezone';
+
+const userTimezone = momenttz.tz.guess();
+const currentDateWithTimezone = moment.tz(moment().format(), userTimezone);
 
 const restaurantSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -18,9 +23,9 @@ const restaurantSchema = new mongoose.Schema({
   phone: { type: String, required: false },
   display_phone: { type: String, required: false },
   distance: { type: Number, required: false },
+  created_by: { type: Date, default: currentDateWithTimezone },
+  updated_by: { type: Date, default: currentDateWithTimezone }
 });
-
-restaurantSchema.set('timestamps', true);
 
 const restaurantModel = mongoose.model('Restaurant', restaurantSchema);
 
