@@ -6,6 +6,7 @@
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@sentry/node": "5.10.2",
     "@types/body-parser": "^1.17.1",
     "@types/compression": "^1.0.1",
     "@types/cors": "^2.8.6",

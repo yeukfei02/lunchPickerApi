@@ -8,9 +8,12 @@ import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as mongoose from 'mongoose';
 import * as requestIp from 'request-ip';
+import * as Sentry from '@sentry/node';
 
 import * as env from 'dotenv';
 env.config();
+
+Sentry.init({ dsn: process.env.SENTRY_DSN });
 
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
@@ -27,6 +30,7 @@ if (environment === 'development') {
   // mongoose.connect('mongodb://mongo:27017/lunch-picker', { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
+app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,6 +38,7 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(compression());
 app.use(requestIp.mw());
+app.use(Sentry.Handlers.errorHandler());
 
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/category', categoryRoutes);
