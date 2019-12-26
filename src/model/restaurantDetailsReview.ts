@@ -1,4 +1,9 @@
 import * as mongoose from 'mongoose';
+import * as moment from 'moment';
+import * as momenttz from 'moment-timezone';
+
+const userTimezone = momenttz.tz.guess();
+const currentDateWithTimezone = moment.tz(moment().format(), userTimezone);
 
 const restaurantDetailsReviewSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -8,6 +13,8 @@ const restaurantDetailsReviewSchema = new mongoose.Schema({
   rating: { type: Number, required: false },
   time_created: { type: String, required: false },
   user: { type: mongoose.Schema.Types.Mixed, required: false },
+  created_by: { type: Date, default: currentDateWithTimezone },
+  updated_by: { type: Date, default: currentDateWithTimezone }
 });
 
 restaurantDetailsReviewSchema.set('timestamps', true);
