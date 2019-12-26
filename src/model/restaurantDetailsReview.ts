@@ -17,8 +17,6 @@ const restaurantDetailsReviewSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone }
 });
 
-restaurantDetailsReviewSchema.set('timestamps', true);
-
 const restaurantDetailsReviewModel = mongoose.model('RestaurantDetailsReview', restaurantDetailsReviewSchema);
 
 export default restaurantDetailsReviewModel;
