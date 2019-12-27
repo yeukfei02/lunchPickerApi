@@ -73,18 +73,35 @@ export const getCategories = (req: Request, res: Response) => {
 
 export const getCategoryByAlias = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getCategoryByAlias');
-  axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+
+  // axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
+  //   {
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  //     }
+  //   }
+  // )
+  //   .then((result: any) => {
+  //     res.status(200).json({
+  //       message: 'Get category by alias!',
+  //       category: result.data
+  //     });
+  //   })
+  //   .catch((error: any) => {
+  //     log("error = ", error);
+  //     res.status(404).json({
+  //       message: 'Not found'
+  //     });
+  //   });
+
+  Category.findOne({ alias: req.params.alias })
     .then((result: any) => {
-      res.status(200).json({
-        message: 'Get category by alias!',
-        category: result.data
-      });
+      if (!_.isEmpty(result)) {
+        res.status(200).json({
+          message: 'Get categories!',
+          category: result
+        });
+      }
     })
     .catch((error: any) => {
       log("error = ", error);
