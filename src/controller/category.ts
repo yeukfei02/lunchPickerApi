@@ -29,20 +29,37 @@ function addDataToCategoryTable(resultData: any) {
 
 export const getCategories = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getCategories');
-  axios.get(`${process.env.YELP_HOST}/categories`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
-    .then((result: any) => {
-      if (!_.isEmpty(result.data)) {
-        addDataToCategoryTable(result.data);
 
+  // axios.get(`${process.env.YELP_HOST}/categories`,
+  //   {
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.YELP_API_KEY}`
+  //     }
+  //   }
+  // )
+  //   .then((result: any) => {
+  //     if (!_.isEmpty(result.data)) {
+  //       addDataToCategoryTable(result.data);
+  //
+  //       res.status(200).json({
+  //         message: 'Get categories!',
+  //         categories: result.data
+  //       });
+  //     }
+  //   })
+  //   .catch((error: any) => {
+  //     log("error = ", error);
+  //     res.status(404).json({
+  //       message: 'Not found'
+  //     });
+  //   });
+
+  Category.find({})
+    .then((result: any) => {
+      if (!_.isEmpty(result)) {
         res.status(200).json({
           message: 'Get categories!',
-          categories: result.data
+          categories: result
         });
       }
     })
