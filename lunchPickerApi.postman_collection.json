@@ -10,6 +10,43 @@
 			"name": "restaurant",
 			"item": [
 				{
+					"name": "/find-location-text-by-lat-long",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/restaurant/find-location-text-by-lat-long?latitude=1.3104729000000002&longitude=103.8577962",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"find-location-text-by-lat-long"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "1.3104729000000002"
+								},
+								{
+									"key": "longitude",
+									"value": "103.8577962"
+								}
+							]
+						},
+						"description": "/find-location-text-by-lat-long"
+					},
+					"response": []
+				},
+				{
 					"name": "/find-restaurants-by-lat-long",
 					"request": {
 						"method": "GET",

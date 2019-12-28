@@ -4,6 +4,7 @@ const expressListRoutes = require('express-list-routes');
 
 import * as restaurantController from '../controller/restaurant';
 
+router.get('/find-location-text-by-lat-long', restaurantController.findLocationTextByLatLong);
 router.get('/find-restaurants-by-lat-long', restaurantController.getAllRestaurantsByLatLong);
 router.get('/find-restaurants-by-location', restaurantController.getAllRestaurantsByLocation);
 router.get('/find-restaurant-by-phone', restaurantController.getRestaurantByPhone);
