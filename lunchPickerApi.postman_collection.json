@@ -21,7 +21,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/find-location-text-by-lat-long?latitude=1.3105293999999998&longitude=103.85780749999999",
+							"raw": "localhost:3000/api/restaurant/find-location-text-by-lat-long?latitude=1.3104729000000002&longitude=103.8577962",
 							"host": [
 								"localhost"
 							],
@@ -34,11 +34,11 @@
 							"query": [
 								{
 									"key": "latitude",
-									"value": "1.3105293999999998"
+									"value": "1.3104729000000002"
 								},
 								{
 									"key": "longitude",
-									"value": "103.85780749999999"
+									"value": "103.8577962"
 								}
 							]
 						},
