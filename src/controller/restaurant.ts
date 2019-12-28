@@ -92,6 +92,34 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
   }
 }
 
+export const findLocationTextByLatLong = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'findLocationTextByLatLong');
+  axios.get(`https://us1.locationiq.com/v1/reverse.php`,
+    {
+      params: {
+        key: process.env.LOCATION_IQ_TOKEN,
+        lat: req.query.latitude,
+        lon: req.query.longitude,
+        format: "json"
+      }
+    }
+  )
+    .then((result: any) => {
+      if (!_.isEmpty(result.data)) {
+        res.status(200).json({
+          message: 'Find location text by lat long!',
+          location: result.data
+        });
+      }
+    })
+    .catch((error: any) => {
+      log("error = ", error);
+      res.status(404).json({
+        message: 'Not found'
+      });
+    });
+}
+
 export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getAllRestaurantsByLatLong');
   axios.get(`${process.env.YELP_HOST}/businesses/search`,

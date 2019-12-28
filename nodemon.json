@@ -8,6 +8,8 @@
     "MONGO_ATLAS_PASSWORD": "lunch-picker",
 
     "YELP_HOST": "https://api.yelp.com/v3",
-    "YELP_API_KEY": "tC2bQIzg1xLVmDkccAxegogvR-Q6QHyqgfiZ9pOkEOOws0NsoZai9uRl4HbQKxCoKnqn0KZaZV5HZIks3rk37fq0ODAtvyMv6PJMp_SYEBCV6ICelGHIPJtOwUP-XXYx"
+    "YELP_API_KEY": "tC2bQIzg1xLVmDkccAxegogvR-Q6QHyqgfiZ9pOkEOOws0NsoZai9uRl4HbQKxCoKnqn0KZaZV5HZIks3rk37fq0ODAtvyMv6PJMp_SYEBCV6ICelGHIPJtOwUP-XXYx",
+
+    "LOCATION_IQ_TOKEN": "e980e995fd3848"
   }
 }
