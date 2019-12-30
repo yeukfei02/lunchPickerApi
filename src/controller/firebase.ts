@@ -108,7 +108,6 @@ export const subscribeTopic = (req: Request, res: Response) => {
     });
 }
 
-
 export const unsubscribeTopic = (req: Request, res: Response) => {
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
