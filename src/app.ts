@@ -19,6 +19,7 @@ Sentry.init({ dsn: process.env.SENTRY_DSN });
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
 import firebaseRoutes from './routes/firebase';
+import * as cron from './cron/cron';
 
 const environment = app.get('env');
 if (environment === 'development') {
@@ -45,6 +46,9 @@ app.use(Sentry.Handlers.errorHandler());
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('/api/firebase', firebaseRoutes);
+
+// cron job
+cron.init();
 
 app.use((req, res, next) => {
   res.status(404).json({
