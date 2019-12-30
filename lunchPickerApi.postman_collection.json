@@ -278,6 +278,198 @@
 			],
 			"description": "category",
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "firebase",
+			"item": [
+				{
+					"name": "/send-message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/send-message",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"send-message"
+							]
+						},
+						"description": "/send-message"
+					},
+					"response": []
+				},
+				{
+					"name": "/send-multi-message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/send-multi-message",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"send-multi-message"
+							]
+						},
+						"description": "/send-multi-message"
+					},
+					"response": []
+				},
+				{
+					"name": "/send-topic-message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"topic\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/send-topic-message",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"send-topic-message"
+							]
+						},
+						"description": "/send-topic-message"
+					},
+					"response": []
+				},
+				{
+					"name": "/subscribe-topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/subscribe-topic",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"subscribe-topic"
+							]
+						},
+						"description": "/subscribe-topic"
+					},
+					"response": []
+				},
+				{
+					"name": "/unsubscribe-topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/unsubscribe-topic",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"unsubscribe-topic"
+							]
+						},
+						"description": "/unsubscribe-topic"
+					},
+					"response": []
+				}
+			],
+			"description": "firebase",
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
