@@ -283,6 +283,43 @@
 			"name": "firebase",
 			"item": [
 				{
+					"name": "/add-token-to-server",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/firebase/add-token-to-server",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"firebase",
+								"add-token-to-server"
+							]
+						},
+						"description": "/add-token-to-server"
+					},
+					"response": []
+				},
+				{
 					"name": "/send-message",
 					"request": {
 						"method": "POST",
