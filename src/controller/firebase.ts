@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
+import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 import * as admin from 'firebase-admin';
 
+import FirebaseDetails from '../model/firebaseDetails';
 import { log } from '../common/common';
 
 const serviceAccount = require("../../lunchpicker-2232b-firebase-adminsdk-sxq0e-c802a6e8a6.json");
@@ -10,12 +12,43 @@ admin.initializeApp({
   projectId: process.env.FIREBASE_PROJECT_ID
 });
 
+export const addTokenToFirebaseDetails = async (req: Request, res: Response) => {
+  const currentToken = req.body.currentToken;
+  const refreshedToken = req.body.refreshedToken;
+
+  const record = await FirebaseDetails.findOne({ current_token: currentToken });
+  if (_.isEmpty(record)) {
+    const firebaseDetails = new FirebaseDetails({
+      _id: new mongoose.Types.ObjectId(),
+      current_token: currentToken,
+      refreshed_token: refreshedToken
+    });
+
+    const result = await firebaseDetails.save();
+    // log("result = ", result);
+    if (!_.isEmpty(result)) {
+      res.status(200).json({
+        message: 'firebase addTokenToFirebaseDetails!',
+      });
+    } else {
+      res.status(404).json({
+        message: 'Not found'
+      });
+    }
+  } else {
+    res.status(200).json({
+      message: 'firebase addTokenToFirebaseDetails!',
+    });
+  }
+}
+
 export const sendMessage = (req: Request, res: Response) => {
   const registrationToken = req.body.currentToken;
 
   const message = {
-    data: {
-      message: 'sendMessage test'
+    notification: {
+      title: "sendMessage title",
+      body: "sendMessage body"
     },
     token: registrationToken
   };
@@ -40,8 +73,9 @@ export const sendMultiMessage = (req: Request, res: Response) => {
   const registrationTokens = req.body.currentTokenList;
 
   const message = {
-    data: {
-      message: 'sendMultiMessage test'
+    notification: {
+      title: "sendMultiMessage title",
+      body: "sendMultiMessage body"
     },
     tokens: registrationTokens,
   }
@@ -66,8 +100,9 @@ export const sendTopicMessage = (req: Request, res: Response) => {
   const topic = req.body.topic;
 
   const message = {
-    data: {
-      message: "sendTopicMessage test"
+    notification: {
+      title: "Where should I have lunch?",
+      body: "Open your lunch picker in browser now!"
     },
     topic: topic
   };
