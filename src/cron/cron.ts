@@ -11,24 +11,30 @@ admin.initializeApp({
 }, 'cronFirebaseAdmin');
 
 export const init = () => {
-  scheduleSendTopicMessage();
+  // At 08:30 on every day-of-week from Monday through Sunday.
+  scheduleSendTopicMessage('30 8 * * 1-7', "Let's look for breakfast!", "Open lunch picker in browser now!");
+
+  // At 11:30 on every day-of-week from Monday through Sunday.
+  scheduleSendTopicMessage('30 11 * * 1-7', "Where should I have lunch?", "Open lunch picker in browser now!");
+
+  // At 18:30 on every day-of-week from Monday through Sunday.
+  scheduleSendTopicMessage('30 18 * * 1-7', "Find your dinner place now!", "Open lunch picker in browser now!");
 }
 
-export const scheduleSendTopicMessage = () => {
-  // At 11:30 on every day-of-week from Monday through Sunday.
-  cron.schedule('30 11 * * 1-7', () => {
+export const scheduleSendTopicMessage = (scheduleTime: string, title: string, body: string) => {
+  cron.schedule(scheduleTime, () => {
     log('### cron sendTopicMessage ###', '');
-    sendTopicMessage();
+    sendTopicMessage(title, body);
   });
 }
 
-export const sendTopicMessage = () => {
+export const sendTopicMessage = (title: string, body: string) => {
   const topic = "all";
 
   const message = {
     notification: {
-      title: "Where should I have lunch?",
-      body: "Open your lunch picker in browser now!"
+      title: title,
+      body: body
     },
     topic: topic
   };

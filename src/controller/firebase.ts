@@ -102,7 +102,7 @@ export const sendTopicMessage = (req: Request, res: Response) => {
   const message = {
     notification: {
       title: "Where should I have lunch?",
-      body: "Open your lunch picker in browser now!"
+      body: "Open lunch picker in browser now!"
     },
     topic: topic
   };
