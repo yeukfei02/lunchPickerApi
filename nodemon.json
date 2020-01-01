@@ -22,6 +22,9 @@
     "FIREBASE_MEASUREMENT_ID": "G-H20YZMFE14",
 
     "FIREBASE_WEB_PUSH_CERTIFICATES": "BCuRNE3onpacWKysPXQDBEiqiWMdPnDbmyRUNHYICYku5U8jh1s4llhtAdt18EjEWRxi0K7tkfsP20Wm3lCji6Q",
-    "FIREBASE_PROJECT_ID": "lunchpicker-2232b"
+    "FIREBASE_PROJECT_ID": "lunchpicker-2232b",
+
+    "STRIPE_TEST_API_KEY": "sk_test_Llfx6jVThxkkhFswpevUfLV500zBExuxmU",
+    "STRIPE_API_KEY": "sk_live_O5YzwspWB2N899sA5L9l5TND007uuwY02U"
   }
 }
