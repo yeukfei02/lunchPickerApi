@@ -4,7 +4,7 @@ const expressListRoutes = require('express-list-routes');
 
 import * as stripeController from '../controller/stripe';
 
-router.get('/get-client-secret', stripeController.getClientSecret);
+router.post('/credit-card-payment', stripeController.creditCardPayment);
 
 expressListRoutes({ prefix: '/api/stripe' }, 'STRIPE API:', router);
 
