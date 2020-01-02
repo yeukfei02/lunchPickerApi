@@ -13,6 +13,11 @@ if (environment === 'development') {
 }
 
 import CreditCardDetails from '../model/creditCardDetails';
+import {
+  addDataToUserConnectionDetails,
+  sendSuccessResponse,
+  sendErrorResponse
+} from '../common/common';
 
 async function addDataToCreditCardDetails(token: string, card: any) {
   if (!_.isEmpty(token) && !_.isEmpty(card)) {
@@ -31,6 +36,7 @@ async function addDataToCreditCardDetails(token: string, card: any) {
 }
 
 export const creditCardPayment = async (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'creditCardPayment');
   addDataToCreditCardDetails(req.body.token, req.body.card);
 
   const charges = await stripe.charges.create({
@@ -40,13 +46,15 @@ export const creditCardPayment = async (req: Request, res: Response) => {
   });
 
   if (!_.isEmpty(charges)) {
-    res.status(200).json({
+    const data = {
       message: 'Stripe charges credit card payment!',
       charges: charges
-    });
+    };
+    sendSuccessResponse(res, 200, data);
   } else {
-    res.status(404).json({
+    const data = {
       message: 'Not found'
-    });
+    };
+    sendErrorResponse(res, 404, data);
   }
 }

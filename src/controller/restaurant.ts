@@ -6,7 +6,12 @@ const axios = require('axios');
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
-import { log, addDataToUserConnectionDetails } from '../common/common';
+import {
+  log,
+  addDataToUserConnectionDetails,
+  sendSuccessResponse,
+  sendErrorResponse
+} from '../common/common';
 
 async function addDataToRestaurantTable(resultData: any) {
   if (!_.isEmpty(resultData.businesses)) {
@@ -106,17 +111,19 @@ export const findLocationTextByLatLong = (req: Request, res: Response) => {
   )
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
-        res.status(200).json({
+        const data = {
           message: 'Find location text by lat long!',
           location: result.data
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -138,17 +145,19 @@ export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
-        res.status(200).json({
+        const data = {
           message: 'Get all restaurants by lat long!',
           restaurants: result.data
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -169,17 +178,19 @@ export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
-        res.status(200).json({
+        const data = {
           message: 'Get all restaurants by location!',
           restaurants: result.data
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -196,16 +207,18 @@ export const getRestaurantByPhone = (req: Request, res: Response) => {
     }
   )
     .then((result: any) => {
-      res.status(200).json({
+      const data = {
         message: 'Get restaurant by phone!',
         restaurant: result.data
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -222,17 +235,19 @@ export const getRestaurantDetailsById = (req: Request, res: Response) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsTable(result.data);
 
-        res.status(200).json({
+        const data = {
           message: 'Get restaurant details by id!',
           restaurantDetails: result.data
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -249,16 +264,18 @@ export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsReviewTable(result.data);
 
-        res.status(200).json({
+        const data = {
           message: 'Get restaurant details review by id!',
           restaurantDetailsReview: result.data
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }

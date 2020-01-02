@@ -4,7 +4,12 @@ import * as _ from 'lodash';
 import * as admin from 'firebase-admin';
 
 import FirebaseDetails from '../model/firebaseDetails';
-import { log } from '../common/common';
+import {
+  log,
+  addDataToUserConnectionDetails,
+  sendSuccessResponse,
+  sendErrorResponse
+} from '../common/common';
 
 const serviceAccount = require("../../lunchpicker-2232b-firebase-adminsdk-sxq0e-c802a6e8a6.json");
 admin.initializeApp({
@@ -13,6 +18,8 @@ admin.initializeApp({
 });
 
 export const addTokenToFirebaseDetails = async (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'addTokenToFirebaseDetails');
+
   const currentToken = req.body.currentToken;
   const refreshedToken = req.body.refreshedToken;
 
@@ -27,22 +34,27 @@ export const addTokenToFirebaseDetails = async (req: Request, res: Response) => 
     const result = await firebaseDetails.save();
     // log("result = ", result);
     if (!_.isEmpty(result)) {
-      res.status(200).json({
+      const data = {
         message: 'firebase addTokenToFirebaseDetails!',
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     } else {
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     }
   } else {
-    res.status(200).json({
+    const data = {
       message: 'firebase addTokenToFirebaseDetails!',
-    });
+    };
+    sendSuccessResponse(res, 200, data);
   }
 }
 
 export const sendMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendMessage');
+
   const registrationToken = req.body.currentToken;
 
   const message = {
@@ -56,20 +68,24 @@ export const sendMessage = (req: Request, res: Response) => {
   admin.messaging().send(message)
     .then((response) => {
       log('sendMessage success = ', response);
-      res.status(200).json({
+      const data = {
         message: 'firebase sendMessage!',
         result: response
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error) => {
       log('sendMessage error = ', error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
 export const sendMultiMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendMultiMessage');
+
   const registrationTokens = req.body.currentTokenList;
 
   const message = {
@@ -83,20 +99,24 @@ export const sendMultiMessage = (req: Request, res: Response) => {
   admin.messaging().sendMulticast(message)
     .then((response) => {
       log(`sendMultiMessage success = `, response);
-      res.status(200).json({
+      const data = {
         message: 'firebase sendMultiMessage!',
         result: response
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error) => {
       log('sendMultiMessage error = ', error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
 export const sendTopicMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendTopicMessage');
+
   const topic = req.body.topic;
 
   const message = {
@@ -110,55 +130,65 @@ export const sendTopicMessage = (req: Request, res: Response) => {
   admin.messaging().send(message)
     .then((response) => {
       log(`sendTopicMessage success = `, response);
-      res.status(200).json({
+      const data = {
         message: 'firebase sendTopicMessage!',
         result: response
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error) => {
       log('sendTopicMessage error = ', error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
 export const subscribeTopic = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'subscribeTopic');
+
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
   admin.messaging().subscribeToTopic(registrationTokens, topic)
     .then((response) => {
       log('subscribeTopic success = ', response);
-      res.status(200).json({
+      const data = {
         message: 'firebase subscribeTopic!',
         result: response
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error) => {
       log('subscribeTopic error = ', error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
 export const unsubscribeTopic = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'unsubscribeTopic');
+
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
   admin.messaging().unsubscribeFromTopic(registrationTokens, topic)
     .then((response) => {
       log('unsubscribeTopic success = ', response);
-      res.status(200).json({
+      const data = {
         message: 'firebase unsubscribeTopic!',
         result: response
-      });
+      };
+      sendSuccessResponse(res, 200, data);
     })
     .catch((error) => {
       log('unsubscribeTopic error = ', error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
