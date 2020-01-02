@@ -13,6 +13,7 @@ if (environment === 'development') {
 }
 
 import CreditCardDetails from '../model/creditCardDetails';
+import { addDataToUserConnectionDetails } from '../common/common';
 
 async function addDataToCreditCardDetails(token: string, card: any) {
   if (!_.isEmpty(token) && !_.isEmpty(card)) {
@@ -31,6 +32,7 @@ async function addDataToCreditCardDetails(token: string, card: any) {
 }
 
 export const creditCardPayment = async (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'creditCardPayment');
   addDataToCreditCardDetails(req.body.token, req.body.card);
 
   const charges = await stripe.charges.create({

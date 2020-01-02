@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as admin from 'firebase-admin';
 
 import FirebaseDetails from '../model/firebaseDetails';
-import { log } from '../common/common';
+import { log, addDataToUserConnectionDetails } from '../common/common';
 
 const serviceAccount = require("../../lunchpicker-2232b-firebase-adminsdk-sxq0e-c802a6e8a6.json");
 admin.initializeApp({
@@ -13,6 +13,8 @@ admin.initializeApp({
 });
 
 export const addTokenToFirebaseDetails = async (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'addTokenToFirebaseDetails');
+
   const currentToken = req.body.currentToken;
   const refreshedToken = req.body.refreshedToken;
 
@@ -43,6 +45,8 @@ export const addTokenToFirebaseDetails = async (req: Request, res: Response) => 
 }
 
 export const sendMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendMessage');
+
   const registrationToken = req.body.currentToken;
 
   const message = {
@@ -70,6 +74,8 @@ export const sendMessage = (req: Request, res: Response) => {
 }
 
 export const sendMultiMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendMultiMessage');
+
   const registrationTokens = req.body.currentTokenList;
 
   const message = {
@@ -97,6 +103,8 @@ export const sendMultiMessage = (req: Request, res: Response) => {
 }
 
 export const sendTopicMessage = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'sendTopicMessage');
+
   const topic = req.body.topic;
 
   const message = {
@@ -124,6 +132,8 @@ export const sendTopicMessage = (req: Request, res: Response) => {
 }
 
 export const subscribeTopic = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'subscribeTopic');
+
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
@@ -144,6 +154,8 @@ export const subscribeTopic = (req: Request, res: Response) => {
 }
 
 export const unsubscribeTopic = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'unsubscribeTopic');
+
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
