@@ -4,7 +4,12 @@ import * as _ from 'lodash';
 const axios = require('axios');
 
 import Category from '../model/category';
-import { log, addDataToUserConnectionDetails } from '../common/common';
+import {
+  log,
+  addDataToUserConnectionDetails,
+  sendSuccessResponse,
+  sendErrorResponse
+} from '../common/common';
 
 function addDataToCategoryTable(resultData: any) {
   if (!_.isEmpty(resultData.categories)) {
@@ -57,17 +62,19 @@ export const getCategories = (req: Request, res: Response) => {
   Category.find({})
     .then((result: any) => {
       if (!_.isEmpty(result)) {
-        res.status(200).json({
+        const data = {
           message: 'Get categories!',
           categories: result
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
 
@@ -97,16 +104,18 @@ export const getCategoryByAlias = (req: Request, res: Response) => {
   Category.findOne({ alias: req.params.alias })
     .then((result: any) => {
       if (!_.isEmpty(result)) {
-        res.status(200).json({
+        const data = {
           message: 'Get categories!',
           category: result
-        });
+        };
+        sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
       log("error = ", error);
-      res.status(404).json({
+      const data = {
         message: 'Not found'
-      });
+      };
+      sendErrorResponse(res, 404, data);
     });
 }
