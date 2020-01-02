@@ -13,7 +13,7 @@ export const log = (message: string, item: any) => {
 
   // timber
   const environment = app.get('env');
-  if (environment === 'development') {
+  if (environment !== 'development') {
     const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
     if (typeof item === 'object') {
       timber.log(`${message} ${JSON.stringify(item)}`);
