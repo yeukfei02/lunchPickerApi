@@ -50,7 +50,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev ./src/server.ts",
-    "start": "tsc && nodemon ./dist/server.js",
+    "start": "rm -rf dist && tsc && nodemon ./dist/server.js",
     "test": "jest"
   }
 }
