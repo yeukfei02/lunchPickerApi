@@ -3,6 +3,7 @@
 [![Join the chat at https://gitter.im/lunchPickerApi/community](https://badges.gitter.im/lunchPickerApi/community.svg)](https://gitter.im/lunchPickerApi/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Travis (.com)](https://img.shields.io/travis/com/yeukfei02/lunchPickerApi)
+[![codecov](https://codecov.io/gh/yeukfei02/lunchPickerApi/branch/master/graph/badge.svg)](https://codecov.io/gh/yeukfei02/lunchPickerApi)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yeukfei02/lunchPickerApi)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yeukfei02/lunchPickerApi)
