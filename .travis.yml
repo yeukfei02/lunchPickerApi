@@ -6,3 +6,4 @@ install:
   - yarn
 script:
   - yarn test
+  - codecov -f coverage/*.json
