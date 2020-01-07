@@ -18,6 +18,7 @@ Sentry.init({ dsn: process.env.SENTRY_DSN });
 
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
+import favouritesRoutes from './routes/favourites';
 import firebaseRoutes from './routes/firebase';
 import stripeRoutes from './routes/stripe';
 import * as cron from './cron/cron';
@@ -46,6 +47,7 @@ app.use(Sentry.Handlers.errorHandler());
 
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/category', categoryRoutes);
+app.use('/api/favourites', favouritesRoutes);
 app.use('/api/firebase', firebaseRoutes);
 app.use('/api/stripe', stripeRoutes);
 
