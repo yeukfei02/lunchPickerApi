@@ -46,12 +46,10 @@ export const getFavourites = (req: Request, res: Response) => {
 
   Favourites.find({ current_token: req.query.currentToken })
     .then((result: any) => {
-      if (!_.isEmpty(result)) {
-        res.status(200).json({
-          message: 'Get favourites!',
-          favourites: result
-        });
-      }
+      res.status(200).json({
+        message: 'Get favourites!',
+        favourites: result
+      });
     })
     .catch((error: any) => {
       log("error = ", error);
