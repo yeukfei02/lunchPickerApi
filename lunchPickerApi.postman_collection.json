@@ -351,6 +351,67 @@
 						"description": "/get-favourites"
 					},
 					"response": []
+				},
+				{
+					"name": "/delete-all-favourites",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/favourites/delete-all-favourites?currentToken=cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"favourites",
+								"delete-all-favourites"
+							],
+							"query": [
+								{
+									"key": "currentToken",
+									"value": "cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw"
+								}
+							]
+						},
+						"description": "/delete-all-favourites"
+					},
+					"response": []
+				},
+				{
+					"name": "/delete-favourites/{_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/favourites/delete-favourites/5e15d8c1a4dc23292a1bba56",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"favourites",
+								"delete-favourites",
+								"5e15d8c1a4dc23292a1bba56"
+							]
+						},
+						"description": "/delete-favourites/{_id}"
+					},
+					"response": []
 				}
 			],
 			"description": "favourites",
