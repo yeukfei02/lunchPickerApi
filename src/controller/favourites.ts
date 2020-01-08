@@ -59,3 +59,23 @@ export const getFavourites = (req: Request, res: Response) => {
       sendErrorResponse(res, 404, data);
     });
 }
+
+export const deleteAllFavourites = (req: Request, res: Response) => {
+  addDataToUserConnectionDetails(req, 'deleteAllFavourites');
+
+  Favourites.deleteMany({ current_token: req.query.currentToken })
+    .then((result: any) => {
+      log("result = ", result);
+      const data = {
+        message: 'Delete all favourites!',
+      };
+      sendSuccessResponse(res, 200, data);
+    })
+    .catch((error: any) => {
+      log("error = ", error);
+      const data = {
+        message: 'Not found'
+      };
+      sendErrorResponse(res, 404, data);
+    });
+}
