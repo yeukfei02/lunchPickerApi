@@ -6,6 +6,7 @@ import * as favouritesController from '../controller/favourites';
 
 router.post('/add-to-favourites', favouritesController.addToFavourites);
 router.get('/get-favourites', favouritesController.getFavourites);
+router.delete('/delete-all-favourites', favouritesController.deleteAllFavourites);
 
 expressListRoutes({ prefix: '/api/favourites' }, 'FAVOURITES API:', router);
 
