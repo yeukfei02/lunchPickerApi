@@ -8,12 +8,12 @@ If you’re a working software engineer, you’ve probably encountered with one 
 
 Lunch picker is the tool you’ll turn to to answer this question.
 
-### Requirement:
+## Requirement:
  - install yarn
  - install node (v12+)
  - install mongodb
 
-### Testing and run:
+## Testing and run:
 ```
 $ yarn
 
@@ -24,14 +24,14 @@ $ yarn run dev
 $ yarn run start
 ```
 
-### Docker:
+## Docker:
 
 - Dockerfile
 
 build images and start container
 ```
-docker build -t <username>/lunchPicker .
-docker run -p 3000:3000 -d <username>/lunchPicker
+docker build -t <username>/lunch-picker-api:<tag> .
+docker run -p 3000:3000 -d <username>/lunch-picker-api:<tag>
 docker exec -it <containerId> /bin/bash
 docker logs <containerId>
 ```
@@ -60,6 +60,11 @@ docker-compose up -d --build
 stop container
 ```
 docker-compose stop
+```
+
+add tag to docker images
+```
+$ docker tag <imageId> <username>/lunch-picker-api:<tag>
 ```
 
 open localhost:3000
