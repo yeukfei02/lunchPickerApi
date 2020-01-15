@@ -68,3 +68,7 @@ $ docker tag <imageId> <username>/lunch-picker-api:<tag>
 ```
 
 open localhost:3000
+
+## Contributing
+
+Please refer to [CONTRIBUTING.md](https://github.com/yeukfei02/lunchPickerApi/blob/master/CONTRIBUTING.md)
