@@ -64,12 +64,12 @@ docker-compose stop
 
 add tag to docker images
 ```
-$ docker tag <imageId> <imageName>:<tag>
+$ docker tag <imageId> <dockerHubUserName>/<imageName>:<tag>
 ```
 
 push docker images to docker hub
 ```
-$ docker push <imageName>:<tag>
+$ docker push <dockerHubUserName>/<imageName>:<tag>
 ```
 
 open localhost:3000
