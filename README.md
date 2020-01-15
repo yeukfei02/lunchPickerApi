@@ -30,8 +30,8 @@ $ yarn run start
 
 build images and start container
 ```
-docker build -t <username>/lunchPicker .
-docker run -p 3000:3000 -d <username>/lunchPicker
+docker build -t <username>/lunch-picker-api:<tag> .
+docker run -p 3000:3000 -d <username>/lunch-picker-api:<tag>
 docker exec -it <containerId> /bin/bash
 docker logs <containerId>
 ```
