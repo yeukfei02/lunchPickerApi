@@ -64,7 +64,12 @@ docker-compose stop
 
 add tag to docker images
 ```
-$ docker tag <imageId> <username>/lunch-picker-api:<tag>
+$ docker tag <imageId> <imageName>/<tag>
+```
+
+push docker images to docker hub
+```
+$ docker push <imageName>/<tag>
 ```
 
 open localhost:3000
