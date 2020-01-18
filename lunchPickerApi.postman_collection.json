@@ -296,7 +296,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw\",\n    \"item\": {\n        \"id\": \"E1bWrjBJDrHUKqzu3SPt3w\",\n        \"alias\": \"tolidos-espresso-nook-singapore-3\",\n        \"name\": \"Tolido's Espresso Nook\",\n        \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/cu45w5OVbBkdAEMnohMh8Q/o.jpg\",\n        \"is_closed\": false,\n        \"url\": \"https://www.yelp.com/biz/tolidos-espresso-nook-singapore-3?adjust_creative=cNIqAxB2DvW5JmOGOuVqmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=cNIqAxB2DvW5JmOGOuVqmA\",\n        \"review_count\": 63,\n        \"categories\": [\n            {\n                \"alias\": \"breakfast_brunch\",\n                \"title\": \"Breakfast & Brunch\"\n            },\n            {\n                \"alias\": \"coffee\",\n                \"title\": \"Coffee & Tea\"\n            }\n        ],\n        \"rating\": 4.5,\n        \"coordinates\": {\n            \"latitude\": 1.30453486052728,\n            \"longitude\": 103.861071132123\n        },\n        \"transactions\": [],\n        \"price\": \"$$\",\n        \"location\": {\n            \"address1\": \"462 Crawford Ln\",\n            \"address2\": \"#01-63\",\n            \"address3\": null,\n            \"city\": \"Singapore\",\n            \"zip_code\": \"190462\",\n            \"country\": \"SG\",\n            \"state\": \"SG\",\n            \"display_address\": [\n                \"462 Crawford Ln\",\n                \"#01-63\",\n                \"Singapore 190462\",\n                \"Singapore\"\n            ]\n        },\n        \"phone\": \"+6566480178\",\n        \"display_phone\": \"+65 6648 0178\",\n        \"distance\": 761.1155060642154\n    }\n}",
+							"raw": "{\n    \"item\": {\n        \"id\": \"E1bWrjBJDrHUKqzu3SPt3w\",\n        \"alias\": \"tolidos-espresso-nook-singapore-3\",\n        \"name\": \"Tolido's Espresso Nook\",\n        \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/cu45w5OVbBkdAEMnohMh8Q/o.jpg\",\n        \"is_closed\": false,\n        \"url\": \"https://www.yelp.com/biz/tolidos-espresso-nook-singapore-3?adjust_creative=cNIqAxB2DvW5JmOGOuVqmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=cNIqAxB2DvW5JmOGOuVqmA\",\n        \"review_count\": 63,\n        \"categories\": [\n            {\n                \"alias\": \"breakfast_brunch\",\n                \"title\": \"Breakfast & Brunch\"\n            },\n            {\n                \"alias\": \"coffee\",\n                \"title\": \"Coffee & Tea\"\n            }\n        ],\n        \"rating\": 4.5,\n        \"coordinates\": {\n            \"latitude\": 1.30453486052728,\n            \"longitude\": 103.861071132123\n        },\n        \"transactions\": [],\n        \"price\": \"$$\",\n        \"location\": {\n            \"address1\": \"462 Crawford Ln\",\n            \"address2\": \"#01-63\",\n            \"address3\": null,\n            \"city\": \"Singapore\",\n            \"zip_code\": \"190462\",\n            \"country\": \"SG\",\n            \"state\": \"SG\",\n            \"display_address\": [\n                \"462 Crawford Ln\",\n                \"#01-63\",\n                \"Singapore 190462\",\n                \"Singapore\"\n            ]\n        },\n        \"phone\": \"+6566480178\",\n        \"display_phone\": \"+65 6648 0178\",\n        \"distance\": 761.1155060642154\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -331,7 +331,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/favourites/get-favourites?currentToken=cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw",
+							"raw": "localhost:3000/api/favourites/get-favourites",
 							"host": [
 								"localhost"
 							],
@@ -340,12 +340,6 @@
 								"api",
 								"favourites",
 								"get-favourites"
-							],
-							"query": [
-								{
-									"key": "currentToken",
-									"value": "cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw"
-								}
 							]
 						},
 						"description": "/get-favourites"
@@ -364,7 +358,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/favourites/delete-all-favourites?currentToken=cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw",
+							"raw": "localhost:3000/api/favourites/delete-all-favourites",
 							"host": [
 								"localhost"
 							],
@@ -373,12 +367,6 @@
 								"api",
 								"favourites",
 								"delete-all-favourites"
-							],
-							"query": [
-								{
-									"key": "currentToken",
-									"value": "cWnZeU3P52mKtPtRYR36qA:APA91bHDVaTdpNHB2LQb_O0v62L02qNcRIs2r7oQMWtIuCw-PUaU5JpTDzzjgiyLmFdtun_IDqmj4YOrOXFhRWubtX4cmwSHZcEkPtlgIDb3BmTByKm6BPmlvW8b4ImRmclZPibuULVw"
-								}
 							]
 						},
 						"description": "/delete-all-favourites"

@@ -10,12 +10,12 @@ import {
   sendErrorResponse
 } from '../common/common';
 
-async function addDataToFavouritesTable(currentToken: string, item: any) {
+async function addDataToFavouritesTable(ip: string, item: any) {
   const record = await Favourites.findOne({ item: item });
   if (_.isEmpty(record)) {
     const favourites = new Favourites({
       _id: new mongoose.Types.ObjectId(),
-      current_token: currentToken,
+      ip: ip,
       item: item
     });
 
@@ -28,7 +28,12 @@ export const addToFavourites = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'addToFavourites');
 
   try {
-    addDataToFavouritesTable(req.body.currentToken, req.body.item);
+    let ip = req.clientIp;
+    if (_.isEqual(ip, "::1")) {
+      ip = "127.0.0.1";
+    }
+
+    addDataToFavouritesTable(ip, req.body.item);
     const data = {
       message: 'add favourites!',
     };
@@ -44,7 +49,12 @@ export const addToFavourites = (req: Request, res: Response) => {
 export const getFavourites = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getFavourites');
 
-  Favourites.find({ current_token: req.query.currentToken })
+  let ip = req.clientIp;
+  if (_.isEqual(ip, "::1")) {
+    ip = "127.0.0.1";
+  }
+
+  Favourites.find({ ip: ip })
     .then((result: any) => {
       res.status(200).json({
         message: 'Get favourites!',
@@ -63,7 +73,12 @@ export const getFavourites = (req: Request, res: Response) => {
 export const deleteAllFavourites = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'deleteAllFavourites');
 
-  Favourites.deleteMany({ current_token: req.query.currentToken })
+  let ip = req.clientIp;
+  if (_.isEqual(ip, "::1")) {
+    ip = "127.0.0.1";
+  }
+
+  Favourites.deleteMany({ ip: ip })
     .then((result: any) => {
       log("result = ", result);
       const data = {
