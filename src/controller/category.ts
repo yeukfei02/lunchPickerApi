@@ -32,32 +32,56 @@ function addDataToCategoryTable(resultData: any) {
   }
 }
 
+function getCategoriesFromYelp(res: Response) {
+  axios.get(`${process.env.YELP_HOST}/categories`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
+    }
+  )
+    .then((result: any) => {
+      if (!_.isEmpty(result.data)) {
+        addDataToCategoryTable(result.data);
+
+        res.status(200).json({
+          message: 'Get categories!',
+          categories: result.data
+        });
+      }
+    })
+    .catch((error: any) => {
+      log("error = ", error);
+      res.status(404).json({
+        message: 'Not found'
+      });
+    });
+}
+
+function getCategoryByAliasFromYelp(req: Request, res: Response) {
+  axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`
+      }
+    }
+  )
+    .then((result: any) => {
+      res.status(200).json({
+        message: 'Get category by alias!',
+        category: result.data
+      });
+    })
+    .catch((error: any) => {
+      log("error = ", error);
+      res.status(404).json({
+        message: 'Not found'
+      });
+    });
+}
+
 export const getCategories = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getCategories');
-
-  // axios.get(`${process.env.YELP_HOST}/categories`,
-  //   {
-  //     headers: {
-  //       Authorization: `Bearer ${process.env.YELP_API_KEY}`
-  //     }
-  //   }
-  // )
-  //   .then((result: any) => {
-  //     if (!_.isEmpty(result.data)) {
-  //       addDataToCategoryTable(result.data);
-  //
-  //       res.status(200).json({
-  //         message: 'Get categories!',
-  //         categories: result.data
-  //       });
-  //     }
-  //   })
-  //   .catch((error: any) => {
-  //     log("error = ", error);
-  //     res.status(404).json({
-  //       message: 'Not found'
-  //     });
-  //   });
 
   Category.find({})
     .then((result: any) => {
@@ -67,6 +91,8 @@ export const getCategories = (req: Request, res: Response) => {
           categories: result
         };
         sendSuccessResponse(res, 200, data);
+      } else {
+        getCategoriesFromYelp(res);
       }
     })
     .catch((error: any) => {
@@ -81,26 +107,6 @@ export const getCategories = (req: Request, res: Response) => {
 export const getCategoryByAlias = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getCategoryByAlias');
 
-  // axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`,
-  //   {
-  //     headers: {
-  //       Authorization: `Bearer ${process.env.YELP_API_KEY}`
-  //     }
-  //   }
-  // )
-  //   .then((result: any) => {
-  //     res.status(200).json({
-  //       message: 'Get category by alias!',
-  //       category: result.data
-  //     });
-  //   })
-  //   .catch((error: any) => {
-  //     log("error = ", error);
-  //     res.status(404).json({
-  //       message: 'Not found'
-  //     });
-  //   });
-
   Category.findOne({ alias: req.params.alias })
     .then((result: any) => {
       if (!_.isEmpty(result)) {
@@ -109,6 +115,8 @@ export const getCategoryByAlias = (req: Request, res: Response) => {
           category: result
         };
         sendSuccessResponse(res, 200, data);
+      } else {
+        getCategoryByAliasFromYelp(req, res);
       }
     })
     .catch((error: any) => {
