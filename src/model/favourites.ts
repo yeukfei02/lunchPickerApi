@@ -10,7 +10,7 @@ const favouritesSchema = new mongoose.Schema({
   ip: { type: String, required: true },
   item: { type: mongoose.Schema.Types.Mixed, required: true },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const favouritesModel = mongoose.model('Favourites', favouritesSchema);

@@ -1,17 +1,12 @@
 import { Request, Response } from 'express';
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
-const axios = require('axios');
+import axios from 'axios';
 
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
-import {
-  log,
-  addDataToUserConnectionDetails,
-  sendSuccessResponse,
-  sendErrorResponse
-} from '../common/common';
+import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
 async function addDataToRestaurantTable(resultData: any) {
   if (!_.isEmpty(resultData.businesses)) {
@@ -67,7 +62,7 @@ async function addDataToRestaurantDetailsTable(resultData: any) {
       photos: resultData.photos,
       price: resultData.price,
       hours: resultData.hours,
-      transactions: resultData.transactions
+      transactions: resultData.transactions,
     });
 
     const result = await restaurantDetails.save();
@@ -99,183 +94,177 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
 
 export const findLocationTextByLatLong = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'findLocationTextByLatLong');
-  axios.get(`https://us1.locationiq.com/v1/reverse.php`,
-    {
+  axios
+    .get(`https://us1.locationiq.com/v1/reverse.php`, {
       params: {
         key: process.env.LOCATION_IQ_TOKEN,
         lat: req.query.latitude,
         lon: req.query.longitude,
-        format: "json"
-      }
-    }
-  )
+        format: 'json',
+      },
+    })
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         const data = {
           message: 'Find location text by lat long!',
-          location: result.data
+          location: result.data,
         };
         sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};
 
 export const getAllRestaurantsByLatLong = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getAllRestaurantsByLatLong');
-  axios.get(`${process.env.YELP_HOST}/businesses/search`,
-    {
+  axios
+    .get(`${process.env.YELP_HOST}/businesses/search`, {
       params: {
         term: req.query.term,
         latitude: req.query.latitude,
         longitude: req.query.longitude,
       },
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      },
+    })
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
         const data = {
           message: 'Get all restaurants by lat long!',
-          restaurants: result.data
+          restaurants: result.data,
         };
         sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};
 
 export const getAllRestaurantsByLocation = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getAllRestaurantsByLocation');
-  axios.get(`${process.env.YELP_HOST}/businesses/search`,
-    {
+  axios
+    .get(`${process.env.YELP_HOST}/businesses/search`, {
       params: {
         term: req.query.term,
-        location: req.query.location
+        location: req.query.location,
       },
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      },
+    })
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantTable(result.data);
 
         const data = {
           message: 'Get all restaurants by location!',
-          restaurants: result.data
+          restaurants: result.data,
         };
         sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};
 
 export const getRestaurantByPhone = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getRestaurantByPhone');
-  axios.get(`${process.env.YELP_HOST}/businesses/search/phone`,
-    {
+  axios
+    .get(`${process.env.YELP_HOST}/businesses/search/phone`, {
       params: {
-        phone: req.query.phone
+        phone: req.query.phone,
       },
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      },
+    })
     .then((result: any) => {
       const data = {
         message: 'Get restaurant by phone!',
-        restaurant: result.data
+        restaurant: result.data,
       };
       sendSuccessResponse(res, 200, data);
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};
 
 export const getRestaurantDetailsById = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getRestaurantDetailsById');
-  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`,
-    {
+  axios
+    .get(`${process.env.YELP_HOST}/businesses/${req.params.id}`, {
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      },
+    })
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsTable(result.data);
 
         const data = {
           message: 'Get restaurant details by id!',
-          restaurantDetails: result.data
+          restaurantDetails: result.data,
         };
         sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};
 
 export const getRestaurantDetailsReviewById = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getRestaurantDetailsReviewById');
-  axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`,
-    {
+  axios
+    .get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`, {
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      },
+    })
     .then((result: any) => {
       if (!_.isEmpty(result.data)) {
         addDataToRestaurantDetailsReviewTable(result.data);
 
         const data = {
           message: 'Get restaurant details review by id!',
-          restaurantDetailsReview: result.data
+          restaurantDetailsReview: result.data,
         };
         sendSuccessResponse(res, 200, data);
       }
     })
     .catch((error: any) => {
-      log("error = ", error);
+      log('error = ', error);
       const data = {
-        message: 'Not found'
+        message: 'Not found',
       };
       sendErrorResponse(res, 404, data);
     });
-}
+};

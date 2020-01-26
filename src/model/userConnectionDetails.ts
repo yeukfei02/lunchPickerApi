@@ -13,7 +13,7 @@ const userConnectionDetailsSchema = new mongoose.Schema({
   device: { type: mongoose.Schema.Types.Mixed, required: false },
   routeName: { type: String, required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const userConnectionDetailsModel = mongoose.model('UserConnectionDetails', userConnectionDetailsSchema);

@@ -10,7 +10,7 @@ const firebaseDetailsSchema = new mongoose.Schema({
   current_token: { type: String, required: false },
   refreshed_token: { type: String, required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const firebaseDetailsModel = mongoose.model('FirebaseDetails', firebaseDetailsSchema);

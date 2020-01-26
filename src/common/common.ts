@@ -21,25 +21,25 @@ export const log = (message: string, item: any) => {
   //     timber.log(`${message} ${item}`);
   //   }
   // }
-}
+};
 
 export const sendSuccessResponse = (res: Response, statusCode: number, data: any) => {
   res.set('Cache-Control', 'public, max-age=31557600');
   res.status(statusCode).json(data);
-}
+};
 
 export const sendErrorResponse = (res: Response, statusCode: number, data: any) => {
   res.status(statusCode).json(data);
-}
+};
 
 export const addDataToUserConnectionDetails = async (req: Request, routeName: string) => {
   const userAgent = req.get('User-Agent');
-  const detector = new DeviceDetector;
+  const detector = new DeviceDetector();
   const detectorUserAgentResult = detector.detect(userAgent);
 
   let ip = req.clientIp;
-  if (_.isEqual(ip, "::1")) {
-    ip = "127.0.0.1";
+  if (_.isEqual(ip, '::1')) {
+    ip = '127.0.0.1';
   }
   let os = {};
   let client = {};
@@ -56,9 +56,9 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
     os: os,
     client: client,
     device: device,
-    routeName: routeName
+    routeName: routeName,
   });
 
   const result = await userConnectionDetails.save();
   // log("result = ", result);
-}
+};
