@@ -13,7 +13,7 @@ const categorySchema = new mongoose.Schema({
   country_whitelist: { type: [String], required: false },
   country_blacklist: { type: [String], required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const categoryModel = mongoose.model('Category', categorySchema);

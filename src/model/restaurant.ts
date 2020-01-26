@@ -24,7 +24,7 @@ const restaurantSchema = new mongoose.Schema({
   display_phone: { type: String, required: false },
   distance: { type: Number, required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const restaurantModel = mongoose.model('Restaurant', restaurantSchema);

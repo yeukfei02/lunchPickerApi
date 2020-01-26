@@ -13,11 +13,7 @@ if (environment === 'development') {
 }
 
 import CreditCardDetails from '../model/creditCardDetails';
-import {
-  addDataToUserConnectionDetails,
-  sendSuccessResponse,
-  sendErrorResponse
-} from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
 async function addDataToCreditCardDetails(token: string, card: any) {
   if (!_.isEmpty(token) && !_.isEmpty(card)) {
@@ -26,7 +22,7 @@ async function addDataToCreditCardDetails(token: string, card: any) {
       const creditCardDetails = new CreditCardDetails({
         _id: new mongoose.Types.ObjectId(),
         token: token,
-        card: card
+        card: card,
       });
 
       const result = await creditCardDetails.save();
@@ -42,19 +38,19 @@ export const creditCardPayment = async (req: Request, res: Response) => {
   const charges = await stripe.charges.create({
     amount: req.body.amount,
     currency: req.body.currency,
-    source: req.body.token
+    source: req.body.token,
   });
 
   if (!_.isEmpty(charges)) {
     const data = {
       message: 'Stripe charges credit card payment!',
-      charges: charges
+      charges: charges,
     };
     sendSuccessResponse(res, 200, data);
   } else {
     const data = {
-      message: 'Not found'
+      message: 'Not found',
     };
     sendErrorResponse(res, 404, data);
   }
-}
+};

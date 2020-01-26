@@ -14,7 +14,7 @@ const restaurantDetailsReviewSchema = new mongoose.Schema({
   time_created: { type: String, required: false },
   user: { type: mongoose.Schema.Types.Mixed, required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const restaurantDetailsReviewModel = mongoose.model('RestaurantDetailsReview', restaurantDetailsReviewSchema);

@@ -4,7 +4,7 @@ const expressListRoutes = require('express-list-routes');
 
 import * as firebaseController from '../controller/firebase';
 
-router.post('/add-token-to-server', firebaseController.addTokenToFirebaseDetails)
+router.post('/add-token-to-server', firebaseController.addTokenToFirebaseDetails);
 router.post('/send-message', firebaseController.sendMessage);
 router.post('/send-multi-message', firebaseController.sendMultiMessage);
 router.post('/send-topic-message', firebaseController.sendTopicMessage);

@@ -26,7 +26,7 @@ const restaurantDetailsSchema = new mongoose.Schema({
   hours: { type: [mongoose.Schema.Types.Mixed], required: false },
   transactions: { type: [mongoose.Schema.Types.Mixed], required: false },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const restaurantDetailsModel = mongoose.model('RestaurantDetails', restaurantDetailsSchema);

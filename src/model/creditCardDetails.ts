@@ -10,7 +10,7 @@ const creditCardDetailsSchema = new mongoose.Schema({
   token: { type: String, required: true },
   card: { type: mongoose.Schema.Types.Mixed, required: true },
   created_by: { type: Date, default: currentDateWithTimezone },
-  updated_by: { type: Date, default: currentDateWithTimezone }
+  updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
 const creditCardDetailsModel = mongoose.model('CreditCardDetails', creditCardDetailsSchema);
