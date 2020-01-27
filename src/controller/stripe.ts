@@ -1,15 +1,16 @@
 import * as express from 'express';
 const app = express();
 import { Request, Response } from 'express';
+import * as Stripe from 'stripe';
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 
-let stripe: any = null;
+let stripe: Stripe = null;
 const environment = app.get('env');
 if (environment === 'development') {
-  stripe = require('stripe')(process.env.STRIPE_TEST_API_KEY);
+  stripe = new Stripe(process.env.STRIPE_TEST_API_KEY);
 } else {
-  stripe = require('stripe')(process.env.STRIPE_API_KEY);
+  stripe = new Stripe(process.env.STRIPE_API_KEY);
 }
 
 import CreditCardDetails from '../model/creditCardDetails';
