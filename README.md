@@ -55,6 +55,7 @@ build images and start container
 docker-compose build
 docker-compose up
 ```
+
 build images and start container in one line
 ```
 docker-compose up -d --build
