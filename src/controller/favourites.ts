@@ -23,7 +23,7 @@ export const addToFavourites = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'addToFavourites');
 
   try {
-    let ip = req.clientIp;
+    let ip = req.clientIp || req.body.ip;
     if (_.isEqual(ip, '::1')) {
       ip = '127.0.0.1';
     }
@@ -44,7 +44,7 @@ export const addToFavourites = (req: Request, res: Response) => {
 export const getFavourites = (req: Request, res: Response) => {
   addDataToUserConnectionDetails(req, 'getFavourites');
 
-  let ip = req.clientIp;
+  let ip = req.clientIp || req.params.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
