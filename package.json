@@ -59,6 +59,6 @@
     "dev": "NODE_ENV=development ts-node-dev ./src/server.ts",
     "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/server.js",
     "test": "jest --detectOpenHandles",
-    "lint": "rm -rf dist && tsc --noEmit && eslint '*/**/*.{ts,tsx}' --quiet --fix"
+    "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix"
   }
 }
