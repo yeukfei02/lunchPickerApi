@@ -17,14 +17,17 @@ Lunch picker is the tool you’ll turn to to answer this question.
 ```
 $ yarn
 
-// use eslint and prettier to format code
-$ yarn run lint
-
 // development
 $ yarn run dev
 
 // production
 $ yarn run start
+
+// run test case
+$ yarn run test
+
+// use eslint and prettier to format code
+$ yarn run lint
 ```
 
 ## Docker:
