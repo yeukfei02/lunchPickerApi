@@ -8,6 +8,8 @@ If you’re a working software engineer, you’ve probably encountered with one 
 
 Lunch picker is the tool you’ll turn to to answer this question.
 
+documentation: https://documenter.getpostman.com/view/3827865/SzezdXuc?version=latest
+
 ## Requirement:
  - install yarn
  - install node (v12+)
