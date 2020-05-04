@@ -16,6 +16,7 @@ env.config();
 // sentry
 Sentry.init({ dsn: process.env.SENTRY_DSN });
 
+import mainRoutes from './routes/main';
 import restaurantRoutes from './routes/restaurant';
 import categoryRoutes from './routes/category';
 import favouritesRoutes from './routes/favourites';
@@ -48,6 +49,7 @@ app.use(compression());
 app.use(requestIp.mw());
 app.use(Sentry.Handlers.errorHandler());
 
+app.use('/', mainRoutes);
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('/api/favourites', favouritesRoutes);
