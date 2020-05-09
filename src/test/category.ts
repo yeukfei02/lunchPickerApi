@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import axios from 'axios';
 
 const ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
@@ -9,11 +8,7 @@ export const getCategoies = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.categories).toBeDefined();
-  }
+  return result;
 };
 
 export const getCategoryByAlias = async () => {
@@ -22,9 +17,5 @@ export const getCategoryByAlias = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.category).toBeDefined();
-  }
+  return result;
 };
