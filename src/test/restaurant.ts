@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import axios from 'axios';
 
 const ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
@@ -13,17 +12,13 @@ export const findLocationTextByLatLong = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.location).toBeDefined();
-  }
+  return result;
 };
 
 export const getAllRestaurantsByLatLong = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-lat-long`, {
     params: {
-      term: 'food',
+      term: 'chinese',
       latitude: 1.30916,
       longitude: 103.85213,
     },
@@ -31,30 +26,20 @@ export const getAllRestaurantsByLatLong = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.restaurants).toBeDefined();
-    expect(result.data.restaurants.businesses).toBeDefined();
-  }
+  return result;
 };
 
 export const getAllRestaurantsByLocation = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-location`, {
     params: {
-      term: 'food',
+      term: 'chinese',
       location: 'hong kong central',
     },
     headers: {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.restaurants).toBeDefined();
-    expect(result.data.restaurants.businesses).toBeDefined();
-  }
+  return result;
 };
 
 export const getRestaurantByPhone = async () => {
@@ -66,11 +51,7 @@ export const getRestaurantByPhone = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.restaurant).toBeDefined();
-  }
+  return result;
 };
 
 export const getRestaurantDetailsById = async () => {
@@ -79,11 +60,7 @@ export const getRestaurantDetailsById = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.restaurantDetails).toBeDefined();
-  }
+  return result;
 };
 
 export const getRestaurantDetailsReviewById = async () => {
@@ -92,9 +69,5 @@ export const getRestaurantDetailsReviewById = async () => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (!_.isEmpty(result.data)) {
-    expect(result.data).toBeDefined();
-    expect(result.data.restaurantDetailsReview).toBeDefined();
-  }
+  return result;
 };
