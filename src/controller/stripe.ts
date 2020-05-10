@@ -33,8 +33,8 @@ async function addDataToCreditCardDetails(token: string, card: any) {
 }
 
 export const creditCardPayment = async (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'creditCardPayment');
-  addDataToCreditCardDetails(req.body.token, req.body.card);
+  await addDataToUserConnectionDetails(req, 'creditCardPayment');
+  await addDataToCreditCardDetails(req.body.token, req.body.card);
 
   const charges = await stripe.charges.create({
     amount: req.body.amount,
