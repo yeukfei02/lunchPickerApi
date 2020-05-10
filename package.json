@@ -53,7 +53,7 @@
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev ./src/server.ts",
