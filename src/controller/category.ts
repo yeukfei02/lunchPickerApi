@@ -28,12 +28,11 @@ async function addDataToCategoryTable(resultData: any) {
 }
 
 async function getCategoriesFromYelp(res: Response) {
-  const result = await axios
-    .get(`${process.env.YELP_HOST}/categories`, {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
-      },
-    });
+  const result = await axios.get(`${process.env.YELP_HOST}/categories`, {
+    headers: {
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    },
+  });
   if (!_.isEmpty(result) && !_.isEmpty(result.data)) {
     await addDataToCategoryTable(result.data);
 
@@ -45,12 +44,11 @@ async function getCategoriesFromYelp(res: Response) {
 }
 
 async function getCategoryByAliasFromYelp(req: Request, res: Response) {
-  const result = await axios
-    .get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
-      },
-    });
+  const result = await axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
+    headers: {
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    },
+  });
   if (!_.isEmpty(result) && !_.isEmpty(result.data)) {
     res.status(200).json({
       message: 'Get category by alias!',

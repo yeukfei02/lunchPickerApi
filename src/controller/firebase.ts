@@ -72,9 +72,7 @@ export const sendMessage = async (req: Request, res: Response) => {
   };
 
   try {
-    const response = await admin
-      .messaging()
-      .send(message);
+    const response = await admin.messaging().send(message);
     if (response) {
       const data = {
         message: 'firebase sendMessage!',
@@ -82,7 +80,7 @@ export const sendMessage = async (req: Request, res: Response) => {
       sendSuccessResponse(res, 200, data);
     }
   } catch (e) {
-    log("error = ", e.message);
+    log('error = ', e.message);
 
     const data = {
       message: `firebase sendMessage error!, error = ${e.message}`,
@@ -105,9 +103,7 @@ export const sendMultiMessage = async (req: Request, res: Response) => {
   };
 
   try {
-    const response = await admin
-      .messaging()
-      .sendMulticast(message);
+    const response = await admin.messaging().sendMulticast(message);
     if (response) {
       if (response.successCount > 0) {
         const data = {
@@ -122,7 +118,7 @@ export const sendMultiMessage = async (req: Request, res: Response) => {
       }
     }
   } catch (e) {
-    log("error = ", e.message);
+    log('error = ', e.message);
 
     const data = {
       message: `firebase sendMultiMessage error!, error = ${e.message}`,
@@ -145,9 +141,7 @@ export const sendTopicMessage = async (req: Request, res: Response) => {
   };
 
   try {
-    const response = await admin
-      .messaging()
-      .send(message);
+    const response = await admin.messaging().send(message);
     if (response) {
       const data = {
         message: 'firebase sendTopicMessage!',
@@ -155,7 +149,7 @@ export const sendTopicMessage = async (req: Request, res: Response) => {
       sendSuccessResponse(res, 200, data);
     }
   } catch (e) {
-    log("error = ", e.message);
+    log('error = ', e.message);
 
     const data = {
       message: `firebase sendTopicMessage error!, error = ${e.message}`,
@@ -171,9 +165,7 @@ export const subscribeTopic = async (req: Request, res: Response) => {
   const topic = req.body.topic;
 
   try {
-    const response = await admin
-      .messaging()
-      .subscribeToTopic(registrationTokens, topic);
+    const response = await admin.messaging().subscribeToTopic(registrationTokens, topic);
     if (response) {
       if (response.successCount > 0) {
         const data = {
@@ -188,7 +180,7 @@ export const subscribeTopic = async (req: Request, res: Response) => {
       }
     }
   } catch (e) {
-    log("error = ", e.message);
+    log('error = ', e.message);
 
     const data = {
       message: `firebase subscribeTopic error!, error = ${e.message}`,
@@ -204,9 +196,7 @@ export const unsubscribeTopic = async (req: Request, res: Response) => {
   const topic = req.body.topic;
 
   try {
-    const response = await admin
-      .messaging()
-      .unsubscribeFromTopic(registrationTokens, topic);
+    const response = await admin.messaging().unsubscribeFromTopic(registrationTokens, topic);
     if (response) {
       if (response.successCount > 0) {
         const data = {
@@ -221,7 +211,7 @@ export const unsubscribeTopic = async (req: Request, res: Response) => {
       }
     }
   } catch (e) {
-    log("error = ", e.message);
+    log('error = ', e.message);
 
     const data = {
       message: `firebase unsubscribeTopic error!, error = ${e.message}`,
