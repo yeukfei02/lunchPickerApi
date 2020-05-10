@@ -3,7 +3,7 @@ import * as category from './category';
 
 describe('main.test', () => {
   beforeEach(() => {
-    jest.setTimeout(120000);
+    jest.setTimeout(90000);
   });
 
   describe('restaurant', () => {

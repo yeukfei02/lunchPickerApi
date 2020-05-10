@@ -19,8 +19,8 @@ async function addDataToFavouritesTable(ip: string, item: any) {
   }
 }
 
-export const addToFavourites = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'addToFavourites');
+export const addToFavourites = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'addToFavourites');
 
   try {
     let ip = req.clientIp || req.body.ip;
@@ -28,7 +28,7 @@ export const addToFavourites = (req: Request, res: Response) => {
       ip = '127.0.0.1';
     }
 
-    addDataToFavouritesTable(ip, req.body.item);
+    await addDataToFavouritesTable(ip, req.body.item);
     const data = {
       message: 'add favourites!',
     };
@@ -41,71 +41,51 @@ export const addToFavourites = (req: Request, res: Response) => {
   }
 };
 
-export const getFavourites = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'getFavourites');
+export const getFavourites = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'getFavourites');
 
   let ip = req.clientIp || req.params.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
 
-  Favourites.find({ ip: ip })
-    .then((result: any) => {
-      res.status(200).json({
-        message: 'Get favourites!',
-        favourites: result,
-      });
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  const result = await Favourites.find({ ip: ip });
+  res.status(200).json({
+    message: 'Get favourites!',
+    favourites: result,
+  });
 };
 
-export const deleteAllFavourites = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'deleteAllFavourites');
+export const deleteAllFavourites = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'deleteAllFavourites');
 
   let ip = req.clientIp;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
 
-  Favourites.deleteMany({ ip: ip })
-    .then((result: any) => {
-      log('result = ', result);
-      const data = {
-        message: 'Delete all favourites!',
-      };
-      sendSuccessResponse(res, 200, data);
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  const result = await Favourites.deleteMany({ ip: ip });
+  if (!_.isEmpty(result)) {
+    const data = {
+      message: 'Delete all favourites!',
+    };
+    sendSuccessResponse(res, 200, data);
+  }
 };
 
-export const deleteFavouritesById = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'deleteFavouritesById');
+export const deleteFavouritesById = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'deleteFavouritesById');
 
-  Favourites.findByIdAndDelete(req.params._id)
-    .then((result: any) => {
-      log('result = ', result);
-      const data = {
-        message: 'Delete favourites by id!',
-      };
-      sendSuccessResponse(res, 200, data);
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  const result = await Favourites.findByIdAndDelete(req.params._id);
+  if (!_.isEmpty(result)) {
+    const data = {
+      message: 'Delete favourites by id!',
+    };
+    sendSuccessResponse(res, 200, data);
+  } else {
+    const data = {
+      message: 'Delete favourites by id error, no this id',
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };

@@ -6,7 +6,7 @@ import axios from 'axios';
 import Category from '../model/category';
 import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
-function addDataToCategoryTable(resultData: any) {
+async function addDataToCategoryTable(resultData: any) {
   if (!_.isEmpty(resultData.categories)) {
     resultData.categories.map(async (item: any, i: number) => {
       const record = await Category.findOne({ alias: item.alias });
@@ -27,96 +27,62 @@ function addDataToCategoryTable(resultData: any) {
   }
 }
 
-function getCategoriesFromYelp(res: Response) {
-  axios
-    .get(`${process.env.YELP_HOST}/categories`, {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
-      },
-    })
-    .then((result: any) => {
-      if (!_.isEmpty(result.data)) {
-        addDataToCategoryTable(result.data);
+async function getCategoriesFromYelp(res: Response) {
+  const result = await axios.get(`${process.env.YELP_HOST}/categories`, {
+    headers: {
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    },
+  });
+  if (!_.isEmpty(result) && !_.isEmpty(result.data)) {
+    await addDataToCategoryTable(result.data);
 
-        res.status(200).json({
-          message: 'Get categories!',
-          categories: result.data,
-        });
-      }
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      res.status(404).json({
-        message: 'Not found',
-      });
+    res.status(200).json({
+      message: 'Get categories!',
+      categories: result.data,
     });
+  }
 }
 
-function getCategoryByAliasFromYelp(req: Request, res: Response) {
-  axios
-    .get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
-      },
-    })
-    .then((result: any) => {
-      res.status(200).json({
-        message: 'Get category by alias!',
-        category: result.data,
-      });
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      res.status(404).json({
-        message: 'Not found',
-      });
+async function getCategoryByAliasFromYelp(req: Request, res: Response) {
+  const result = await axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
+    headers: {
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    },
+  });
+  if (!_.isEmpty(result) && !_.isEmpty(result.data)) {
+    res.status(200).json({
+      message: 'Get category by alias!',
+      category: result.data,
     });
+  }
 }
 
-export const getCategories = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'getCategories');
+export const getCategories = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'getCategories');
 
-  Category.find({})
-    .then((result: any) => {
-      if (!_.isEmpty(result)) {
-        const data = {
-          message: 'Get categories!',
-          categories: result,
-        };
-        sendSuccessResponse(res, 200, data);
-      } else {
-        getCategoriesFromYelp(res);
-      }
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  const result = await Category.find({});
+  if (!_.isEmpty(result)) {
+    const data = {
+      message: 'Get categories!',
+      categories: result,
+    };
+    sendSuccessResponse(res, 200, data);
+  } else {
+    await getCategoriesFromYelp(res);
+  }
 };
 
-export const getCategoryByAlias = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'getCategoryByAlias');
+export const getCategoryByAlias = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'getCategoryByAlias');
 
-  Category.findOne({ alias: req.params.alias })
-    .then((result: any) => {
-      if (!_.isEmpty(result)) {
-        const data = {
-          message: 'Get categories!',
-          category: result,
-        };
-        sendSuccessResponse(res, 200, data);
-      } else {
-        getCategoryByAliasFromYelp(req, res);
-      }
-    })
-    .catch((error: any) => {
-      log('error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  const result = await Category.findOne({ alias: req.params.alias });
+  if (!_.isEmpty(result)) {
+    const data = {
+      message: 'Get categories!',
+      category: result,
+    };
+    sendSuccessResponse(res, 200, data);
+  } else {
+    await getCategoryByAliasFromYelp(req, res);
+  }
 };

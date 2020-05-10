@@ -25,7 +25,7 @@ admin.initializeApp({
 });
 
 export const addTokenToFirebaseDetails = async (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'addTokenToFirebaseDetails');
+  await addDataToUserConnectionDetails(req, 'addTokenToFirebaseDetails');
 
   const currentToken = req.body.currentToken;
   const refreshedToken = req.body.refreshedToken;
@@ -39,7 +39,6 @@ export const addTokenToFirebaseDetails = async (req: Request, res: Response) => 
     });
 
     const result = await firebaseDetails.save();
-    // log("result = ", result);
     if (!_.isEmpty(result)) {
       const data = {
         message: 'firebase addTokenToFirebaseDetails!',
@@ -59,8 +58,8 @@ export const addTokenToFirebaseDetails = async (req: Request, res: Response) => 
   }
 };
 
-export const sendMessage = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'sendMessage');
+export const sendMessage = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'sendMessage');
 
   const registrationToken = req.body.currentToken;
 
@@ -72,28 +71,26 @@ export const sendMessage = (req: Request, res: Response) => {
     token: registrationToken,
   };
 
-  admin
-    .messaging()
-    .send(message)
-    .then(response => {
-      log('sendMessage success = ', response);
+  try {
+    const response = await admin.messaging().send(message);
+    if (response) {
       const data = {
         message: 'firebase sendMessage!',
-        result: response,
       };
       sendSuccessResponse(res, 200, data);
-    })
-    .catch(error => {
-      log('sendMessage error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+    }
+  } catch (e) {
+    log('error = ', e.message);
+
+    const data = {
+      message: `firebase sendMessage error!, error = ${e.message}`,
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };
 
-export const sendMultiMessage = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'sendMultiMessage');
+export const sendMultiMessage = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'sendMultiMessage');
 
   const registrationTokens = req.body.currentTokenList;
 
@@ -105,28 +102,33 @@ export const sendMultiMessage = (req: Request, res: Response) => {
     tokens: registrationTokens,
   };
 
-  admin
-    .messaging()
-    .sendMulticast(message)
-    .then(response => {
-      log(`sendMultiMessage success = `, response);
-      const data = {
-        message: 'firebase sendMultiMessage!',
-        result: response,
-      };
-      sendSuccessResponse(res, 200, data);
-    })
-    .catch(error => {
-      log('sendMultiMessage error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  try {
+    const response = await admin.messaging().sendMulticast(message);
+    if (response) {
+      if (response.successCount > 0) {
+        const data = {
+          message: 'firebase sendMultiMessage!',
+        };
+        sendSuccessResponse(res, 200, data);
+      } else {
+        const data = {
+          message: `firebase sendMultiMessage error!`,
+        };
+        sendErrorResponse(res, 400, data);
+      }
+    }
+  } catch (e) {
+    log('error = ', e.message);
+
+    const data = {
+      message: `firebase sendMultiMessage error!, error = ${e.message}`,
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };
 
-export const sendTopicMessage = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'sendTopicMessage');
+export const sendTopicMessage = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'sendTopicMessage');
 
   const topic = req.body.topic;
 
@@ -138,74 +140,82 @@ export const sendTopicMessage = (req: Request, res: Response) => {
     topic: topic,
   };
 
-  admin
-    .messaging()
-    .send(message)
-    .then(response => {
-      log(`sendTopicMessage success = `, response);
+  try {
+    const response = await admin.messaging().send(message);
+    if (response) {
       const data = {
         message: 'firebase sendTopicMessage!',
-        result: response,
       };
       sendSuccessResponse(res, 200, data);
-    })
-    .catch(error => {
-      log('sendTopicMessage error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+    }
+  } catch (e) {
+    log('error = ', e.message);
+
+    const data = {
+      message: `firebase sendTopicMessage error!, error = ${e.message}`,
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };
 
-export const subscribeTopic = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'subscribeTopic');
+export const subscribeTopic = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'subscribeTopic');
 
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
-  admin
-    .messaging()
-    .subscribeToTopic(registrationTokens, topic)
-    .then(response => {
-      log('subscribeTopic success = ', response);
-      const data = {
-        message: 'firebase subscribeTopic!',
-        result: response,
-      };
-      sendSuccessResponse(res, 200, data);
-    })
-    .catch(error => {
-      log('subscribeTopic error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  try {
+    const response = await admin.messaging().subscribeToTopic(registrationTokens, topic);
+    if (response) {
+      if (response.successCount > 0) {
+        const data = {
+          message: 'firebase subscribeTopic!',
+        };
+        sendSuccessResponse(res, 200, data);
+      } else {
+        const data = {
+          message: `firebase subscribeTopic error!`,
+        };
+        sendErrorResponse(res, 400, data);
+      }
+    }
+  } catch (e) {
+    log('error = ', e.message);
+
+    const data = {
+      message: `firebase subscribeTopic error!, error = ${e.message}`,
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };
 
-export const unsubscribeTopic = (req: Request, res: Response) => {
-  addDataToUserConnectionDetails(req, 'unsubscribeTopic');
+export const unsubscribeTopic = async (req: Request, res: Response) => {
+  await addDataToUserConnectionDetails(req, 'unsubscribeTopic');
 
   const registrationTokens = req.body.currentTokenList;
   const topic = req.body.topic;
 
-  admin
-    .messaging()
-    .unsubscribeFromTopic(registrationTokens, topic)
-    .then(response => {
-      log('unsubscribeTopic success = ', response);
-      const data = {
-        message: 'firebase unsubscribeTopic!',
-        result: response,
-      };
-      sendSuccessResponse(res, 200, data);
-    })
-    .catch(error => {
-      log('unsubscribeTopic error = ', error);
-      const data = {
-        message: 'Not found',
-      };
-      sendErrorResponse(res, 404, data);
-    });
+  try {
+    const response = await admin.messaging().unsubscribeFromTopic(registrationTokens, topic);
+    if (response) {
+      if (response.successCount > 0) {
+        const data = {
+          message: 'firebase unsubscribeTopic!',
+        };
+        sendSuccessResponse(res, 200, data);
+      } else {
+        const data = {
+          message: `firebase unsubscribeTopic error!`,
+        };
+        sendErrorResponse(res, 400, data);
+      }
+    }
+  } catch (e) {
+    log('error = ', e.message);
+
+    const data = {
+      message: `firebase unsubscribeTopic error!, error = ${e.message}`,
+    };
+    sendErrorResponse(res, 400, data);
+  }
 };

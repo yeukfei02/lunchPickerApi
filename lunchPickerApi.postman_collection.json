@@ -1554,7 +1554,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n}"
+							"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/api/firebase/add-token-to-server",
@@ -1585,7 +1585,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n}"
+									"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
 								},
 								"url": {
 									"raw": "localhost:3000/api/firebase/add-token-to-server",
@@ -1654,7 +1654,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 14 Apr 2020 01:51:29 GMT"
+									"value": "Sun, 10 May 2020 03:20:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1680,7 +1680,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"currentToken\": \"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n}"
+							"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/api/firebase/send-message",
@@ -1696,7 +1696,101 @@
 						},
 						"description": "/send-message"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "/send-message",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
+								},
+								"url": {
+									"raw": "localhost:3000/api/firebase/send-message",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"firebase",
+										"send-message"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=31557600"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-nPw9AjNGAp+GPxYuMiSkU7nJ7g4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 May 2020 03:20:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"firebase sendMessage!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "/send-multi-message",
@@ -1712,7 +1806,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t]\n}"
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t]\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/api/firebase/send-multi-message",
@@ -1728,7 +1822,101 @@
 						},
 						"description": "/send-multi-message"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "/send-multi-message",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t]\n}"
+								},
+								"url": {
+									"raw": "localhost:3000/api/firebase/send-multi-message",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"firebase",
+										"send-multi-message"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=31557600"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-7eaZKC1exAQQ3lnThR1tMqfH9S4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 May 2020 03:21:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"firebase sendMultiMessage!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "/send-topic-message",
@@ -1832,11 +2020,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "107"
+									"value": "40"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"6b-XgpJCIls3Ll4sI4e4Hk2+ZNGQKc\""
+									"value": "W/\"28-dDgxoKGfWT4pTzw6hYf1IE/I4xg\""
 								},
 								{
 									"key": "Vary",
@@ -1844,7 +2032,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 14 Apr 2020 01:52:25 GMT"
+									"value": "Sun, 10 May 2020 03:21:15 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1852,7 +2040,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"firebase sendTopicMessage!\",\n    \"result\": \"projects/lunchpicker-2232b/messages/4446269549960093640\"\n}"
+							"body": "{\n    \"message\": \"firebase sendTopicMessage!\"\n}"
 						}
 					]
 				},
@@ -1870,7 +2058,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}"
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/api/firebase/subscribe-topic",
@@ -1901,7 +2089,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}"
+									"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 								},
 								"url": {
 									"raw": "localhost:3000/api/firebase/subscribe-topic",
@@ -1958,11 +2146,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "429"
+									"value": "38"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1ad-XpltW7TrpIy/6sg3btPao3gQ6Cw\""
+									"value": "W/\"26-sp/YWo6zfA8B1Qgg0Y5Af/OmNNg\""
 								},
 								{
 									"key": "Vary",
@@ -1970,7 +2158,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 14 Apr 2020 01:52:49 GMT"
+									"value": "Sun, 10 May 2020 03:21:29 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1978,7 +2166,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"firebase subscribeTopic!\",\n    \"result\": {\n        \"successCount\": 0,\n        \"failureCount\": 1,\n        \"errors\": [\n            {\n                \"index\": 0,\n                \"error\": {\n                    \"code\": \"messaging/registration-token-not-registered\",\n                    \"message\": \"The provided registration token is not registered. A previously valid registration token can be unregistered for a variety of reasons. See the error documentation for more details. Remove this registration token and stop using it to send messages.\"\n                }\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"message\": \"firebase subscribeTopic!\"\n}"
 						}
 					]
 				},
@@ -1996,7 +2184,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}"
+							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/api/firebase/unsubscribe-topic",
@@ -2027,7 +2215,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"currentTokenList\": [\n\t\t\"cWnZeU3P52mKtPtRYR36qA:APA91bG-iYgM19LSksPkZKswqhtXz8vZZIkv-Q4OZ_mfQ3NdaxteMrO23R7mdwSENpI6S9o9NdW_gUIhDlB-WgRhOT9f-x4_hVa-8HAaoPFcYUxupozZOmfk3cg4BEPtN-mn17oYLuAu\"\n\t],\n\t\"topic\": \"all\"\n}"
+									"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 								},
 								"url": {
 									"raw": "localhost:3000/api/firebase/unsubscribe-topic",
@@ -2084,11 +2272,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "431"
+									"value": "40"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1af-obncxDO3KXrHxwDiVrlonlZr0Bs\""
+									"value": "W/\"28-Cx3n6tw0MgfYdOIsIbYq4WBR+cc\""
 								},
 								{
 									"key": "Vary",
@@ -2096,7 +2284,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 14 Apr 2020 01:52:58 GMT"
+									"value": "Sun, 10 May 2020 03:22:00 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2104,7 +2292,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"firebase unsubscribeTopic!\",\n    \"result\": {\n        \"successCount\": 0,\n        \"failureCount\": 1,\n        \"errors\": [\n            {\n                \"index\": 0,\n                \"error\": {\n                    \"code\": \"messaging/registration-token-not-registered\",\n                    \"message\": \"The provided registration token is not registered. A previously valid registration token can be unregistered for a variety of reasons. See the error documentation for more details. Remove this registration token and stop using it to send messages.\"\n                }\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"message\": \"firebase unsubscribeTopic!\"\n}"
 						}
 					]
 				}
