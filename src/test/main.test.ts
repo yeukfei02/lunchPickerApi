@@ -2,8 +2,8 @@ import * as restaurant from './restaurant';
 import * as category from './category';
 
 describe('main.test', () => {
-  beforeEach(() => {
-    jest.setTimeout(90000);
+  beforeAll(() => {
+    jest.setTimeout(60000);
   });
 
   describe('restaurant', () => {
