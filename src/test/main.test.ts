@@ -9,7 +9,7 @@ describe('main.test', () => {
   describe('restaurant', () => {
     test('findLocationTextByLatLong', async () => {
       try {
-        const result = await restaurant.findLocationTextByLatLong();
+        const result = await restaurant.findLocationTextByLatLongTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.location).toBeDefined();
@@ -21,7 +21,7 @@ describe('main.test', () => {
 
     test('getAllRestaurantsByLatLong', async () => {
       try {
-        const result = await restaurant.getAllRestaurantsByLatLong();
+        const result = await restaurant.getAllRestaurantsByLatLongTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurants).toBeDefined();
@@ -34,7 +34,7 @@ describe('main.test', () => {
 
     test('getAllRestaurantsByLocation', async () => {
       try {
-        const result = await restaurant.getAllRestaurantsByLocation();
+        const result = await restaurant.getAllRestaurantsByLocationTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurants).toBeDefined();
@@ -47,7 +47,7 @@ describe('main.test', () => {
 
     test('getRestaurantByPhone', async () => {
       try {
-        const result = await restaurant.getRestaurantByPhone();
+        const result = await restaurant.getRestaurantByPhoneTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurant).toBeDefined();
@@ -59,7 +59,7 @@ describe('main.test', () => {
 
     test('getRestaurantDetailsById', async () => {
       try {
-        const result = await restaurant.getRestaurantDetailsById();
+        const result = await restaurant.getRestaurantDetailsByIdTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurantDetails).toBeDefined();
@@ -71,7 +71,7 @@ describe('main.test', () => {
 
     test('getRestaurantDetailsReviewById', async () => {
       try {
-        const result = await restaurant.getRestaurantDetailsReviewById();
+        const result = await restaurant.getRestaurantDetailsReviewByIdTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurantDetailsReview).toBeDefined();
@@ -85,7 +85,7 @@ describe('main.test', () => {
   describe('category', () => {
     test('getCategoies', async () => {
       try {
-        const result = await category.getCategoies();
+        const result = await category.getCategoiesTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.categories).toBeDefined();
@@ -97,7 +97,7 @@ describe('main.test', () => {
 
     test('getCategoryByAlias', async () => {
       try {
-        const result = await category.getCategoryByAlias();
+        const result = await category.getCategoryByAliasTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.category).toBeDefined();
