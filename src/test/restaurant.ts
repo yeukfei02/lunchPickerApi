@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
 
-export const findLocationTextByLatLong = async () => {
+export const findLocationTextByLatLongTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-location-text-by-lat-long`, {
     params: {
       latitude: 1.3104729000000002,
@@ -15,7 +15,7 @@ export const findLocationTextByLatLong = async () => {
   return result;
 };
 
-export const getAllRestaurantsByLatLong = async () => {
+export const getAllRestaurantsByLatLongTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-lat-long`, {
     params: {
       term: 'chinese',
@@ -29,7 +29,7 @@ export const getAllRestaurantsByLatLong = async () => {
   return result;
 };
 
-export const getAllRestaurantsByLocation = async () => {
+export const getAllRestaurantsByLocationTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-location`, {
     params: {
       term: 'chinese',
@@ -42,7 +42,7 @@ export const getAllRestaurantsByLocation = async () => {
   return result;
 };
 
-export const getRestaurantByPhone = async () => {
+export const getRestaurantByPhoneTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurant-by-phone`, {
     params: {
       phone: '+85227881226',
@@ -54,7 +54,7 @@ export const getRestaurantByPhone = async () => {
   return result;
 };
 
-export const getRestaurantDetailsById = async () => {
+export const getRestaurantDetailsByIdTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export const getRestaurantDetailsById = async () => {
   return result;
 };
 
-export const getRestaurantDetailsReviewById = async () => {
+export const getRestaurantDetailsReviewByIdTest = async () => {
   const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',
