@@ -7,6 +7,406 @@
 	},
 	"item": [
 		{
+			"name": "user",
+			"item": [
+				{
+					"name": "/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						},
+						"description": "/signup"
+					},
+					"response": [
+						{
+							"name": "/signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"test5@test.com\",\n\t\"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=31557600"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-LsZec/QVjxan7j299OG1iC3OgJk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 May 2020 15:05:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"signup success!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						},
+						"description": "/login"
+					},
+					"response": [
+						{
+							"name": "/login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"yeukfei02@gmail.com\",\n\t\"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=31557600"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "225"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e1-NoVp87Bu7DQyofodALMKBZEoCGg\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 May 2020 15:04:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"login success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmZGQ5OTAyLWU3NzUtNDUxNC1hYjZkLTcxMDRhNDA5MzdkZCIsImlhdCI6MTU5MDI0NjI5NSwiZXhwIjoxNTkwMzMyNjk1fQ.LlfXo9EEuzRfQOQyzYLgFIt1FITjftDE-_Al7uK3FSM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						},
+						"description": "/user"
+					},
+					"response": [
+						{
+							"name": "/user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=31557600"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47f-C4L0Fn9Xh7MznDY1aBfdoARitXs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 May 2020 15:12:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all user!\",\n    \"users\": [\n        {\n            \"created_by\": \"2020-05-23T14:38:46.000Z\",\n            \"updated_by\": \"2020-05-23T14:38:46.000Z\",\n            \"_id\": \"5ec935790211501aa8a4882f\",\n            \"email\": \"test@test.com\",\n            \"password\": \"$2b$10$UeOEeTGeDWt.9jNtrbYUauF50mfb38m1icpwavRMnRMNKwTGPTMNC\",\n            \"__v\": 0\n        },\n        {\n            \"created_by\": \"2020-05-23T14:38:46.000Z\",\n            \"updated_by\": \"2020-05-23T14:38:46.000Z\",\n            \"_id\": \"5ec935810211501aa8a48831\",\n            \"email\": \"test2@test.com\",\n            \"password\": \"$2b$10$3tIEuu9Ywa0i3a.8bg.QS.JEVX9ni0o038HPXEWuohL7tp1D05IXm\",\n            \"__v\": 0\n        },\n        {\n            \"created_by\": \"2020-05-23T14:42:41.000Z\",\n            \"updated_by\": \"2020-05-23T14:42:41.000Z\",\n            \"_id\": \"5ec93673e2ebec1b023addea\",\n            \"email\": \"test3@test.com\",\n            \"password\": \"$2b$10$FyQ0ZXoA60/TnB0gS36d/./.hIYYZwSheBej2Bu3bmS/icUIq7qOO\",\n            \"__v\": 0\n        },\n        {\n            \"created_by\": \"2020-05-23T15:04:22.000Z\",\n            \"updated_by\": \"2020-05-23T15:04:22.000Z\",\n            \"_id\": \"5ec93b82ca811b1eb19fc86b\",\n            \"email\": \"yeukfei02@gmail.com\",\n            \"password\": \"$2b$10$HBNohVKh26bqtccnDQjpNOYLPyQrwrAKk1OTM.JEnauQs7Oj6uWsO\",\n            \"__v\": 0\n        },\n        {\n            \"created_by\": \"2020-05-23T15:04:22.000Z\",\n            \"updated_by\": \"2020-05-23T15:04:22.000Z\",\n            \"_id\": \"5ec93badca811b1eb19fc874\",\n            \"email\": \"test5@test.com\",\n            \"password\": \"$2b$10$KLzCYUFcCofudOEv9RFWfORwMb5Ios1CFfDeenvI6ok7pMXszHnaC\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5238a6c0-9d76-4030-908e-d5629da54fa6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc5b7621-a943-4ed9-b837-7ad550b27065",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "restaurant",
 			"item": [
 				{
