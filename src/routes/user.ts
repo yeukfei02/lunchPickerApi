@@ -6,6 +6,7 @@ import * as userController from '../controller/user';
 
 router.post('/signup', userController.signup);
 router.post('/login', userController.login);
+router.get('', userController.getAllUser);
 
 expressListRoutes({ prefix: '/api/user' }, 'USER API:', router);
 

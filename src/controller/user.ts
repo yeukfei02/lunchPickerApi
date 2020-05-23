@@ -81,3 +81,13 @@ export const login = async (req: Request, res: Response) => {
     }
   }
 };
+
+export const getAllUser = async (req: Request, res: Response) => {
+  const result = await User.find({});
+
+  const data = {
+    message: 'Get all user!',
+    users: result,
+  };
+  sendSuccessResponse(res, 200, data);
+};
