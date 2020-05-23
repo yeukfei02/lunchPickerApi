@@ -3,6 +3,7 @@ import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
+import { v4 as uuidv4 } from 'uuid';
 
 import User from '../model/user';
 import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
@@ -55,8 +56,7 @@ export const login = async (req: Request, res: Response) => {
       if (bcrypt.compareSync(password, userPasswordFromDB)) {
         const token = jwt.sign(
           {
-            email: email,
-            password: password,
+            id: uuidv4(),
           },
           process.env.JWT_SECRET,
           { expiresIn: '1d' },
