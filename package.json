@@ -38,6 +38,7 @@
     "express-list-routes": "^0.1.4",
     "firebase-admin": "^8.9.0",
     "helmet": "^3.21.2",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -60,5 +61,11 @@
     "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/server.js",
     "test": "jest --detectOpenHandles",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
   }
 }
