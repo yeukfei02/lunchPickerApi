@@ -6,7 +6,6 @@ import * as morgan from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
-import * as mongoose from 'mongoose';
 import * as requestIp from 'request-ip';
 import * as Sentry from '@sentry/node';
 
