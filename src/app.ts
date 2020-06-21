@@ -1,5 +1,4 @@
 import * as express from 'express';
-const app = express();
 
 import * as cors from 'cors';
 import * as morgan from 'morgan';
@@ -12,8 +11,8 @@ import * as Sentry from '@sentry/node';
 import * as env from 'dotenv';
 env.config();
 
-// sentry
-Sentry.init({ dsn: process.env.SENTRY_DSN });
+import { log } from './common/common';
+import { connectDB } from './db/db';
 
 import mainRoutes from './routes/main';
 import userRoutes from './routes/user';
@@ -22,9 +21,15 @@ import categoryRoutes from './routes/category';
 import favouritesRoutes from './routes/favourites';
 import firebaseRoutes from './routes/firebase';
 import stripeRoutes from './routes/stripe';
+
 import * as cron from './cron/cron';
 
-import { connectDB } from './db/db';
+const app = express();
+const port = process.env.PORT || 3000;
+
+// sentry
+Sentry.init({ dsn: process.env.SENTRY_DSN });
+
 connectDB(app);
 
 app.use(Sentry.Handlers.requestHandler());
@@ -54,4 +59,6 @@ app.use((req, res, next) => {
   });
 });
 
-export default app;
+app.listen(port, () => {
+  log(`server is running at port`, `${port}`);
+});
