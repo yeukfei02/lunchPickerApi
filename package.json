@@ -1,7 +1,7 @@
 {
   "name": "lunchPickerApi",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "repository": "https://github.com/yeukfei02/lunchPickerApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
@@ -63,8 +63,8 @@
     "uuid": "^8.1.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=development ts-node-dev ./src/server.ts",
-    "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/server.js",
+    "dev": "NODE_ENV=development ts-node-dev ./src/app.ts",
+    "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/app.js",
     "test": "jest --detectOpenHandles",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix"
   },
