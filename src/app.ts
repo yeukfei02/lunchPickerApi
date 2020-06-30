@@ -34,12 +34,12 @@ connectDB(app);
 
 app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 app.use(helmet());
+app.use(morgan('dev'));
 app.use(compression());
 app.use(requestIp.mw());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(Sentry.Handlers.errorHandler());
 
 app.use('/', mainRoutes);
