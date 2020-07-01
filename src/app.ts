@@ -30,8 +30,6 @@ const port = process.env.PORT || 3000;
 // sentry
 Sentry.init({ dsn: process.env.SENTRY_DSN });
 
-connectDB(app);
-
 app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
 app.use(helmet());
@@ -49,6 +47,8 @@ app.use('/api/category', categoryRoutes);
 app.use('/api/favourites', favouritesRoutes);
 app.use('/api/firebase', firebaseRoutes);
 app.use('/api/stripe', stripeRoutes);
+
+connectDB(app);
 
 // cron job
 cron.init();

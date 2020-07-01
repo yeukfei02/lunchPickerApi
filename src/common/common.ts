@@ -3,7 +3,6 @@
 import { Request, Response } from 'express';
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
-import * as jwt from 'jsonwebtoken';
 // import { Timber } from "@timberio/node";
 const DeviceDetector = require('node-device-detector');
 
@@ -62,31 +61,4 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
 
   const result = await userConnectionDetails.save();
   // log("result = ", result);
-};
-
-export const checkUserLogin = async (req: Request, res: Response) => {
-  let result = false;
-
-  const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization.substring(7).trim() : '';
-
-  if (!_.isEmpty(token)) {
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      if (!_.isEmpty(decoded)) {
-        result = true;
-      }
-    } catch (e) {
-      const data = {
-        message: `checkUserLogin error, error = ${e.message}`,
-      };
-      sendErrorResponse(res, 400, data);
-    }
-  } else {
-    const data = {
-      message: 'checkUserLogin error, please add bearer token',
-    };
-    sendErrorResponse(res, 400, data);
-  }
-
-  return result;
 };
