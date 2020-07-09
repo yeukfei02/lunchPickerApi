@@ -13,7 +13,7 @@ services:
       - 3000:3000
     environment:
       - NODE_ENV=production
-    links:
+    depends_on:
       - db
   db:
     container_name: mongo
