@@ -66,7 +66,8 @@
     "dev": "NODE_ENV=development ts-node-dev ./src/app.ts",
     "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/app.js",
     "test": "jest --detectOpenHandles",
-    "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix"
+    "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
+    "commit": "npx git-cz"
   },
   "husky": {
     "hooks": {
