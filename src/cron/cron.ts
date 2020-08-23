@@ -1,6 +1,5 @@
 import * as cron from 'node-cron';
 import * as admin from 'firebase-admin';
-import * as _ from 'lodash';
 
 import { log } from '../common/common';
 
@@ -25,7 +24,7 @@ admin.initializeApp(
   'cronFirebaseAdmin',
 );
 
-export const sendTopicMessage = (title: string, body: string) => {
+export const sendTopicMessage = (title: string, body: string): void => {
   const topic = 'all';
 
   const message = {
@@ -47,14 +46,14 @@ export const sendTopicMessage = (title: string, body: string) => {
     });
 };
 
-export const scheduleSendTopicMessage = (scheduleTime: string, title: string, body: string) => {
+export const scheduleSendTopicMessage = (scheduleTime: string, title: string, body: string): void => {
   cron.schedule(scheduleTime, () => {
     log('### cron sendTopicMessage ###', '');
     sendTopicMessage(title, body);
   });
 };
 
-export const init = () => {
+export const init = (): void => {
   // At 08:30 on every day-of-week from Monday through Sunday.
   scheduleSendTopicMessage('30 8 * * 1-7', "Let's look for breakfast!", 'Open lunch picker in browser now!');
 

@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 import { sendErrorResponse } from '../common/common';
 
-export const isUserLoggedIn = async (req: Request, res: Response, next: NextFunction) => {
+export const isUserLoggedIn = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization.substring(7).trim() : '';
 
   if (!_.isEmpty(token)) {

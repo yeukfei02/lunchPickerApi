@@ -8,7 +8,7 @@ const DeviceDetector = require('node-device-detector');
 
 import UserConnectionDetails from '../model/userConnectionDetails';
 
-export const log = (message: string, item: any) => {
+export const log = (message: string, item: any): void => {
   console.log(message, item);
 
   // timber
@@ -23,16 +23,16 @@ export const log = (message: string, item: any) => {
   // }
 };
 
-export const sendSuccessResponse = (res: Response, statusCode: number, data: any) => {
+export const sendSuccessResponse = (res: Response, statusCode: number, data: any): void => {
   res.set('Cache-Control', 'public, max-age=31557600');
   res.status(statusCode).json(data);
 };
 
-export const sendErrorResponse = (res: Response, statusCode: number, data: any) => {
+export const sendErrorResponse = (res: Response, statusCode: number, data: any): void => {
   res.status(statusCode).json(data);
 };
 
-export const addDataToUserConnectionDetails = async (req: Request, routeName: string) => {
+export const addDataToUserConnectionDetails = async (req: Request, routeName: string): Promise<void> => {
   const userAgent = req.get('User-Agent');
   const detector = new DeviceDetector();
   const detectorUserAgentResult = detector.detect(userAgent);
@@ -59,6 +59,5 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
     routeName: routeName,
   });
 
-  const result = await userConnectionDetails.save();
-  // log("result = ", result);
+  await userConnectionDetails.save();
 };

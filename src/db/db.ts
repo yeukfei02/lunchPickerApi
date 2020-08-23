@@ -1,7 +1,7 @@
 import { Express } from 'express';
 import * as mongoose from 'mongoose';
 
-export const connectDB = async (app: Express) => {
+export const connectDB = async (app: Express): Promise<void> => {
   const environment = app.get('env');
   if (environment === 'development') {
     // mongo local db

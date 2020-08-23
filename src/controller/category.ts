@@ -4,9 +4,9 @@ import * as _ from 'lodash';
 import axios from 'axios';
 
 import Category from '../model/category';
-import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse } from '../common/common';
 
-async function addDataToCategoryTable(resultData: any) {
+async function addDataToCategoryTable(resultData: any): Promise<void> {
   if (!_.isEmpty(resultData.categories)) {
     resultData.categories.map(async (item: any, i: number) => {
       const record = await Category.findOne({ alias: item.alias });
@@ -20,14 +20,13 @@ async function addDataToCategoryTable(resultData: any) {
           country_blacklist: item.country_blacklist,
         });
 
-        const result = await category.save();
-        // log("result = ", result);
+        await category.save();
       }
     });
   }
 }
 
-async function getCategoriesFromYelp(res: Response) {
+async function getCategoriesFromYelp(res: Response): Promise<void> {
   const result = await axios.get(`${process.env.YELP_HOST}/categories`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`,
@@ -43,7 +42,7 @@ async function getCategoriesFromYelp(res: Response) {
   }
 }
 
-async function getCategoryByAliasFromYelp(req: Request, res: Response) {
+async function getCategoryByAliasFromYelp(req: Request, res: Response): Promise<void> {
   const result = await axios.get(`${process.env.YELP_HOST}/categories/${req.params.alias}`, {
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`,
@@ -57,7 +56,7 @@ async function getCategoryByAliasFromYelp(req: Request, res: Response) {
   }
 }
 
-export const getCategories = async (req: Request, res: Response) => {
+export const getCategories = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getCategories');
 
   const result = await Category.find({});
@@ -72,7 +71,7 @@ export const getCategories = async (req: Request, res: Response) => {
   }
 };
 
-export const getCategoryByAlias = async (req: Request, res: Response) => {
+export const getCategoryByAlias = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getCategoryByAlias');
 
   const result = await Category.findOne({ alias: req.params.alias });

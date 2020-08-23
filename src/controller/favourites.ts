@@ -3,9 +3,9 @@ import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
 
 import Favourites from '../model/favourites';
-import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
-async function addDataToFavouritesTable(ip: string, item: any) {
+async function addDataToFavouritesTable(ip: string, item: any): Promise<void> {
   const record = await Favourites.findOne({ item: item });
   if (_.isEmpty(record)) {
     const favourites = new Favourites({
@@ -14,12 +14,11 @@ async function addDataToFavouritesTable(ip: string, item: any) {
       item: item,
     });
 
-    const result = await favourites.save();
-    // log("result = ", result);
+    await favourites.save();
   }
 }
 
-export const addToFavourites = async (req: Request, res: Response) => {
+export const addToFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'addToFavourites');
 
   try {
@@ -41,7 +40,7 @@ export const addToFavourites = async (req: Request, res: Response) => {
   }
 };
 
-export const getFavourites = async (req: Request, res: Response) => {
+export const getFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getFavourites');
 
   let ip = req.clientIp || req.params.ip;
@@ -56,7 +55,7 @@ export const getFavourites = async (req: Request, res: Response) => {
   });
 };
 
-export const deleteAllFavourites = async (req: Request, res: Response) => {
+export const deleteAllFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'deleteAllFavourites');
 
   let ip = req.clientIp;
@@ -73,7 +72,7 @@ export const deleteAllFavourites = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteFavouritesById = async (req: Request, res: Response) => {
+export const deleteFavouritesById = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'deleteFavouritesById');
 
   const result = await Favourites.findByIdAndDelete(req.params._id);

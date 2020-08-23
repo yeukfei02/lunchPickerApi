@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 const ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
 
-export const findLocationTextByLatLongTest = async () => {
+export const findLocationTextByLatLongTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-location-text-by-lat-long`, {
     params: {
       latitude: 1.3104729000000002,
@@ -15,7 +15,7 @@ export const findLocationTextByLatLongTest = async () => {
   return result;
 };
 
-export const getAllRestaurantsByLatLongTest = async () => {
+export const getAllRestaurantsByLatLongTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-lat-long`, {
     params: {
       term: 'chinese',
@@ -29,7 +29,7 @@ export const getAllRestaurantsByLatLongTest = async () => {
   return result;
 };
 
-export const getAllRestaurantsByLocationTest = async () => {
+export const getAllRestaurantsByLocationTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-location`, {
     params: {
       term: 'chinese',
@@ -42,7 +42,7 @@ export const getAllRestaurantsByLocationTest = async () => {
   return result;
 };
 
-export const getRestaurantByPhoneTest = async () => {
+export const getRestaurantByPhoneTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurant-by-phone`, {
     params: {
       phone: '+85227881226',
@@ -54,7 +54,7 @@ export const getRestaurantByPhoneTest = async () => {
   return result;
 };
 
-export const getRestaurantDetailsByIdTest = async () => {
+export const getRestaurantDetailsByIdTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export const getRestaurantDetailsByIdTest = async () => {
   return result;
 };
 
-export const getRestaurantDetailsReviewByIdTest = async () => {
+export const getRestaurantDetailsReviewByIdTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',

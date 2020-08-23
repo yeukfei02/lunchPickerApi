@@ -6,9 +6,9 @@ import axios from 'axios';
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
-import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse } from '../common/common';
 
-async function addDataToRestaurantTable(resultData: any) {
+async function addDataToRestaurantTable(resultData: any): Promise<void> {
   if (!_.isEmpty(resultData.businesses)) {
     resultData.businesses.map(async (item: any, i: number) => {
       const record = await Restaurant.findOne({ id: item.id });
@@ -33,14 +33,13 @@ async function addDataToRestaurantTable(resultData: any) {
           distance: item.distance,
         });
 
-        const result = await restaurant.save();
-        // log("result = ", result);
+        await restaurant.save();
       }
     });
   }
 }
 
-async function addDataToRestaurantDetailsTable(resultData: any) {
+async function addDataToRestaurantDetailsTable(resultData: any): Promise<void> {
   const record = await RestaurantDetails.findOne({ id: resultData.id });
   if (_.isEmpty(record)) {
     const restaurantDetails = new RestaurantDetails({
@@ -65,12 +64,11 @@ async function addDataToRestaurantDetailsTable(resultData: any) {
       transactions: resultData.transactions,
     });
 
-    const result = await restaurantDetails.save();
-    // log("result = ", result);
+    await restaurantDetails.save();
   }
 }
 
-async function addDataToRestaurantDetailsReviewTable(resultData: any) {
+async function addDataToRestaurantDetailsReviewTable(resultData: any): Promise<void> {
   if (!_.isEmpty(resultData.reviews)) {
     resultData.reviews.map(async (item: any, i: number) => {
       const record = await RestaurantDetailsReview.findOne({ id: item.id });
@@ -85,14 +83,13 @@ async function addDataToRestaurantDetailsReviewTable(resultData: any) {
           user: item.user,
         });
 
-        const result = await restaurantDetailsReview.save();
-        // log("result = ", result);
+        await restaurantDetailsReview.save();
       }
     });
   }
 }
 
-export const findLocationTextByLatLong = async (req: Request, res: Response) => {
+export const findLocationTextByLatLong = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'findLocationTextByLatLong');
 
   const result = await axios.get(`https://us1.locationiq.com/v1/reverse.php`, {
@@ -112,7 +109,7 @@ export const findLocationTextByLatLong = async (req: Request, res: Response) => 
   }
 };
 
-export const getAllRestaurantsByLatLong = async (req: Request, res: Response) => {
+export const getAllRestaurantsByLatLong = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getAllRestaurantsByLatLong');
 
   const result = await axios.get(`${process.env.YELP_HOST}/businesses/search`, {
@@ -136,7 +133,7 @@ export const getAllRestaurantsByLatLong = async (req: Request, res: Response) =>
   }
 };
 
-export const getAllRestaurantsByLocation = async (req: Request, res: Response) => {
+export const getAllRestaurantsByLocation = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getAllRestaurantsByLocation');
 
   const result = await axios.get(`${process.env.YELP_HOST}/businesses/search`, {
@@ -159,7 +156,7 @@ export const getAllRestaurantsByLocation = async (req: Request, res: Response) =
   }
 };
 
-export const getRestaurantByPhone = async (req: Request, res: Response) => {
+export const getRestaurantByPhone = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getRestaurantByPhone');
 
   const result = await axios.get(`${process.env.YELP_HOST}/businesses/search/phone`, {
@@ -179,7 +176,7 @@ export const getRestaurantByPhone = async (req: Request, res: Response) => {
   }
 };
 
-export const getRestaurantDetailsById = async (req: Request, res: Response) => {
+export const getRestaurantDetailsById = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getRestaurantDetailsById');
 
   const result = await axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}`, {
@@ -199,7 +196,7 @@ export const getRestaurantDetailsById = async (req: Request, res: Response) => {
   }
 };
 
-export const getRestaurantDetailsReviewById = async (req: Request, res: Response) => {
+export const getRestaurantDetailsReviewById = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getRestaurantDetailsReviewById');
 
   const result = await axios.get(`${process.env.YELP_HOST}/businesses/${req.params.id}/reviews`, {
