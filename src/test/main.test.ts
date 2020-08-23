@@ -7,7 +7,7 @@ describe('main.test', () => {
   });
 
   describe('restaurant', () => {
-    test('findLocationTextByLatLong', async () => {
+    it('findLocationTextByLatLong', async () => {
       try {
         const result = await restaurant.findLocationTextByLatLongTest();
         if (result && result.data) {
@@ -19,7 +19,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getAllRestaurantsByLatLong', async () => {
+    it('getAllRestaurantsByLatLong', async () => {
       try {
         const result = await restaurant.getAllRestaurantsByLatLongTest();
         if (result && result.data) {
@@ -32,7 +32,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getAllRestaurantsByLocation', async () => {
+    it('getAllRestaurantsByLocation', async () => {
       try {
         const result = await restaurant.getAllRestaurantsByLocationTest();
         if (result && result.data) {
@@ -45,7 +45,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getRestaurantByPhone', async () => {
+    it('getRestaurantByPhone', async () => {
       try {
         const result = await restaurant.getRestaurantByPhoneTest();
         if (result && result.data) {
@@ -57,7 +57,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getRestaurantDetailsById', async () => {
+    it('getRestaurantDetailsById', async () => {
       try {
         const result = await restaurant.getRestaurantDetailsByIdTest();
         if (result && result.data) {
@@ -69,7 +69,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getRestaurantDetailsReviewById', async () => {
+    it('getRestaurantDetailsReviewById', async () => {
       try {
         const result = await restaurant.getRestaurantDetailsReviewByIdTest();
         if (result && result.data) {
@@ -83,7 +83,7 @@ describe('main.test', () => {
   });
 
   describe('category', () => {
-    test('getCategoies', async () => {
+    it('getCategoies', async () => {
       try {
         const result = await category.getCategoiesTest();
         if (result && result.data) {
@@ -95,7 +95,7 @@ describe('main.test', () => {
       }
     });
 
-    test('getCategoryByAlias', async () => {
+    it('getCategoryByAlias', async () => {
       try {
         const result = await category.getCategoryByAliasTest();
         if (result && result.data) {
