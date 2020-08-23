@@ -6,20 +6,19 @@ import * as jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
 import User from '../model/user';
-import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
-async function addDataToUserTable(email: string, password: string) {
+async function addDataToUserTable(email: string, password: string): Promise<void> {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     email: email,
     password: bcrypt.hashSync(password, 10),
   });
 
-  const result = await user.save();
-  // log("result = ", result);
+  await user.save();
 }
 
-export const signup = async (req: Request, res: Response) => {
+export const signup = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'signup');
 
   const email = req.body.email;
@@ -43,7 +42,7 @@ export const signup = async (req: Request, res: Response) => {
   }
 };
 
-export const login = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'login');
 
   const email = req.body.email;
@@ -82,7 +81,7 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
-export const getAllUser = async (req: Request, res: Response) => {
+export const getAllUser = async (req: Request, res: Response): Promise<void> => {
   const result = await User.find({});
 
   const data = {

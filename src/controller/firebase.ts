@@ -24,7 +24,7 @@ admin.initializeApp({
   projectId: process.env.FIREBASE_PROJECT_ID,
 });
 
-export const addTokenToFirebaseDetails = async (req: Request, res: Response) => {
+export const addTokenToFirebaseDetails = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'addTokenToFirebaseDetails');
 
   const currentToken = req.body.currentToken;
@@ -58,7 +58,7 @@ export const addTokenToFirebaseDetails = async (req: Request, res: Response) => 
   }
 };
 
-export const sendMessage = async (req: Request, res: Response) => {
+export const sendMessage = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'sendMessage');
 
   const registrationToken = req.body.currentToken;
@@ -89,7 +89,7 @@ export const sendMessage = async (req: Request, res: Response) => {
   }
 };
 
-export const sendMultiMessage = async (req: Request, res: Response) => {
+export const sendMultiMessage = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'sendMultiMessage');
 
   const registrationTokens = req.body.currentTokenList;
@@ -127,7 +127,7 @@ export const sendMultiMessage = async (req: Request, res: Response) => {
   }
 };
 
-export const sendTopicMessage = async (req: Request, res: Response) => {
+export const sendTopicMessage = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'sendTopicMessage');
 
   const topic = req.body.topic;
@@ -158,7 +158,7 @@ export const sendTopicMessage = async (req: Request, res: Response) => {
   }
 };
 
-export const subscribeTopic = async (req: Request, res: Response) => {
+export const subscribeTopic = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'subscribeTopic');
 
   const registrationTokens = req.body.currentTokenList;
@@ -189,7 +189,7 @@ export const subscribeTopic = async (req: Request, res: Response) => {
   }
 };
 
-export const unsubscribeTopic = async (req: Request, res: Response) => {
+export const unsubscribeTopic = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'unsubscribeTopic');
 
   const registrationTokens = req.body.currentTokenList;
