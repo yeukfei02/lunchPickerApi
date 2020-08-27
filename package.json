@@ -59,8 +59,8 @@
     "stripe": "^7.15.0",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.51",
-    "typescript": "^3.9.6",
+    "ts-node-dev": "^1.0.0-pre.61",
+    "typescript": "3.9.7",
     "uuid": "^8.1.0"
   },
   "scripts": {
