@@ -47,6 +47,17 @@ export const subscribeMessage = async (req: Request, res: Response): Promise<voi
 
   const pushNotificationTokenList = req.body.pushNotificationTokenList;
   if (pushNotificationTokenList) {
+    pushNotificationTokenList.forEach(async (pushNotificationToken: string, i: number) => {
+      const record = await ExpoDetails.findOne({ push_notification_token: pushNotificationToken });
+      if (_.isEmpty(record)) {
+        const expoDetails = new ExpoDetails({
+          _id: new mongoose.Types.ObjectId(),
+          push_notification_token: pushNotificationToken,
+        });
+        await expoDetails.save();
+      }
+    });
+
     await expoSendPushNotification(pushNotificationTokenList);
     const data = {
       message: 'expo subscribeMessage!',
