@@ -2487,6 +2487,14 @@ expect@^24.9.0:
     jest-message-util "^24.9.0"
     jest-regex-util "^24.9.0"
 
+expo-server-sdk@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/expo-server-sdk/-/expo-server-sdk-3.5.1.tgz#33a3317a406e4bb8882d3799acb6eead70d509ce"
+  integrity sha512-U8iyR23d7KqBmuRp2kKydxg1lp0VcUg9LLaCMIccfAbJqrlYcrQ5RYeQ+lYkQT7Y+a9hRB+A1G9v/JKNYXg2ag==
+  dependencies:
+    node-fetch "^2.6.0"
+    promise-limit "^2.7.0"
+
 express-list-routes@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/express-list-routes/-/express-list-routes-0.1.4.tgz#c65c31c3fb619c79c0543f7b4ec4e83056ece616"
@@ -5479,6 +5487,11 @@ progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+
+promise-limit@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/promise-limit/-/promise-limit-2.7.0.tgz#eb5737c33342a030eaeaecea9b3d3a93cb592b26"
+  integrity sha512-7nJ6v5lnJsXwGprnGXga4wx6d1POjvi5Qmf1ivTRxTjH4Z/9Czja/UCMLVmB9N93GeWOU93XaFaEt6jbuoagNw==
 
 prompts@^2.0.1:
   version "2.3.0"

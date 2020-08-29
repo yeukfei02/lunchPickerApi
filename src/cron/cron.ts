@@ -1,7 +1,9 @@
 import * as cron from 'node-cron';
 import * as admin from 'firebase-admin';
 
-import { log } from '../common/common';
+import { log, expoSendPushNotification } from '../common/common';
+
+import ExpoDetails from '../model/expoDetails';
 
 const serviceAccount = {
   type: process.env.FIREBASE_ADMIN_TYPE,
@@ -24,7 +26,7 @@ admin.initializeApp(
   'cronFirebaseAdmin',
 );
 
-export const sendTopicMessage = (title: string, body: string): void => {
+async function sendTopicMessage(title: string, body: string): Promise<void> {
   const topic = 'all';
 
   const message = {
@@ -44,14 +46,31 @@ export const sendTopicMessage = (title: string, body: string): void => {
     .catch(error => {
       log('sendTopicMessage error = ', error);
     });
-};
+}
 
-export const scheduleSendTopicMessage = (scheduleTime: string, title: string, body: string): void => {
+async function expoClientSendMessage(title: string, body: string): Promise<void> {
+  const expoDetails = await ExpoDetails.find({});
+  if (expoDetails) {
+    const pushNotificationTokenList = expoDetails.map((item: any, i: number) => {
+      return item.push_notification_token;
+    });
+    if (pushNotificationTokenList) {
+      await expoSendPushNotification(pushNotificationTokenList, title, body);
+    }
+  }
+}
+
+async function scheduleSendTopicMessage(scheduleTime: string, title: string, body: string): Promise<void> {
   cron.schedule(scheduleTime, () => {
     log('### cron sendTopicMessage ###', '');
+
+    // firebase
     sendTopicMessage(title, body);
+
+    // expo
+    expoClientSendMessage(title, body);
   });
-};
+}
 
 export const init = (): void => {
   // At 08:30 on every day-of-week from Monday through Sunday.
