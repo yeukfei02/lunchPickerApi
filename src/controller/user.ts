@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
