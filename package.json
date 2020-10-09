@@ -1,6 +1,6 @@
 {
   "name": "lunchPickerApi",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "main": "app.js",
   "repository": "https://github.com/yeukfei02/lunchPickerApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
