@@ -16,7 +16,7 @@ if (environment === 'development') {
 import CreditCardDetails from '../model/creditCardDetails';
 import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
-async function addDataToCreditCardDetails(token: string, card: any) {
+async function addDataToCreditCardDetails(token: string, card: any): Promise<void> {
   if (!_.isEmpty(token) && !_.isEmpty(card)) {
     const record = await CreditCardDetails.findOne({ token: token });
     if (_.isEmpty(record)) {
@@ -26,8 +26,7 @@ async function addDataToCreditCardDetails(token: string, card: any) {
         card: card,
       });
 
-      const result = await creditCardDetails.save();
-      // log("result = ", result);
+      await creditCardDetails.save();
     }
   }
 }
