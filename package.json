@@ -1,6 +1,6 @@
 {
   "name": "lunchPickerApi",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "main": "app.js",
   "repository": "https://github.com/yeukfei02/lunchPickerApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
@@ -71,6 +71,8 @@
     "dev": "NODE_ENV=development ts-node-dev ./src/app.ts",
     "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/app.js",
     "test": "jest --detectOpenHandles",
+    "tsc": "tsc",
+    "postinstall": "yarn run tsc",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "commit": "npx git-cz",
     "release": "standard-version"
