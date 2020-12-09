@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 
 export const connectDB = async (app: Express): Promise<void> => {
   const environment = app.get('env');
-  if (environment === 'development') {
+  if (environment === 'development' || environment === 'test') {
     // mongo local db
     mongoose.connect('mongodb://localhost:27017/lunch-picker', { useNewUrlParser: true, useUnifiedTopology: true });
   } else {
