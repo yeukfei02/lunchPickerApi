@@ -37,15 +37,12 @@ async function sendTopicMessage(title: string, body: string): Promise<void> {
     topic: topic,
   };
 
-  admin
-    .messaging()
-    .send(message)
-    .then(response => {
-      log(`sendTopicMessage success = `, response);
-    })
-    .catch(error => {
-      log('sendTopicMessage error = ', error);
-    });
+  try {
+    const response = await admin.messaging().send(message);
+    log(`sendTopicMessage success = `, response);
+  } catch (e) {
+    log('sendTopicMessage error = ', e);
+  }
 }
 
 async function expoClientSendMessage(title: string, body: string): Promise<void> {
