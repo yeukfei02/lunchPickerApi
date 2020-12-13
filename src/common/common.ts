@@ -32,7 +32,7 @@ export const getRootUrl = () => {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     ROOT_URL = 'http://localhost:3000/api';
   } else {
-    ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
+    ROOT_URL = 'https://www.lunch-picker-api.com/api';
   }
 
   return ROOT_URL;
