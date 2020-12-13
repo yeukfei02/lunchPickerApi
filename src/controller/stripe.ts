@@ -1,13 +1,13 @@
-import * as express from 'express';
+import express from 'express';
 const app = express();
 import { Request, Response } from 'express';
-import * as Stripe from 'stripe';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
+import Stripe from 'stripe';
+import mongoose from 'mongoose';
+import _ from 'lodash';
 
 let stripe: Stripe = null;
 const environment = app.get('env');
-if (environment === 'development') {
+if (environment === 'development' || environment === 'test') {
   stripe = new Stripe(process.env.STRIPE_TEST_API_KEY);
 } else {
   stripe = new Stripe(process.env.STRIPE_API_KEY);

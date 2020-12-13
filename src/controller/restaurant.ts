@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
+import mongoose from 'mongoose';
+import _ from 'lodash';
 import axios from 'axios';
 
 import Restaurant from '../model/restaurant';

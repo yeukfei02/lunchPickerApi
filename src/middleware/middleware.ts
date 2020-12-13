@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import * as jwt from 'jsonwebtoken';
-import * as _ from 'lodash';
+import jwt from 'jsonwebtoken';
+import _ from 'lodash';
 
 import { sendErrorResponse } from '../common/common';
 

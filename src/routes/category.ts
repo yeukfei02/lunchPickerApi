@@ -1,11 +1,11 @@
-import * as express from 'express';
+import express from 'express';
 const router = express.Router();
 const expressListRoutes = require('express-list-routes');
 
-import * as categoryController from '../controller/category';
+import { getCategories, getCategoryByAlias } from '../controller/category';
 
-router.get('/get-categories', categoryController.getCategories);
-router.get('/get-category/:alias', categoryController.getCategoryByAlias);
+router.get('/get-categories', getCategories);
+router.get('/get-category/:alias', getCategoryByAlias);
 
 expressListRoutes({ prefix: '/api/category' }, 'CATEGORY API:', router);
 

@@ -1,8 +1,8 @@
-// import * as express from 'express';
+// import express from 'express';
 // const app = express();
 import { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
+import mongoose from 'mongoose';
+import _ from 'lodash';
 // import { Timber } from "@timberio/node";
 const DeviceDetector = require('node-device-detector');
 import { Expo, ExpoPushMessage } from 'expo-server-sdk';
@@ -16,7 +16,7 @@ export const log = (message: string, item: any): void => {
 
   // timber
   // const environment = app.get('env');
-  // if (environment !== 'development') {
+  // if (environment !== 'development' || environment !== 'test') {
   //   const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
   //   if (typeof item === 'object') {
   //     timber.log(`${message} ${JSON.stringify(item)}`);
@@ -24,6 +24,18 @@ export const log = (message: string, item: any): void => {
   //     timber.log(`${message} ${item}`);
   //   }
   // }
+};
+
+export const getRootUrl = () => {
+  let ROOT_URL = '';
+
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+    ROOT_URL = 'http://localhost:3000/api';
+  } else {
+    ROOT_URL = 'https://www.lunch-picker-api.com/api';
+  }
+
+  return ROOT_URL;
 };
 
 export const sendSuccessResponse = (res: Response, statusCode: number, data: any): void => {

@@ -1,5 +1,5 @@
 import { Express } from 'express';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 export const connectDB = async (app: Express): Promise<void> => {
   const environment = app.get('env');

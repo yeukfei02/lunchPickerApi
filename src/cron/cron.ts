@@ -1,5 +1,5 @@
-import * as cron from 'node-cron';
-import * as admin from 'firebase-admin';
+import cron from 'node-cron';
+import admin from 'firebase-admin';
 
 import { log, expoSendPushNotification } from '../common/common';
 
@@ -69,7 +69,7 @@ async function scheduleSendTopicMessage(scheduleTime: string, title: string, bod
   });
 }
 
-export const init = (): void => {
+export const cronStart = (): void => {
   // At 08:30 on every day-of-week from Monday through Sunday.
   scheduleSendTopicMessage('30 8 * * 1-7', "Let's look for breakfast!", 'Open lunch picker in browser now!');
 

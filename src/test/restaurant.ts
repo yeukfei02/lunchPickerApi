@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
+import { getRootUrl } from '../common/common';
 
-const ROOT_URL = 'https://lunch-picker-api.herokuapp.com/api';
+const ROOT_URL = getRootUrl();
 
 export const findLocationTextByLatLongTest = async (): Promise<AxiosResponse<any>> => {
   const result = await axios.get(`${ROOT_URL}/restaurant/find-location-text-by-lat-long`, {

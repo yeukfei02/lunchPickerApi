@@ -1,15 +1,18 @@
-import * as restaurant from './restaurant';
-import * as category from './category';
+import {
+  findLocationTextByLatLongTest,
+  getAllRestaurantsByLatLongTest,
+  getAllRestaurantsByLocationTest,
+  getRestaurantByPhoneTest,
+  getRestaurantDetailsByIdTest,
+  getRestaurantDetailsReviewByIdTest,
+} from './restaurant';
+import { getCategoriesTest, getCategoryByAliasTest } from './category';
 
 describe('main.test', () => {
-  beforeAll(() => {
-    jest.setTimeout(60000);
-  });
-
   describe('restaurant', () => {
     it('findLocationTextByLatLong', async () => {
       try {
-        const result = await restaurant.findLocationTextByLatLongTest();
+        const result = await findLocationTextByLatLongTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.location).toBeDefined();
@@ -21,7 +24,7 @@ describe('main.test', () => {
 
     it('getAllRestaurantsByLatLong', async () => {
       try {
-        const result = await restaurant.getAllRestaurantsByLatLongTest();
+        const result = await getAllRestaurantsByLatLongTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurants).toBeDefined();
@@ -34,7 +37,7 @@ describe('main.test', () => {
 
     it('getAllRestaurantsByLocation', async () => {
       try {
-        const result = await restaurant.getAllRestaurantsByLocationTest();
+        const result = await getAllRestaurantsByLocationTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurants).toBeDefined();
@@ -47,7 +50,7 @@ describe('main.test', () => {
 
     it('getRestaurantByPhone', async () => {
       try {
-        const result = await restaurant.getRestaurantByPhoneTest();
+        const result = await getRestaurantByPhoneTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurant).toBeDefined();
@@ -59,7 +62,7 @@ describe('main.test', () => {
 
     it('getRestaurantDetailsById', async () => {
       try {
-        const result = await restaurant.getRestaurantDetailsByIdTest();
+        const result = await getRestaurantDetailsByIdTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurantDetails).toBeDefined();
@@ -71,7 +74,7 @@ describe('main.test', () => {
 
     it('getRestaurantDetailsReviewById', async () => {
       try {
-        const result = await restaurant.getRestaurantDetailsReviewByIdTest();
+        const result = await getRestaurantDetailsReviewByIdTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.restaurantDetailsReview).toBeDefined();
@@ -83,9 +86,9 @@ describe('main.test', () => {
   });
 
   describe('category', () => {
-    it('getCategoies', async () => {
+    it('getCategories', async () => {
       try {
-        const result = await category.getCategoiesTest();
+        const result = await getCategoriesTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.categories).toBeDefined();
@@ -97,7 +100,7 @@ describe('main.test', () => {
 
     it('getCategoryByAlias', async () => {
       try {
-        const result = await category.getCategoryByAliasTest();
+        const result = await getCategoryByAliasTest();
         if (result && result.data) {
           expect(result.data).toBeDefined();
           expect(result.data.category).toBeDefined();

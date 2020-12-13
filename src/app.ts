@@ -1,14 +1,14 @@
-import * as express from 'express';
+import express from 'express';
 
-import * as cors from 'cors';
-import * as morgan from 'morgan';
-import * as bodyParser from 'body-parser';
-import * as helmet from 'helmet';
-import * as compression from 'compression';
-import * as requestIp from 'request-ip';
+import cors from 'cors';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
+import compression from 'compression';
+import requestIp from 'request-ip';
 import * as Sentry from '@sentry/node';
 
-import * as env from 'dotenv';
+import env from 'dotenv';
 env.config();
 
 import { log } from './common/common';
@@ -23,7 +23,7 @@ import firebaseRoutes from './routes/firebase';
 import expoRoutes from './routes/expo';
 import stripeRoutes from './routes/stripe';
 
-import * as cron from './cron/cron';
+import { cronStart } from './cron/cron';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -54,7 +54,7 @@ app.use('/api/stripe', stripeRoutes);
 connectDB(app);
 
 // cron job
-cron.init();
+cronStart();
 
 app.use((req, res, next) => {
   res.status(404).json({
