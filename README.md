@@ -15,12 +15,16 @@ Lunch picker is the tool you’ll turn to to answer this question.
 
 documentation: https://documenter.getpostman.com/view/3827865/SzezdXuc?version=latest
 
+api url: https://www.lunch-picker-api.com/
+
 ## Requirement:
- - install yarn
- - install node (v12+)
- - install mongodb
+
+- install yarn
+- install node (v12+)
+- install mongodb
 
 ## Testing and run:
+
 ```
 $ yarn
 
