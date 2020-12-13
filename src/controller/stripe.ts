@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 let stripe: Stripe = null;
 const environment = app.get('env');
-if (environment === 'development') {
+if (environment === 'development' || environment === 'test') {
   stripe = new Stripe(process.env.STRIPE_TEST_API_KEY);
 } else {
   stripe = new Stripe(process.env.STRIPE_API_KEY);
