@@ -36,7 +36,7 @@ export const getRootUrl = () => {
   }
 
   return ROOT_URL;
-}
+};
 
 export const sendSuccessResponse = (res: Response, statusCode: number, data: any): void => {
   res.set('Cache-Control', 'public, max-age=31557600');
