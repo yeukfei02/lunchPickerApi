@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
-import * as admin from 'firebase-admin';
+import mongoose from 'mongoose';
+import _ from 'lodash';
+import admin from 'firebase-admin';
 
 import FirebaseDetails from '../model/firebaseDetails';
 import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';

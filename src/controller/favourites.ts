@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
+import mongoose from 'mongoose';
+import _ from 'lodash';
 
 import Favourites from '../model/favourites';
 import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';

@@ -1,12 +1,12 @@
-import * as express from 'express';
+import express from 'express';
 const router = express.Router();
 const expressListRoutes = require('express-list-routes');
 
-import * as userController from '../controller/user';
+import { signup, login, getAllUser } from '../controller/user';
 
-router.post('/signup', userController.signup);
-router.post('/login', userController.login);
-router.get('', userController.getAllUser);
+router.post('/signup', signup);
+router.post('/login', login);
+router.get('', getAllUser);
 
 expressListRoutes({ prefix: '/api/user' }, 'USER API:', router);
 

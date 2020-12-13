@@ -1,6 +1,6 @@
-import * as mongoose from 'mongoose';
-import * as moment from 'moment';
-import * as momenttz from 'moment-timezone';
+import mongoose from 'mongoose';
+import moment from 'moment';
+import momenttz from 'moment-timezone';
 
 const userTimezone = momenttz.tz.guess();
 const currentDateWithTimezone = moment.tz(moment().format(), userTimezone);

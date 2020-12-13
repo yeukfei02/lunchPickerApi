@@ -1,5 +1,5 @@
-import * as restaurant from './restaurant';
-import * as category from './category';
+import restaurant from './restaurant';
+import category from './category';
 
 describe('main.test', () => {
   beforeAll(() => {

@@ -1,8 +1,8 @@
-// import * as express from 'express';
+// import express from 'express';
 // const app = express();
 import { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
-import * as _ from 'lodash';
+import mongoose from 'mongoose';
+import _ from 'lodash';
 // import { Timber } from "@timberio/node";
 const DeviceDetector = require('node-device-detector');
 import { Expo, ExpoPushMessage } from 'expo-server-sdk';

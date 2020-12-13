@@ -1,13 +1,13 @@
-import * as express from 'express';
+import express from 'express';
 const router = express.Router();
 const expressListRoutes = require('express-list-routes');
 
-import * as favouritesController from '../controller/favourites';
+import { addToFavourites, getFavourites, deleteAllFavourites, deleteFavouritesById } from '../controller/favourites';
 
-router.post('/add-to-favourites', favouritesController.addToFavourites);
-router.get('/get-favourites', favouritesController.getFavourites);
-router.delete('/delete-all-favourites', favouritesController.deleteAllFavourites);
-router.delete('/delete-favourites/:_id', favouritesController.deleteFavouritesById);
+router.post('/add-to-favourites', addToFavourites);
+router.get('/get-favourites', getFavourites);
+router.delete('/delete-all-favourites', deleteAllFavourites);
+router.delete('/delete-favourites/:_id', deleteFavouritesById);
 
 expressListRoutes({ prefix: '/api/favourites' }, 'FAVOURITES API:', router);
 

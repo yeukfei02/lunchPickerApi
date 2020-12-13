@@ -1,10 +1,10 @@
-import * as express from 'express';
+import express from 'express';
 const router = express.Router();
 const expressListRoutes = require('express-list-routes');
 
-import * as mainController from '../controller/main';
+import { getMain } from '../controller/main';
 
-router.get('', mainController.getMain);
+router.get('', getMain);
 
 expressListRoutes({ prefix: '/' }, 'MAIN API:', router);
 
