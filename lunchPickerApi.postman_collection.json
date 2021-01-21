@@ -133,6 +133,21 @@
 				},
 				{
 					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"console.log(\"jsonData = \", jsonData);",
+									"if (jsonData) {",
+									"    pm.environment.set(\"jwtToken\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -386,7 +401,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5238a6c0-9d76-4030-908e-d5629da54fa6",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -396,15 +410,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cc5b7621-a943-4ed9-b837-7ad550b27065",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "restaurant",
@@ -1206,8 +1218,7 @@
 					]
 				}
 			],
-			"description": "restaurant",
-			"protocolProfileBehavior": {}
+			"description": "restaurant"
 		},
 		{
 			"name": "category",
@@ -1451,8 +1462,7 @@
 					]
 				}
 			],
-			"description": "category",
-			"protocolProfileBehavior": {}
+			"description": "category"
 		},
 		{
 			"name": "favourites",
@@ -1934,8 +1944,7 @@
 					]
 				}
 			],
-			"description": "favourites",
-			"protocolProfileBehavior": {}
+			"description": "favourites"
 		},
 		{
 			"name": "firebase",
@@ -2697,8 +2706,7 @@
 					]
 				}
 			],
-			"description": "firebase",
-			"protocolProfileBehavior": {}
+			"description": "firebase"
 		},
 		{
 			"name": "expo",
@@ -3082,15 +3090,13 @@
 					]
 				}
 			],
-			"description": "expo",
-			"protocolProfileBehavior": {}
+			"description": "expo"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a233cedf-6e54-4fef-944b-9ea54a58eb3b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3100,13 +3106,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "981946fa-8543-4119-adc5-99fab0f3dc83",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
