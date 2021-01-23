@@ -24,11 +24,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/user/signup",
+							"raw": "{{rootUrl}}/api/user/signup",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -161,11 +160,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/user/login",
+							"raw": "{{rootUrl}}/api/user/login",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -286,11 +284,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/user",
+							"raw": "{{rootUrl}}/api/user",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user"
@@ -433,11 +430,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/find-location-text-by-lat-long?latitude=1.3104729000000002&longitude=103.8577962",
+							"raw": "{{rootUrl}}/api/restaurant/find-location-text-by-lat-long?latitude=1.3104729000000002&longitude=103.8577962",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -569,11 +565,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/find-restaurants-by-lat-long?term=chinese&latitude=1.309160&longitude=103.852130",
+							"raw": "{{rootUrl}}/api/restaurant/find-restaurants-by-lat-long?term=chinese&latitude=1.309160&longitude=103.852130",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -717,11 +712,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/find-restaurants-by-location?term=chinese&location=singapore farrer park",
+							"raw": "{{rootUrl}}/api/restaurant/find-restaurants-by-location?term=chinese&location=singapore farrer park",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -857,11 +851,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/find-restaurant-by-phone?phone=+6596883633",
+							"raw": "{{rootUrl}}/api/restaurant/find-restaurant-by-phone?phone=+6596883633",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -985,11 +978,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA",
+							"raw": "{{rootUrl}}/api/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -1107,11 +1099,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA",
+							"raw": "{{rootUrl}}/api/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"restaurant",
@@ -1235,11 +1226,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/category/get-categories",
+							"raw": "{{rootUrl}}/api/category/get-categories",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -1355,11 +1345,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/category/get-category/seafood",
+							"raw": "{{rootUrl}}/api/category/get-category/seafood",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -1484,11 +1473,10 @@
 							"raw": "{\n    \"item\": {\n        \"id\": \"E1bWrjBJDrHUKqzu3SPt3w\",\n        \"alias\": \"tolidos-espresso-nook-singapore-3\",\n        \"name\": \"Tolido's Espresso Nook\",\n        \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/cu45w5OVbBkdAEMnohMh8Q/o.jpg\",\n        \"is_closed\": false,\n        \"url\": \"https://www.yelp.com/biz/tolidos-espresso-nook-singapore-3?adjust_creative=cNIqAxB2DvW5JmOGOuVqmA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=cNIqAxB2DvW5JmOGOuVqmA\",\n        \"review_count\": 63,\n        \"categories\": [\n            {\n                \"alias\": \"breakfast_brunch\",\n                \"title\": \"Breakfast & Brunch\"\n            },\n            {\n                \"alias\": \"coffee\",\n                \"title\": \"Coffee & Tea\"\n            }\n        ],\n        \"rating\": 4.5,\n        \"coordinates\": {\n            \"latitude\": 1.30453486052728,\n            \"longitude\": 103.861071132123\n        },\n        \"transactions\": [],\n        \"price\": \"$$\",\n        \"location\": {\n            \"address1\": \"462 Crawford Ln\",\n            \"address2\": \"#01-63\",\n            \"address3\": null,\n            \"city\": \"Singapore\",\n            \"zip_code\": \"190462\",\n            \"country\": \"SG\",\n            \"state\": \"SG\",\n            \"display_address\": [\n                \"462 Crawford Ln\",\n                \"#01-63\",\n                \"Singapore 190462\",\n                \"Singapore\"\n            ]\n        },\n        \"phone\": \"+6566480178\",\n        \"display_phone\": \"+65 6648 0178\",\n        \"distance\": 761.1155060642154\n    }\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/favourites/add-to-favourites",
+							"raw": "{{rootUrl}}/api/favourites/add-to-favourites",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"favourites",
@@ -1605,11 +1593,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/favourites/get-favourites",
+							"raw": "{{rootUrl}}/api/favourites/get-favourites",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"favourites",
@@ -1721,11 +1708,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/favourites/delete-all-favourites",
+							"raw": "{{rootUrl}}/api/favourites/delete-all-favourites",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"favourites",
@@ -1837,11 +1823,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/favourites/delete-favourites/5e15d8c1a4dc23292a1bba56",
+							"raw": "{{rootUrl}}/api/favourites/delete-favourites/5e15d8c1a4dc23292a1bba56",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"favourites",
@@ -1966,11 +1951,10 @@
 							"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/add-token-to-server",
+							"raw": "{{rootUrl}}/api/firebase/add-token-to-server",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2092,11 +2076,10 @@
 							"raw": "{\n\t\"currentToken\": \"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/send-message",
+							"raw": "{{rootUrl}}/api/firebase/send-message",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2218,11 +2201,10 @@
 							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t]\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/send-multi-message",
+							"raw": "{{rootUrl}}/api/firebase/send-multi-message",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2344,11 +2326,10 @@
 							"raw": "{\n\t\"topic\": \"all\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/send-topic-message",
+							"raw": "{{rootUrl}}/api/firebase/send-topic-message",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2470,11 +2451,10 @@
 							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/subscribe-topic",
+							"raw": "{{rootUrl}}/api/firebase/subscribe-topic",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2596,11 +2576,10 @@
 							"raw": "{\n\t\"currentTokenList\": [\n\t\t\"fy8HZw0O06H1nL_OJxNNEY:APA91bGqqF9Rw2YKP7SDGs5VzDLIboH4LxG8IV-s9PWEzvtFd_YmLrO6DIhjCZPQjWL9g4XQuyT00ybK-3amXRmSQWveasAjLNV4mCj7Q3HhGObkgp7o5NeGt52lUQL-sLFLhX1Nn3sK\"\n\t],\n\t\"topic\": \"all\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/firebase/unsubscribe-topic",
+							"raw": "{{rootUrl}}/api/firebase/unsubscribe-topic",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"firebase",
@@ -2728,11 +2707,10 @@
 							"raw": "{\n\t\"pushNotificationToken\": \"ExponentPushToken[px5s5PHy_8gor4DORduyAM]\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/expo/add-push-notification-token-to-server",
+							"raw": "{{rootUrl}}/api/expo/add-push-notification-token-to-server",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expo",
@@ -2854,11 +2832,10 @@
 							"raw": "{\n\t\"pushNotificationTokenList\": [\n\t\t\"ExponentPushToken[px5s5PHy_8gor4DORduyAM]\"\n\t]\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/expo/subscribe-message",
+							"raw": "{{rootUrl}}/api/expo/subscribe-message",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expo",
@@ -2980,11 +2957,10 @@
 							"raw": "{\n\t\"pushNotificationTokenList\": [\n\t\t\"ExponentPushToken[px5s5PHy_8gor4DORduyAM]\"\n\t]\n}"
 						},
 						"url": {
-							"raw": "localhost:3000/api/expo/unsubscribe-message",
+							"raw": "{{rootUrl}}/api/expo/unsubscribe-message",
 							"host": [
-								"localhost"
+								"{{rootUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expo",
