@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.8](https://github.com/yeukfei02/lunchPickerApi/compare/v1.9.7...v1.9.8) (2021-01-23)
+
+
+### Bug Fixes
+
+* 🐛 fix command in package.json ([ed12eef](https://github.com/yeukfei02/lunchPickerApi/commit/ed12eef74d0b600c00e5cf34c8adf840a2d44faf))
+
 ### [1.9.7](https://github.com/yeukfei02/lunchPickerApi/compare/v1.9.6...v1.9.7) (2021-01-23)
 
 
