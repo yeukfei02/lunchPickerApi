@@ -70,7 +70,7 @@
     "start": "rm -rf dist && tsc && NODE_ENV=production nodemon ./dist/app.js",
     "test": "jest --detectOpenHandles",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
-    "commit": "npx git-cz",
+    "commit": "git-cz",
     "release": "standard-version"
   },
   "husky": {
