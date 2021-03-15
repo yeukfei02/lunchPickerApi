@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.1...v2.0.2) (2021-03-15)
+
+
+### Bug Fixes
+
+* 🐛 remove timber lib ([39be619](https://github.com/yeukfei02/lunchPickerApi/commit/39be619489e76577f2c1c46c21a5a5cbdc1beccc))
+
 ### [2.0.1](https://github.com/yeukfei02/lunchPickerApi/compare/v1.10.0...v2.0.1) (2021-03-01)
 
 ## [1.10.0](https://github.com/yeukfei02/lunchPickerApi/compare/v1.9.9...v1.10.0) (2021-03-01)
