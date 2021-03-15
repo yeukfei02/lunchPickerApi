@@ -4,7 +4,7 @@ import _ from 'lodash';
 import admin from 'firebase-admin';
 
 import FirebaseDetails from '../model/firebaseDetails';
-import { log, addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
 
 const serviceAccount = {
   type: process.env.FIREBASE_ADMIN_TYPE,
@@ -80,7 +80,7 @@ export const sendMessage = async (req: Request, res: Response): Promise<void> =>
       sendSuccessResponse(res, 200, data);
     }
   } catch (e) {
-    log('error = ', e.message);
+    console.log('error = ', e.message);
 
     const data = {
       message: `firebase sendMessage error!, error = ${e.message}`,
@@ -118,7 +118,7 @@ export const sendMultiMessage = async (req: Request, res: Response): Promise<voi
       }
     }
   } catch (e) {
-    log('error = ', e.message);
+    console.log('error = ', e.message);
 
     const data = {
       message: `firebase sendMultiMessage error!, error = ${e.message}`,
@@ -149,7 +149,7 @@ export const sendTopicMessage = async (req: Request, res: Response): Promise<voi
       sendSuccessResponse(res, 200, data);
     }
   } catch (e) {
-    log('error = ', e.message);
+    console.log('error = ', e.message);
 
     const data = {
       message: `firebase sendTopicMessage error!, error = ${e.message}`,
@@ -180,7 +180,7 @@ export const subscribeTopic = async (req: Request, res: Response): Promise<void>
       }
     }
   } catch (e) {
-    log('error = ', e.message);
+    console.log('error = ', e.message);
 
     const data = {
       message: `firebase subscribeTopic error!, error = ${e.message}`,
@@ -211,7 +211,7 @@ export const unsubscribeTopic = async (req: Request, res: Response): Promise<voi
       }
     }
   } catch (e) {
-    log('error = ', e.message);
+    console.log('error = ', e.message);
 
     const data = {
       message: `firebase unsubscribeTopic error!, error = ${e.message}`,
