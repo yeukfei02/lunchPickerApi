@@ -1,30 +1,12 @@
-// import express from 'express';
-// const app = express();
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import _ from 'lodash';
-// import { Timber } from "@timberio/node";
 const DeviceDetector = require('node-device-detector');
 import { Expo, ExpoPushMessage } from 'expo-server-sdk';
 
 const expo = new Expo();
 
 import UserConnectionDetails from '../model/userConnectionDetails';
-
-export const log = (message: string, item: any): void => {
-  console.log(message, item);
-
-  // timber
-  // const environment = app.get('env');
-  // if (environment !== 'development' || environment !== 'test') {
-  //   const timber = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SOURCE_ID);
-  //   if (typeof item === 'object') {
-  //     timber.log(`${message} ${JSON.stringify(item)}`);
-  //   } else if (typeof item === 'string') {
-  //     timber.log(`${message} ${item}`);
-  //   }
-  // }
-};
 
 export const getRootUrl = () => {
   let ROOT_URL = '';
@@ -106,7 +88,7 @@ export const expoSendPushNotification = async (
     chunks.forEach(async (chunk: ExpoPushMessage[], i: number) => {
       try {
         const ticketChunk = await expo.sendPushNotificationsAsync(chunk);
-        console.log('ticketChunk = ', ticketChunk);
+        console.log(`ticketChunk = ${ticketChunk}`);
         tickets.push(...ticketChunk);
       } catch (e) {
         console.log('error = ', e.message);
@@ -138,7 +120,7 @@ export const expoSendPushNotification = async (
           }
         }
       } catch (error) {
-        console.log(error);
+        console.log('error = ', error);
       }
     });
   }

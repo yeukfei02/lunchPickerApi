@@ -1,7 +1,7 @@
 import cron from 'node-cron';
 import admin from 'firebase-admin';
 
-import { log, expoSendPushNotification } from '../common/common';
+import { expoSendPushNotification } from '../common/common';
 
 import ExpoDetails from '../model/expoDetails';
 
@@ -39,9 +39,9 @@ async function sendTopicMessage(title: string, body: string): Promise<void> {
 
   try {
     const response = await admin.messaging().send(message);
-    log(`sendTopicMessage success = `, response);
+    console.log(`sendTopicMessage success = `, response);
   } catch (e) {
-    log('sendTopicMessage error = ', e);
+    console.log('sendTopicMessage error = ', e);
   }
 }
 
@@ -59,7 +59,7 @@ async function expoClientSendMessage(title: string, body: string): Promise<void>
 
 async function scheduleSendTopicMessage(scheduleTime: string, title: string, body: string): Promise<void> {
   cron.schedule(scheduleTime, () => {
-    log('### cron sendTopicMessage ###', '');
+    console.log('### cron sendTopicMessage ###');
 
     // firebase
     sendTopicMessage(title, body);

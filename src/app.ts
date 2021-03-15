@@ -11,7 +11,6 @@ import * as Sentry from '@sentry/node';
 import env from 'dotenv';
 env.config();
 
-import { log } from './common/common';
 import { connectDB } from './db/db';
 
 import mainRoutes from './routes/main';
@@ -63,5 +62,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  log(`server is running at port`, `${port}`);
+  console.log(`server is running at port ${port}`);
 });
