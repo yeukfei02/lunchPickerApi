@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.3...v2.0.4) (2021-04-03)
+
+
+### Bug Fixes
+
+* 🐛 fix cron file ([64bf311](https://github.com/yeukfei02/lunchPickerApi/commit/64bf3113e94d22e8492fdb4359b43357a2cbf5f2))
+
 ### [2.0.3](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.2...v2.0.3) (2021-03-26)
 
 
