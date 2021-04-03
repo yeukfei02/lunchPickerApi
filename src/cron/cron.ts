@@ -79,5 +79,3 @@ export const cronStart = (): void => {
   // At 18:30 on every day-of-week from Monday through Sunday.
   scheduleSendTopicMessage('30 18 * * 1-7', 'Find your dinner place now!', 'Open lunch picker in browser now!');
 };
-
-export default cron;
