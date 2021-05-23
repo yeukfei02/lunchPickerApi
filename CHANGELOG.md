@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.4...v2.1.0) (2021-05-23)
+
+
+### Features
+
+* 🎸 add adminbro lib ([ac20f78](https://github.com/yeukfei02/lunchPickerApi/commit/ac20f78bd5497b0c4e2f4505f041976f7d51b295))
+
+
+### Bug Fixes
+
+* 🐛 add skipLibCheck in tsconfig.json ([9d64048](https://github.com/yeukfei02/lunchPickerApi/commit/9d640487c42b65e5f93ddc993b7e6f62c3d70f11))
+
 ### [2.0.4](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.3...v2.0.4) (2021-04-03)
 
 
