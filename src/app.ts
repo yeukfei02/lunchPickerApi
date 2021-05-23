@@ -24,6 +24,8 @@ import stripeRoutes from './routes/stripe';
 
 import { cronStart } from './cron/cron';
 
+import admin from './admin/admin';
+
 const app = express();
 const port = process.env.PORT || 3000;
 app.set('port', port);
@@ -51,6 +53,9 @@ app.use('/api/expo', expoRoutes);
 app.use('/api/stripe', stripeRoutes);
 
 connectDB(app);
+
+// admin portal
+app.use('/admin', admin);
 
 // cron job
 cronStart();

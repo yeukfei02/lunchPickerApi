@@ -17,6 +17,8 @@ documentation: <https://documenter.getpostman.com/view/3827865/SzezdXuc?version=
 
 api url: <https://www.lunch-picker-api.com/>
 
+admin url: <https://www.lunch-picker-api.com/admin>
+
 ## Requirement
 
 - install yarn
