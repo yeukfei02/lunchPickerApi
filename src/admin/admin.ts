@@ -1,4 +1,4 @@
-import AdminBro from 'admin-bro';
+import AdminBro, { AdminBroOptions } from 'admin-bro';
 import AdminBroExpress from '@admin-bro/express';
 import AdminBroMongoose from '@admin-bro/mongoose';
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -10,7 +10,7 @@ import RestaurantDetailsReview from '../model/restaurantDetailsReview';
 import Favourites from '../model/favourites';
 import Category from '../model/category';
 
-const adminBro = new AdminBro({
+const adminBroOptions: AdminBroOptions = {
   resources: [
     {
       resource: UserConnectionDetails,
@@ -85,7 +85,8 @@ const adminBro = new AdminBro({
     softwareBrothers: false,
   },
   rootPath: '/admin',
-});
+};
+const adminBro = new AdminBro(adminBroOptions);
 const router = AdminBroExpress.buildRouter(adminBro);
 
 export default router;
