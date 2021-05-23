@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.1.0...v2.2.0) (2021-05-23)
+
+
+### Features
+
+* 🎸 add AdminBroOptions type ([c9384ae](https://github.com/yeukfei02/lunchPickerApi/commit/c9384ae6a8e6a7716d139c9e4736343b155318a7))
+
 ## [2.1.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.0.4...v2.1.0) (2021-05-23)
 
 
