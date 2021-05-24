@@ -13,6 +13,10 @@ const favouritesSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+favouritesSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const favouritesModel = mongoose.model('Favourites', favouritesSchema);
 
 export default favouritesModel;

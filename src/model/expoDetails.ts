@@ -12,6 +12,10 @@ const expoDetailsSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+expoDetailsSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const expoDetailsModel = mongoose.model('ExpoDetails', expoDetailsSchema);
 
 export default expoDetailsModel;

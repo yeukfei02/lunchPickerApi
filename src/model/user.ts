@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+userSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const userModel = mongoose.model('User', userSchema);
 
 export default userModel;
