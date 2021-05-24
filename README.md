@@ -21,8 +21,10 @@ admin url: <https://www.lunch-picker-api.com/admin>
 
 react admin url: <https://lunch-picker-admin.vercel.app/>
 
+```text
 username: admin@admin.com
 password: admin
+```
 
 ## Requirement
 
