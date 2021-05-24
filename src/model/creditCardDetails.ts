@@ -13,6 +13,10 @@ const creditCardDetailsSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+creditCardDetailsSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const creditCardDetailsModel = mongoose.model('CreditCardDetails', creditCardDetailsSchema);
 
 export default creditCardDetailsModel;

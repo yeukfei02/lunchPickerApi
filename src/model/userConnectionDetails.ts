@@ -16,6 +16,10 @@ const userConnectionDetailsSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+userConnectionDetailsSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const userConnectionDetailsModel = mongoose.model('UserConnectionDetails', userConnectionDetailsSchema);
 
 export default userConnectionDetailsModel;

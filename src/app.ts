@@ -21,6 +21,7 @@ import favouritesRoutes from './routes/favourites';
 import firebaseRoutes from './routes/firebase';
 import expoRoutes from './routes/expo';
 import stripeRoutes from './routes/stripe';
+import reactAdminRoutes from './routes/reactAdmin';
 
 import { cronStart } from './cron/cron';
 
@@ -51,6 +52,7 @@ app.use('/api/favourites', favouritesRoutes);
 app.use('/api/firebase', firebaseRoutes);
 app.use('/api/expo', expoRoutes);
 app.use('/api/stripe', stripeRoutes);
+app.use('/react-admin', reactAdminRoutes);
 
 connectDB(app);
 

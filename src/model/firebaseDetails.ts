@@ -13,6 +13,10 @@ const firebaseDetailsSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+firebaseDetailsSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const firebaseDetailsModel = mongoose.model('FirebaseDetails', firebaseDetailsSchema);
 
 export default firebaseDetailsModel;

@@ -27,6 +27,10 @@ const restaurantSchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+restaurantSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const restaurantModel = mongoose.model('Restaurant', restaurantSchema);
 
 export default restaurantModel;

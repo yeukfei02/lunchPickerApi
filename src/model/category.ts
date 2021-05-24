@@ -16,6 +16,10 @@ const categorySchema = new mongoose.Schema({
   updated_by: { type: Date, default: currentDateWithTimezone },
 });
 
+categorySchema.set('toJSON', {
+  virtuals: true,
+});
+
 const categoryModel = mongoose.model('Category', categorySchema);
 
 export default categoryModel;
