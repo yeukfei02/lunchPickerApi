@@ -19,7 +19,7 @@ export const getUserConnectionDetails = async (req: Request, res: Response): Pro
 export const getUserConnectionDetailById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await UserConnectionDetails.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
 
 export const getRestaurants = async (req: Request, res: Response): Promise<void> => {
@@ -63,7 +63,7 @@ export const getRestaurants = async (req: Request, res: Response): Promise<void>
 export const getRestaurantById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await Restaurant.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
 
 export const getRestaurantDetails = async (req: Request, res: Response): Promise<void> => {
@@ -110,7 +110,7 @@ export const getRestaurantDetails = async (req: Request, res: Response): Promise
 export const getRestaurantDetailsById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await RestaurantDetails.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
 
 export const getRestaurantDetailsReview = async (req: Request, res: Response): Promise<void> => {
@@ -145,7 +145,7 @@ export const getRestaurantDetailsReview = async (req: Request, res: Response): P
 export const getRestaurantDetailsReviewById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await RestaurantDetailsReview.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
 
 export const getCategory = async (req: Request, res: Response): Promise<void> => {
@@ -160,7 +160,7 @@ export const getCategory = async (req: Request, res: Response): Promise<void> =>
 export const getCategoryById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await Category.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
 
 export const getFavourites = async (req: Request, res: Response): Promise<void> => {
@@ -175,5 +175,5 @@ export const getFavourites = async (req: Request, res: Response): Promise<void> 
 export const getFavouritesById = async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id;
   const data = await Favourites.findById(id);
-  res.status(200).set('X-Total-Count', '1').set('Access-Control-Expose-Headers', 'X-Total-Count').json(data);
+  res.status(200).json(data);
 };
