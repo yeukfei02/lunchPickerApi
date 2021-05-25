@@ -26,3 +26,16 @@ export const isUserLoggedIn = async (req: Request, res: Response, next: NextFunc
     sendErrorResponse(res, 400, data);
   }
 };
+
+export const validateReactAdminRoute = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization : '';
+
+  if (!_.isEmpty(token) && token === 'lunchPickerAdmin') {
+    next();
+  } else {
+    const data = {
+      message: 'validateReactAdminRoute error, please check authorization header',
+    };
+    sendErrorResponse(res, 400, data);
+  }
+};
