@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.3.0...v2.3.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* 🐛 remove header in getbyid route ([5ab2a98](https://github.com/yeukfei02/lunchPickerApi/commit/5ab2a98542e195b20c25313c05214f2f8a226f6a))
+
 ## [2.3.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.2.0...v2.3.0) (2021-05-24)
 
 
