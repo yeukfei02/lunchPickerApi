@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.4.0...v2.5.0) (2021-06-01)
+
+
+### Features
+
+* 🎸 add filter and sort in react admin api ([11cbe4f](https://github.com/yeukfei02/lunchPickerApi/commit/11cbe4fd80f0a2a8d1d6649f7200c9ace4456a48))
+
+
+### Bug Fixes
+
+* 🐛 fix empty error ([9e7f1a6](https://github.com/yeukfei02/lunchPickerApi/commit/9e7f1a67e2fb28d0a6ddcb061f943e8f2b5c6006))
+
 ## [2.4.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.3.1...v2.4.0) (2021-05-25)
 
 
