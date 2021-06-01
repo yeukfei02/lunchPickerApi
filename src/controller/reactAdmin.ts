@@ -8,7 +8,29 @@ import Category from '../model/category';
 import Favourites from '../model/favourites';
 
 export const getUserConnectionDetails = async (req: Request, res: Response): Promise<void> => {
-  const data = await UserConnectionDetails.find({}).sort({ created_by: 'desc' }).limit(50);
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const ip = req.query.ip;
+  if (id) {
+    obj._id = id;
+  }
+  if (ip) {
+    obj.ip = { $regex: ip, $options: 'i' };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
+  const data = await UserConnectionDetails.find(obj).sort(sortObj).skip(start).limit(limit);
   res
     .status(200)
     .set('X-Total-Count', data.length.toString())
@@ -23,9 +45,35 @@ export const getUserConnectionDetailById = async (req: Request, res: Response): 
 };
 
 export const getRestaurants = async (req: Request, res: Response): Promise<void> => {
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const name = req.query.name;
+  const rating = req.query.rating;
+  if (id) {
+    obj._id = id;
+  }
+  if (name) {
+    obj.name = { $regex: name, $options: 'i' };
+  }
+  if (rating) {
+    obj.rating = { $gte: rating };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
   const formattedData: any[] = [];
 
-  const data = await Restaurant.find({}).sort({ created_by: 'desc' }).limit(50);
+  const data = await Restaurant.find(obj).sort(sortObj).skip(start).limit(limit);
   if (data) {
     data.forEach((item: any, i: number) => {
       const obj = {
@@ -67,9 +115,35 @@ export const getRestaurantById = async (req: Request, res: Response): Promise<vo
 };
 
 export const getRestaurantDetails = async (req: Request, res: Response): Promise<void> => {
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const name = req.query.name;
+  const rating = req.query.rating;
+  if (id) {
+    obj._id = id;
+  }
+  if (name) {
+    obj.name = { $regex: name, $options: 'i' };
+  }
+  if (rating) {
+    obj.rating = { $gte: rating };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
   const formattedData: any[] = [];
 
-  const data = await RestaurantDetails.find({}).sort({ created_by: 'desc' }).limit(50);
+  const data = await RestaurantDetails.find(obj).sort(sortObj).skip(start).limit(limit);
   if (data) {
     data.forEach((item: any, i: number) => {
       const obj = {
@@ -114,9 +188,35 @@ export const getRestaurantDetailsById = async (req: Request, res: Response): Pro
 };
 
 export const getRestaurantDetailsReview = async (req: Request, res: Response): Promise<void> => {
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const text = req.query.text;
+  const rating = req.query.rating;
+  if (id) {
+    obj._id = id;
+  }
+  if (text) {
+    obj.text = { $regex: text, $options: 'i' };
+  }
+  if (rating) {
+    obj.rating = { $gte: rating };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
   const formattedData: any[] = [];
 
-  const data = await RestaurantDetailsReview.find({}).sort({ created_by: 'desc' }).limit(50);
+  const data = await RestaurantDetailsReview.find(obj).sort(sortObj).skip(start).limit(limit);
   if (data) {
     data.forEach((item: any, i: number) => {
       const obj = {
@@ -149,7 +249,33 @@ export const getRestaurantDetailsReviewById = async (req: Request, res: Response
 };
 
 export const getCategory = async (req: Request, res: Response): Promise<void> => {
-  const data = await Category.find({}).sort({ created_by: 'desc' }).limit(50);
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const title = req.query.title;
+  const alias = req.query.alias;
+  if (id) {
+    obj._id = id;
+  }
+  if (title) {
+    obj.title = { $regex: title, $options: 'i' };
+  }
+  if (alias) {
+    obj.alias = { $regex: alias, $options: 'i' };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
+  const data = await Category.find(obj).sort(sortObj).skip(start).limit(limit);
   res
     .status(200)
     .set('X-Total-Count', data.length.toString())
@@ -164,7 +290,29 @@ export const getCategoryById = async (req: Request, res: Response): Promise<void
 };
 
 export const getFavourites = async (req: Request, res: Response): Promise<void> => {
-  const data = await Favourites.find({}).sort({ created_by: 'desc' }).limit(50);
+  const start = parseInt(req.query._start, 10);
+  const end = parseInt(req.query._end, 10);
+  const limit = end - start;
+
+  const obj: any = {};
+  const id = req.query.id;
+  const ip = req.query.ip;
+  if (id) {
+    obj._id = id;
+  }
+  if (ip) {
+    obj.ip = { $regex: ip, $options: 'i' };
+  }
+
+  let sortField = req.query._sort;
+  const order = req.query._order;
+  const sortObj: any = {};
+  if (sortField === 'id') {
+    sortField = '_id';
+  }
+  sortObj[sortField] = order.toLowerCase();
+
+  const data = await Favourites.find(obj).sort(sortObj).skip(start).limit(limit);
   res
     .status(200)
     .set('X-Total-Count', data.length.toString())
