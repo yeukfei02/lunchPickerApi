@@ -28,7 +28,7 @@ export const getUserConnectionDetails = async (req: Request, res: Response): Pro
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const data = await UserConnectionDetails.find(obj).sort(sortObj).skip(start).limit(limit);
   res
@@ -69,7 +69,7 @@ export const getRestaurants = async (req: Request, res: Response): Promise<void>
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const formattedData: any[] = [];
 
@@ -103,7 +103,7 @@ export const getRestaurants = async (req: Request, res: Response): Promise<void>
 
   res
     .status(200)
-    .set('X-Total-Count', data.length.toString())
+    .set('X-Total-Count', formattedData.length.toString())
     .set('Access-Control-Expose-Headers', 'X-Total-Count')
     .json(formattedData);
 };
@@ -139,7 +139,7 @@ export const getRestaurantDetails = async (req: Request, res: Response): Promise
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const formattedData: any[] = [];
 
@@ -176,7 +176,7 @@ export const getRestaurantDetails = async (req: Request, res: Response): Promise
 
   res
     .status(200)
-    .set('X-Total-Count', data.length.toString())
+    .set('X-Total-Count', formattedData.length.toString())
     .set('Access-Control-Expose-Headers', 'X-Total-Count')
     .json(formattedData);
 };
@@ -212,7 +212,7 @@ export const getRestaurantDetailsReview = async (req: Request, res: Response): P
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const formattedData: any[] = [];
 
@@ -237,7 +237,7 @@ export const getRestaurantDetailsReview = async (req: Request, res: Response): P
 
   res
     .status(200)
-    .set('X-Total-Count', data.length.toString())
+    .set('X-Total-Count', formattedData.length.toString())
     .set('Access-Control-Expose-Headers', 'X-Total-Count')
     .json(formattedData);
 };
@@ -273,7 +273,7 @@ export const getCategory = async (req: Request, res: Response): Promise<void> =>
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const data = await Category.find(obj).sort(sortObj).skip(start).limit(limit);
   res
@@ -310,7 +310,7 @@ export const getFavourites = async (req: Request, res: Response): Promise<void> 
   if (sortField === 'id') {
     sortField = '_id';
   }
-  sortObj[sortField] = order.toLowerCase();
+  sortObj[sortField] = order ? order.toLowerCase() : '';
 
   const data = await Favourites.find(obj).sort(sortObj).skip(start).limit(limit);
   res
