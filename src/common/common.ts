@@ -8,7 +8,7 @@ const expo = new Expo();
 
 import UserConnectionDetails from '../model/userConnectionDetails';
 
-export const getRootUrl = () => {
+export const getRootUrl = (): string => {
   let ROOT_URL = '';
 
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
