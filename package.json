@@ -74,7 +74,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev ./src/app.ts",
-    "start": "NODE_ENV=production nodemon ./dist/app.js",
+    "start": "NODE_ENV=production node ./dist/app.js",
     "build": "rimraf dist && tsc",
     "heroku-postbuild": "yarn run build",
     "test": "jest --detectOpenHandles",
