@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.5.0...v2.5.1) (2021-07-11)
+
+
+### Bug Fixes
+
+* 🐛 add devDependencies in package.json ([f524ee5](https://github.com/yeukfei02/lunchPickerApi/commit/f524ee5e6f951b408b40adf8f8b2e1b431375f86))
+* 🐛 add missing return type in getRootUrl func ([1c83d92](https://github.com/yeukfei02/lunchPickerApi/commit/1c83d92840f637b9d269023a6733f73da01cfbde))
+* 🐛 format jest.config.js ([a49b2e4](https://github.com/yeukfei02/lunchPickerApi/commit/a49b2e44245d0e1cd6c570d01cc7ce3a045cf61f))
+* 🐛 use node instead of nodemon ([065dec5](https://github.com/yeukfei02/lunchPickerApi/commit/065dec5f95fb85392fb07736985f40a129c1ab88))
+
 ## [2.5.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.4.0...v2.5.0) (2021-06-01)
 
 
