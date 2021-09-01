@@ -25,8 +25,6 @@ import reactAdminRoutes from './routes/reactAdmin';
 
 import { cronStart } from './cron/cron';
 
-import admin from './admin/admin';
-
 const app = express();
 const port = process.env.PORT || 3000;
 app.set('port', port);
@@ -55,9 +53,6 @@ app.use('/api/stripe', stripeRoutes);
 app.use('/react-admin', reactAdminRoutes);
 
 connectDB(app);
-
-// admin portal
-app.use('/admin', admin);
 
 // cron job
 cronStart();
