@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.5.1...v2.6.0) (2021-09-01)
+
+
+### Features
+
+* 🎸 use timestamp in mongoose schema ([07ad963](https://github.com/yeukfei02/lunchPickerApi/commit/07ad963518b39db16248983b8feb4e8d08fa73b0))
+
 ### [2.5.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.5.0...v2.5.1) (2021-07-11)
 
 
