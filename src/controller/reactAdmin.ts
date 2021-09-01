@@ -79,8 +79,8 @@ export const getRestaurants = async (req: Request, res: Response): Promise<void>
       const obj = {
         categories: item.categories,
         transactions: item.transactions,
-        created_by: item.created_by,
-        updated_by: item.updated_by,
+        created_at: item.created_at,
+        updated_at: item.updated_at,
         _id: item._id,
         id: item._id,
         alias: item.alias,
@@ -151,8 +151,8 @@ export const getRestaurantDetails = async (req: Request, res: Response): Promise
         photos: item.photos,
         hours: item.hours,
         transactions: item.transactions,
-        created_by: item.created_by,
-        updated_by: item.updated_by,
+        created_at: item.created_at,
+        updated_at: item.updated_at,
         _id: item._id,
         id: item._id,
         alias: item.alias,
@@ -220,8 +220,8 @@ export const getRestaurantDetailsReview = async (req: Request, res: Response): P
   if (data) {
     data.forEach((item: any, i: number) => {
       const obj = {
-        created_by: item.created_by,
-        updated_by: item.updated_by,
+        created_at: item.created_at,
+        updated_at: item.updated_at,
         _id: item._id,
         id: item._id,
         url: item.url,
