@@ -1,7 +1,7 @@
 language: node_js
 os: linux
 node_js:
-  - 12
+  - 14
 install:
   - yarn
 script:
