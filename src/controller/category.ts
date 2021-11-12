@@ -4,7 +4,7 @@ import _ from 'lodash';
 import axios from 'axios';
 
 import Category from '../model/category';
-import { addDataToUserConnectionDetails, sendSuccessResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse } from '../helpers/helpers';
 
 async function addDataToCategoryTable(resultData: any): Promise<void> {
   if (!_.isEmpty(resultData.categories)) {

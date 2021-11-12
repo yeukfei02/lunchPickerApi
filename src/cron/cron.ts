@@ -1,7 +1,7 @@
 import cron from 'node-cron';
 import admin from 'firebase-admin';
 
-import { expoSendPushNotification } from '../common/common';
+import { expoSendPushNotification } from '../helpers/helpers';
 
 import ExpoDetails from '../model/expoDetails';
 

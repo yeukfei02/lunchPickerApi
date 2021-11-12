@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { sendSuccessResponse } from '../common/common';
+import { sendSuccessResponse } from '../helpers/helpers';
 
 export const getMain = (req: Request, res: Response): void => {
   const data = {

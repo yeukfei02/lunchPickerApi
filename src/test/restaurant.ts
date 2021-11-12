@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { getRootUrl } from '../common/common';
+import { getRootUrl } from '../helpers/helpers';
 
 const rootUrl = getRootUrl();
 

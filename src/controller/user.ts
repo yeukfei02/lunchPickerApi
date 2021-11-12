@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
 import User from '../model/user';
-import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
 
 async function addDataToUserTable(email: string, password: string): Promise<void> {
   const user = new User({

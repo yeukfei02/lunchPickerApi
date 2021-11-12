@@ -6,7 +6,7 @@ import axios from 'axios';
 import Restaurant from '../model/restaurant';
 import RestaurantDetails from '../model/restaurantDetails';
 import RestaurantDetailsReview from '../model/restaurantDetailsReview';
-import { addDataToUserConnectionDetails, sendSuccessResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse } from '../helpers/helpers';
 
 async function addDataToRestaurantTable(resultData: any): Promise<void> {
   if (!_.isEmpty(resultData.businesses)) {
