@@ -8,7 +8,7 @@ import {
   expoSendPushNotification,
   sendSuccessResponse,
   sendErrorResponse,
-} from '../common/common';
+} from '../helpers/helpers';
 
 export const addPushNotificationTokenToExpoDetails = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'addPushNotificationTokenToExpoDetails');

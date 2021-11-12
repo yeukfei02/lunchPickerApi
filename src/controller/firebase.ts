@@ -4,7 +4,7 @@ import _ from 'lodash';
 import admin from 'firebase-admin';
 
 import FirebaseDetails from '../model/firebaseDetails';
-import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
 
 const serviceAccount = {
   type: process.env.FIREBASE_ADMIN_TYPE,

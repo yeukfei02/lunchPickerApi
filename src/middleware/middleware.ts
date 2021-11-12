@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
 
-import { sendErrorResponse } from '../common/common';
+import { sendErrorResponse } from '../helpers/helpers';
 
 export const isUserLoggedIn = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization.substring(7).trim() : '';

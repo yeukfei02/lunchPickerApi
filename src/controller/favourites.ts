@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import _ from 'lodash';
 
 import Favourites from '../model/favourites';
-import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
 
 async function addDataToFavouritesTable(ip: string, item: any): Promise<void> {
   const record = await Favourites.findOne({ item: item });

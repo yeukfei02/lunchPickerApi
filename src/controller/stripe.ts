@@ -14,7 +14,7 @@ if (environment === 'development' || environment === 'test') {
 }
 
 import CreditCardDetails from '../model/creditCardDetails';
-import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../common/common';
+import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
 
 async function addDataToCreditCardDetails(token: string, card: any): Promise<void> {
   if (!_.isEmpty(token) && !_.isEmpty(card)) {
