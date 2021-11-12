@@ -1,10 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 import { getRootUrl } from '../common/common';
 
-const ROOT_URL = getRootUrl();
+const rootUrl = getRootUrl();
 
 export const findLocationTextByLatLongTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/find-location-text-by-lat-long`, {
+  const result = await axios.get(`${rootUrl}/restaurant/find-location-text-by-lat-long`, {
     params: {
       latitude: 1.3104729000000002,
       longitude: 103.8577962,
@@ -17,7 +17,7 @@ export const findLocationTextByLatLongTest = async (): Promise<AxiosResponse<any
 };
 
 export const getAllRestaurantsByLatLongTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-lat-long`, {
+  const result = await axios.get(`${rootUrl}/restaurant/find-restaurants-by-lat-long`, {
     params: {
       term: 'chinese',
       latitude: 1.30916,
@@ -31,7 +31,7 @@ export const getAllRestaurantsByLatLongTest = async (): Promise<AxiosResponse<an
 };
 
 export const getAllRestaurantsByLocationTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurants-by-location`, {
+  const result = await axios.get(`${rootUrl}/restaurant/find-restaurants-by-location`, {
     params: {
       term: 'chinese',
       location: 'hong kong central',
@@ -44,7 +44,7 @@ export const getAllRestaurantsByLocationTest = async (): Promise<AxiosResponse<a
 };
 
 export const getRestaurantByPhoneTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/find-restaurant-by-phone`, {
+  const result = await axios.get(`${rootUrl}/restaurant/find-restaurant-by-phone`, {
     params: {
       phone: '+85227881226',
     },
@@ -56,7 +56,7 @@ export const getRestaurantByPhoneTest = async (): Promise<AxiosResponse<any>> =>
 };
 
 export const getRestaurantDetailsByIdTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA`, {
+  const result = await axios.get(`${rootUrl}/restaurant/get-restaurant-details/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -65,7 +65,7 @@ export const getRestaurantDetailsByIdTest = async (): Promise<AxiosResponse<any>
 };
 
 export const getRestaurantDetailsReviewByIdTest = async (): Promise<AxiosResponse<any>> => {
-  const result = await axios.get(`${ROOT_URL}/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA`, {
+  const result = await axios.get(`${rootUrl}/restaurant/get-restaurant-details-review/X7b2izv3qhklnCDjoF37tA`, {
     headers: {
       'Content-Type': 'application/json',
     },
