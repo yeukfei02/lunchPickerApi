@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.0...v2.6.1) (2021-09-01)
+
+
+### Bug Fixes
+
+* 🐛 remove adminbro lib and update dockerfile ([c5fafee](https://github.com/yeukfei02/lunchPickerApi/commit/c5fafee89268eb019f37d82b8f5239e449b8d393))
+
 ## [2.6.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.5.1...v2.6.0) (2021-09-01)
 
 

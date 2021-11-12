@@ -1,13 +1,13 @@
 {
   "name": "lunchPickerApi",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "main": "app.js",
   "repository": "https://github.com/yeukfei02/lunchPickerApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@sentry/node": "5.10.2",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
