@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.3](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.2...v2.6.3) (2021-11-12)
+
+
+### Bug Fixes
+
+* 🐛 rename to helpers ([a42d80a](https://github.com/yeukfei02/lunchPickerApi/commit/a42d80a58d58fd8122a29fb23b68366c334a3c11))
+
 ### [2.6.2](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.1...v2.6.2) (2021-11-12)
 
 
