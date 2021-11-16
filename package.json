@@ -6,7 +6,8 @@
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@sentry/node": "5.10.2",
+    "@sentry/node": "^6.15.0",
+    "@sentry/tracing": "^6.15.0",
     "axios": "^0.21.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
