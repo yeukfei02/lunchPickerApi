@@ -2,7 +2,7 @@ name: Run test case
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ master, main ]
 
 jobs:
   build:
