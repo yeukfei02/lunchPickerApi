@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import _ from 'lodash';
 const DeviceDetector = require('node-device-detector');
 import { Expo, ExpoPushMessage } from 'expo-server-sdk';
+import { createClient } from 'redis';
 
 const expo = new Expo();
 
@@ -35,6 +36,17 @@ export const getRedisUrl = (): string => {
   }
 
   return redisUrl;
+};
+
+export const getRedisClient = async (): Promise<any> => {
+  const redisUrl = getRedisUrl();
+
+  const client = createClient({
+    url: redisUrl,
+  });
+  await client.connect();
+
+  return client;
 };
 
 export const sendSuccessResponse = (res: Response, statusCode: number, data: any): void => {
