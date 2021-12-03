@@ -1,8 +1,9 @@
-import cron from 'node-cron';
 import admin from 'firebase-admin';
+import { breakfastTopicMessageQueue } from './breakfastTopicMessageQueue';
+import { lunchTopicMessageQueue } from './lunchTopicMessageQueue';
+import { dinnerTopicMessageQueue } from './dinnerTopicMessageQueue';
 
 import { expoSendPushNotification } from '../helpers/helpers';
-
 import ExpoDetails from '../model/expoDetails';
 
 const serviceAccount = {
@@ -26,7 +27,7 @@ admin.initializeApp(
   'cronFirebaseAdmin',
 );
 
-async function sendTopicMessage(title: string, body: string): Promise<void> {
+async function firebaseSendTopicMessage(title: string, body: string): Promise<void> {
   const topic = 'all';
 
   const message = {
@@ -57,25 +58,23 @@ async function expoClientSendMessage(title: string, body: string): Promise<void>
   }
 }
 
-async function scheduleSendTopicMessage(scheduleTime: string, title: string, body: string): Promise<void> {
-  cron.schedule(scheduleTime, () => {
-    console.log('### cron sendTopicMessage ###');
+async function sendTopicMessage(title: string, body: string): Promise<void> {
+  console.log('### cron sendTopicMessage ###');
 
-    // firebase
-    sendTopicMessage(title, body);
+  // firebase
+  await firebaseSendTopicMessage(title, body);
 
-    // expo
-    expoClientSendMessage(title, body);
-  });
+  // expo
+  await expoClientSendMessage(title, body);
 }
 
 export const cronStart = (): void => {
   // At 08:30 on every day-of-week from Monday through Sunday.
-  scheduleSendTopicMessage('30 8 * * 1-7', "Let's look for breakfast!", 'Open lunch picker in browser now!');
+  breakfastTopicMessageQueue('30 8 * * 1-7', sendTopicMessage);
 
   // At 11:30 on every day-of-week from Monday through Sunday.
-  scheduleSendTopicMessage('30 11 * * 1-7', 'Where should I have lunch?', 'Open lunch picker in browser now!');
+  lunchTopicMessageQueue('30 11 * * 1-7', sendTopicMessage);
 
   // At 18:30 on every day-of-week from Monday through Sunday.
-  scheduleSendTopicMessage('30 18 * * 1-7', 'Find your dinner place now!', 'Open lunch picker in browser now!');
+  dinnerTopicMessageQueue('30 18 * * 1-7', sendTopicMessage);
 };
