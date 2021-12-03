@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.4...v2.7.0) (2021-12-03)
+
+
+### Features
+
+* 🎸 add .env.sample ([6283217](https://github.com/yeukfei02/lunchPickerApi/commit/628321779abf733bc726ef46d1d008b2b697696d))
+* 🎸 add github actions test case yml ([57c72f9](https://github.com/yeukfei02/lunchPickerApi/commit/57c72f9ff01f34039051b03fadbb0328ff309bdb))
+* 🎸 add nock for mock api request test ([fe4498f](https://github.com/yeukfei02/lunchPickerApi/commit/fe4498f9bfb1f613751ea4075205aaae9e132b26))
+* 🎸 add semgrep.yml ([8e519f0](https://github.com/yeukfei02/lunchPickerApi/commit/8e519f0390af09b547a96474e8fb06f47f40973d))
+
+
+### Bug Fixes
+
+* 🐛 add user test case ([de301e7](https://github.com/yeukfei02/lunchPickerApi/commit/de301e7a3b3757d3a4582058bd2aae4fc22b0b83))
+* 🐛 fix ci and update jest lib version ([63ef315](https://github.com/yeukfei02/lunchPickerApi/commit/63ef315ecdecb73f2c676098f06dfedb03f87311))
+* 🐛 fix test.yml ([0c0cc10](https://github.com/yeukfei02/lunchPickerApi/commit/0c0cc10d95b2e8323bc6a8407bc8f345536017a0))
+* 🐛 fix text ([49453f1](https://github.com/yeukfei02/lunchPickerApi/commit/49453f1f4474db830d077a856fe811fead2d53b6))
+* 🐛 update github actions yml ([93e35b6](https://github.com/yeukfei02/lunchPickerApi/commit/93e35b6465034aaee50dcc4bf067c85b73306f2f))
+* 🐛 update test.yml ([06c1a67](https://github.com/yeukfei02/lunchPickerApi/commit/06c1a6735a124c23ac6aa487f9f6e52d6958b6d6))
+
 ### [2.6.4](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.3...v2.6.4) (2021-11-16)
 
 
