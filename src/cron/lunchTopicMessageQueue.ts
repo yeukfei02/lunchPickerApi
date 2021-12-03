@@ -6,6 +6,13 @@ const redisUrl = getRedisUrl();
 
 export const lunchTopicMessageQueue = (scheduleTime: string, sendTopicMessage: any): void => {
   const lunchTopicMessageQueue = new Queue('lunch topic message', redisUrl);
+
+  const data = {
+    title: 'Where should I have lunch?',
+    body: 'Open lunch picker in browser now!',
+  };
+  lunchTopicMessageQueue.add(data, { repeat: { cron: scheduleTime } });
+
   lunchTopicMessageQueue.process((job, done) => {
     if (job && job.data) {
       const title = job.data.title;
@@ -16,9 +23,4 @@ export const lunchTopicMessageQueue = (scheduleTime: string, sendTopicMessage: a
       done();
     }
   });
-  const data = {
-    title: 'Where should I have lunch?',
-    body: 'Open lunch picker in browser now!',
-  };
-  lunchTopicMessageQueue.add(data, { repeat: { cron: scheduleTime } });
 };
