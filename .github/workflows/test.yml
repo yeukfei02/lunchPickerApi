@@ -3,7 +3,9 @@ name: Run test case
 on:
   pull_request:
     branches: [ master, main ]
-
+  push:
+    branches: [ master, main ]
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,3 +26,8 @@ jobs:
 
       - name: Run test case
         run: yarn run test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}
