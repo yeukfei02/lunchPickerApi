@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.7.0...v2.8.0) (2021-12-03)
+
+
+### Features
+
+* 🎸 add redis lib ([990cdbe](https://github.com/yeukfei02/lunchPickerApi/commit/990cdbed32ecc684c49c7038332ca0576b764f40))
+* 🎸 remove node-cron and use bull ([c52ff48](https://github.com/yeukfei02/lunchPickerApi/commit/c52ff484ba9ba9cddac5378abf80035279928db9))
+
+
+### Bug Fixes
+
+* 🐛 fix queue logic ([3151d7d](https://github.com/yeukfei02/lunchPickerApi/commit/3151d7d6f032169938887818eadd68eb1329b7d6))
+
 ## [2.7.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.6.4...v2.7.0) (2021-12-03)
 
 
