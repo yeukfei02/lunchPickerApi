@@ -62,7 +62,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         );
 
         const data = {
-          message: 'login success',
+          message: 'login success!',
           token: token,
         };
         sendSuccessResponse(res, 201, data);
