@@ -3,6 +3,8 @@ name: Run test case
 on:
   pull_request:
     branches: [ master, main ]
+  push:
+    branches: [ master, main ]
 
 jobs:
   build:
@@ -24,3 +26,12 @@ jobs:
 
       - name: Run test case
         run: yarn run test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
