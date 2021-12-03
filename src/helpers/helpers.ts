@@ -20,6 +20,23 @@ export const getRootUrl = (): string => {
   return rootUrl;
 };
 
+export const getRedisUrl = (): string => {
+  let redisUrl = '';
+
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+    redisUrl = 'redis://127.0.0.1:6379/0';
+  } else {
+    if (process.env.REDISCLOUD_URL) {
+      redisUrl = process.env.REDISCLOUD_URL;
+    }
+    if (process.env.REDIS_URL) {
+      redisUrl = process.env.REDIS_URL;
+    }
+  }
+
+  return redisUrl;
+};
+
 export const sendSuccessResponse = (res: Response, statusCode: number, data: any): void => {
   res.set('Cache-Control', 'public, max-age=31557600');
   res.status(statusCode).json(data);
