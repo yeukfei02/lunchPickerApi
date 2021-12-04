@@ -8,6 +8,7 @@ import compression from 'compression';
 import requestIp from 'request-ip';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
+require('newrelic');
 
 import env from 'dotenv';
 env.config();
