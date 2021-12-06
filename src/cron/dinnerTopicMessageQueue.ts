@@ -22,5 +22,5 @@ export const dinnerTopicMessageQueue = (scheduleTime: string, sendTopicMessage: 
     title: 'Find your dinner place now!',
     body: 'Open lunch picker in browser now!',
   };
-  dinnerTopicMessageQueue.add(data, { repeat: { cron: scheduleTime } });
+  dinnerTopicMessageQueue.add(data, { repeat: { cron: scheduleTime, tz: 'Asia/Hong_Kong' } });
 };
