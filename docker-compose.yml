@@ -16,10 +16,18 @@ services:
       - NODE_ENV=production
     depends_on:
       - db
+      - redis
       
   db:
     container_name: mongo
     image: mongo:4.2
     ports:
       - 27017:27017
+    restart: always
+
+  redis:
+    container_name: redis
+    image: redis:6.2-alpine
+    ports:
+      - 6379:6379
     restart: always
