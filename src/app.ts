@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import compression from 'compression';
 import requestIp from 'request-ip';
+import rateLimit from 'express-rate-limit';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 require('newrelic');
@@ -51,6 +52,14 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 
+// rate limit
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minutes
+  max: 10000, // Limit each IP to 10000 requests per `window` (here, per 1 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
 app.use(Sentry.Handlers.requestHandler() as express.RequestHandler);
 app.use(Sentry.Handlers.tracingHandler());
 app.use(cors());
@@ -60,6 +69,7 @@ app.use(compression());
 app.use(requestIp.mw());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(limiter);
 
 app.use('/', mainRoutes);
 app.use('/api/user', userRoutes);
@@ -72,11 +82,13 @@ app.use('/api/stripe', stripeRoutes);
 app.use('/react-admin', reactAdminRoutes);
 app.use(Sentry.Handlers.errorHandler() as express.ErrorRequestHandler);
 
+// db
 connectDB(app);
 
 // cron job
 cronStart();
 
+// error handler
 app.use((req, res, next) => {
   res.status(404).json({
     message: 'Not found',
