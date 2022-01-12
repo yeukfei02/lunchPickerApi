@@ -2,7 +2,6 @@ import express from 'express';
 
 import cors from 'cors';
 import morgan from 'morgan';
-import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import compression from 'compression';
 import requestIp from 'request-ip';
@@ -67,8 +66,7 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(compression());
 app.use(requestIp.mw());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(limiter);
 
 app.use('/', mainRoutes);
