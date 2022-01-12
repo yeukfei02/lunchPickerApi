@@ -1275,6 +1275,13 @@
   dependencies:
     "@types/express" "*"
 
+"@types/express-rate-limit@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/express-rate-limit/-/express-rate-limit-6.0.0.tgz#11a314477895a8a888958f27650ed0d1ddad01b0"
+  integrity sha512-nZxo3nwU20EkTl/f2eGdndQkDIJYwkXIX4S3Vrp2jMdSdFJ6AWtIda8gOz0wiMuOFoeH/UUlCAiacz3x3eWNFA==
+  dependencies:
+    express-rate-limit "*"
+
 "@types/express-serve-static-core@*":
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.1.tgz#82be64a77211b205641e0209096fd3afb62481d3"
@@ -3322,6 +3329,11 @@ express-list-routes@^0.1.4:
   dependencies:
     colors "^1.0.3"
     lodash "^3.0.0"
+
+express-rate-limit@*, express-rate-limit@^6.0.5:
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-6.0.5.tgz#caee8f6634ed9db7b6bf7d5d7086f90ecd92e6e9"
+  integrity sha512-EB1mRTrzyyPfEsQZIQFXocd8NKZoDZbEwrtbdgkc20Yed6oYg02Xfjza2HHPI/0orp54BrFeHeT92ICB9ydokw==
 
 express-session@^1.17.2:
   version "1.17.2"
