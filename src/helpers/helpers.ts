@@ -117,7 +117,7 @@ export const expoSendPushNotification = async (
     chunks.forEach(async (chunk: ExpoPushMessage[], i: number) => {
       try {
         const ticketChunk = await expo.sendPushNotificationsAsync(chunk);
-        console.log(`ticketChunk = ${ticketChunk}`);
+        console.log('ticketChunk = ', ticketChunk);
         tickets.push(...ticketChunk);
       } catch (e) {
         console.log('error = ', e.message);
