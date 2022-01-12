@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.9.0...v2.9.1) (2021-12-30)
+
+
+### Bug Fixes
+
+* 🐛 fix test.yml ([7e9f425](https://github.com/yeukfei02/lunchPickerApi/commit/7e9f425e9c2652fdad536cab9ea3482a9aacb748))
+* 🐛 update dockerfile and docker-compose.yml ([e8428b7](https://github.com/yeukfei02/lunchPickerApi/commit/e8428b7907bccb50f9547d6b2bab2f068286a6e5))
+* 🐛 update test.yml ([0f181d6](https://github.com/yeukfei02/lunchPickerApi/commit/0f181d64d3a316f136ac5e72f2165f8b6b0ed2af))
+
+## [2.9.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.8.0...v2.9.0) (2021-12-06)
+
+
+### Features
+
+* 🎸 add getRedisClient func ([5982650](https://github.com/yeukfei02/lunchPickerApi/commit/598265076359f0ed1fbabc23cc10fc5f8c396a5f))
+* 🎸 add new relic ([2690fd6](https://github.com/yeukfei02/lunchPickerApi/commit/2690fd616c105f8004ed2f3d7e947474b1f696d1))
+
+
+### Bug Fixes
+
+* 🐛 add hongkong timezone in cron job ([315fd03](https://github.com/yeukfei02/lunchPickerApi/commit/315fd03439ca5c265202555e8e4b8608bf35f2cc))
+* 🐛 fix queue ([88c833d](https://github.com/yeukfei02/lunchPickerApi/commit/88c833d579a17f2cf7cb0e47bc68d87c5d08acfd))
+
 ## [2.8.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.7.0...v2.8.0) (2021-12-03)
 
 
