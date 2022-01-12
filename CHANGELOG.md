@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.0...v2.10.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* 🐛 remove body-parser lib ([b6f86b3](https://github.com/yeukfei02/lunchPickerApi/commit/b6f86b34ba7c8c3587dfd1bae3fdfc6b2c90c78e))
+
 ## [2.10.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.9.1...v2.10.0) (2022-01-12)
 
 
