@@ -6,12 +6,14 @@ const rootUrl = getRootUrl();
 
 export const restaurantTest = (): void => {
   describe('restaurantTest', () => {
+    let id = '';
+
     afterAll(() => {
       nock.cleanAll();
     });
 
     describe('findLocationTextByLatLongTest', () => {
-      it('findLocationTextByLatLong', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/restaurant/find-location-text-by-lat-long')
           .query({
@@ -43,7 +45,9 @@ export const restaurantTest = (): void => {
               boundingbox: ['1.3105444', '1.3108789', '103.8578806', '103.8582124'],
             },
           });
+      });
 
+      it('findLocationTextByLatLong', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/find-location-text-by-lat-long`, {
           params: {
             latitude: 1.3104729000000002,
@@ -62,7 +66,7 @@ export const restaurantTest = (): void => {
     });
 
     describe('getAllRestaurantsByLatLongTest', () => {
-      it('getAllRestaurantsByLatLong', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/restaurant/find-restaurants-by-lat-long')
           .query({
@@ -113,7 +117,9 @@ export const restaurantTest = (): void => {
               ],
             },
           });
+      });
 
+      it('getAllRestaurantsByLatLong', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/find-restaurants-by-lat-long`, {
           params: {
             term: 'chinese',
@@ -134,7 +140,7 @@ export const restaurantTest = (): void => {
     });
 
     describe('getAllRestaurantsByLocationTest', () => {
-      it('getAllRestaurantsByLocation', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/restaurant/find-restaurants-by-location')
           .query({
@@ -185,7 +191,9 @@ export const restaurantTest = (): void => {
               ],
             },
           });
+      });
 
+      it('getAllRestaurantsByLocation', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/find-restaurants-by-location`, {
           params: {
             term: 'chinese',
@@ -201,11 +209,13 @@ export const restaurantTest = (): void => {
         expect(response.data.message).toBeDefined();
         expect(response.data.restaurants).toBeDefined();
         expect(response.data.restaurants.businesses).toBeDefined();
+
+        id = response.data.restaurants.businesses[0].id;
       });
     });
 
     describe('getRestaurantByPhoneTest', () => {
-      it('getRestaurantByPhone', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/restaurant/find-restaurant-by-phone')
           .query({
@@ -259,7 +269,9 @@ export const restaurantTest = (): void => {
               total: 1,
             },
           });
+      });
 
+      it('getRestaurantByPhone', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/find-restaurant-by-phone`, {
           params: {
             phone: '+85227881226',
@@ -279,9 +291,7 @@ export const restaurantTest = (): void => {
     });
 
     describe('getRestaurantDetailsByIdTest', () => {
-      it('getRestaurantDetailsById', async () => {
-        const id = 'X7b2izv3qhklnCDjoF37tA';
-
+      beforeEach(() => {
         nock(rootUrl)
           .get(`/restaurant/get-restaurant-details/${id}`)
           .matchHeader('Content-Type', 'application/json')
@@ -388,7 +398,9 @@ export const restaurantTest = (): void => {
               transactions: [],
             },
           });
+      });
 
+      it('getRestaurantDetailsById', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/get-restaurant-details/${id}`, {
           headers: {
             'Content-Type': 'application/json',
@@ -403,9 +415,7 @@ export const restaurantTest = (): void => {
     });
 
     describe('getRestaurantDetailsReviewByIdTest', () => {
-      it('getRestaurantDetailsReviewById', async () => {
-        const id = 'X7b2izv3qhklnCDjoF37tA';
-
+      beforeEach(() => {
         nock(rootUrl)
           .get(`/restaurant/get-restaurant-details-review/${id}`)
           .matchHeader('Content-Type', 'application/json')
@@ -463,7 +473,9 @@ export const restaurantTest = (): void => {
               possible_languages: ['zh', 'fr', 'en', 'tr', 'ja'],
             },
           });
+      });
 
+      it('getRestaurantDetailsReviewById', async () => {
         const response = await axios.get(`${rootUrl}/restaurant/get-restaurant-details-review/${id}`, {
           headers: {
             'Content-Type': 'application/json',
