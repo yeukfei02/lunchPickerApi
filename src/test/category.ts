@@ -11,7 +11,7 @@ export const categoryTest = (): void => {
     });
 
     describe('getCategoriesTest', () => {
-      it('getCategories', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/category/get-categories')
           .matchHeader('Content-Type', 'application/json')
@@ -31,7 +31,9 @@ export const categoryTest = (): void => {
               },
             ],
           });
+      });
 
+      it('getCategories', async () => {
         const response = await axios.get(`${rootUrl}/category/get-categories`, {
           headers: {
             'Content-Type': 'application/json',
@@ -46,9 +48,9 @@ export const categoryTest = (): void => {
     });
 
     describe('getCategoryByAliasTest', () => {
-      it('getCategoryByAlias', async () => {
-        const alias = 'seafood';
+      const alias = 'seafood';
 
+      beforeEach(() => {
         nock(rootUrl)
           .get(`/category/get-categories/${alias}`)
           .matchHeader('Content-Type', 'application/json')
@@ -66,7 +68,9 @@ export const categoryTest = (): void => {
               __v: 0,
             },
           });
+      });
 
+      it('getCategoryByAlias', async () => {
         const response = await axios.get(`${rootUrl}/category/get-categories/${alias}`, {
           headers: {
             'Content-Type': 'application/json',

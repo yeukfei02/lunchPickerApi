@@ -11,7 +11,7 @@ export const userTest = (): void => {
     });
 
     describe('signupTest', () => {
-      it('signup', async () => {
+      beforeEach(() => {
         const body = {
           email: 'test@test.com',
           password: 'test',
@@ -20,7 +20,9 @@ export const userTest = (): void => {
         nock(rootUrl).post('/user/signup', body).matchHeader('Content-Type', 'application/json').reply(200, {
           message: 'signup success!',
         });
+      });
 
+      it('signup', async () => {
         const response = await axios.post(
           `${rootUrl}/user/signup`,
           { email: 'test@test.com', password: 'test' },
@@ -38,7 +40,7 @@ export const userTest = (): void => {
     });
 
     describe('loginTest', () => {
-      it('login', async () => {
+      beforeEach(() => {
         const body = {
           email: 'test@test.com',
           password: 'test',
@@ -49,7 +51,9 @@ export const userTest = (): void => {
           token:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmZGQ5OTAyLWU3NzUtNDUxNC1hYjZkLTcxMDRhNDA5MzdkZCIsImlhdCI6MTU5MDI0NjI5NSwiZXhwIjoxNTkwMzMyNjk1fQ.LlfXo9EEuzRfQOQyzYLgFIt1FITjftDE-_Al7uK3FSM',
         });
+      });
 
+      it('login', async () => {
         const response = await axios.post(
           `${rootUrl}/user/login`,
           { email: 'test@test.com', password: 'test' },
@@ -68,7 +72,7 @@ export const userTest = (): void => {
     });
 
     describe('usersTest', () => {
-      it('users', async () => {
+      beforeEach(() => {
         nock(rootUrl)
           .get('/user')
           .matchHeader('Content-Type', 'application/json')
@@ -85,7 +89,9 @@ export const userTest = (): void => {
               },
             ],
           });
+      });
 
+      it('users', async () => {
         const response = await axios.get(`${rootUrl}/user`, {
           headers: {
             'Content-Type': 'application/json',
