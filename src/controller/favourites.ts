@@ -1,22 +1,9 @@
 import { Request, Response } from 'express';
-import mongoose from 'mongoose';
 import _ from 'lodash';
 
 import Favourites from '../model/favourites';
+import { addDataToFavouritesService } from '../services/favourites';
 import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
-
-async function addDataToFavouritesTable(ip: string, item: any): Promise<void> {
-  const record = await Favourites.findOne({ item: item });
-  if (_.isEmpty(record)) {
-    const favourites = new Favourites({
-      _id: new mongoose.Types.ObjectId(),
-      ip: ip,
-      item: item,
-    });
-
-    await favourites.save();
-  }
-}
 
 export const addToFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'addToFavourites');
@@ -27,7 +14,7 @@ export const addToFavourites = async (req: Request, res: Response): Promise<void
       ip = '127.0.0.1';
     }
 
-    await addDataToFavouritesTable(ip, req.body.item);
+    await addDataToFavouritesService(ip, req.body.item);
     const data = {
       message: 'add favourites!',
     };
