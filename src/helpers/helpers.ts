@@ -63,7 +63,7 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
   const detector = new DeviceDetector();
   const detectorUserAgentResult = detector.detect(userAgent);
 
-  let ip = req.clientIp;
+  let ip = req.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }

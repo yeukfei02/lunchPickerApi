@@ -22,7 +22,7 @@ export const addToFavourites = async (req: Request, res: Response): Promise<void
   await addDataToUserConnectionDetails(req, 'addToFavourites');
 
   try {
-    let ip = req.clientIp || req.body.ip;
+    let ip = req.ip;
     if (_.isEqual(ip, '::1')) {
       ip = '127.0.0.1';
     }
@@ -43,7 +43,7 @@ export const addToFavourites = async (req: Request, res: Response): Promise<void
 export const getFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getFavourites');
 
-  let ip = req.clientIp || req.params.ip;
+  let ip = req.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
@@ -58,7 +58,7 @@ export const getFavourites = async (req: Request, res: Response): Promise<void> 
 export const deleteAllFavourites = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'deleteAllFavourites');
 
-  let ip = req.clientIp;
+  let ip = req.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
