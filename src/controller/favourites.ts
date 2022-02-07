@@ -13,6 +13,9 @@ export const addToFavourites = async (req: Request, res: Response): Promise<void
     if (_.isEqual(ip, '::1')) {
       ip = '127.0.0.1';
     }
+    if (ip.includes('::ffff:')) {
+      ip = ip.replace('::ffff:', '');
+    }
 
     await addDataToFavouritesService(ip, req.body.item);
     const data = {
@@ -34,6 +37,9 @@ export const getFavourites = async (req: Request, res: Response): Promise<void> 
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
+  if (ip.includes('::ffff:')) {
+    ip = ip.replace('::ffff:', '');
+  }
 
   const result = await Favourites.find({ ip: ip });
   res.status(200).json({
@@ -48,6 +54,9 @@ export const deleteAllFavourites = async (req: Request, res: Response): Promise<
   let ip = req.ip;
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
+  }
+  if (ip.includes('::ffff:')) {
+    ip = ip.replace('::ffff:', '');
   }
 
   const result = await Favourites.deleteMany({ ip: ip });

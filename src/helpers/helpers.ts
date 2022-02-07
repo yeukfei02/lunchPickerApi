@@ -67,6 +67,10 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
   if (_.isEqual(ip, '::1')) {
     ip = '127.0.0.1';
   }
+  if (ip.includes('::ffff:')) {
+    ip = ip.replace('::ffff:', '');
+  }
+
   let os = {};
   let client = {};
   let device = {};
