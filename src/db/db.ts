@@ -2,8 +2,7 @@ import { Express } from 'express';
 import mongoose from 'mongoose';
 
 export const connectDB = async (app: Express): Promise<void> => {
-  const environment = app.get('env');
-  if (environment === 'development' || environment === 'test') {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     // mongo local db
     await mongoose.connect('mongodb://localhost:27017/lunch-picker', {
       useNewUrlParser: true,

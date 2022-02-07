@@ -5,8 +5,7 @@ import Stripe from 'stripe';
 import _ from 'lodash';
 
 let stripe: Stripe = null;
-const environment = app.get('env');
-if (environment === 'development' || environment === 'test') {
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   stripe = new Stripe(process.env.STRIPE_TEST_API_KEY);
 } else {
   stripe = new Stripe(process.env.STRIPE_API_KEY);
