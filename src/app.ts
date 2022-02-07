@@ -4,7 +4,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
-import requestIp from 'request-ip';
 import rateLimit from 'express-rate-limit';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
@@ -12,8 +11,6 @@ require('newrelic');
 
 import env from 'dotenv';
 env.config();
-
-import { connectDB } from './db/db';
 
 import mainRoutes from './routes/main';
 import userRoutes from './routes/user';
@@ -25,6 +22,7 @@ import expoRoutes from './routes/expo';
 import stripeRoutes from './routes/stripe';
 import reactAdminRoutes from './routes/reactAdmin';
 
+import { connectDB } from './db/db';
 import { cronStart } from './cron/cron';
 
 const app = express();
@@ -65,7 +63,6 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(compression());
-app.use(requestIp.mw());
 app.use(express.json());
 app.use(limiter);
 
