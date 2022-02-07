@@ -1,5 +1,3 @@
-import express from 'express';
-const app = express();
 import { Request, Response } from 'express';
 import Stripe from 'stripe';
 import _ from 'lodash';
