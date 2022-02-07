@@ -78,7 +78,7 @@ app.use('/react-admin', reactAdminRoutes);
 app.use(Sentry.Handlers.errorHandler() as express.ErrorRequestHandler);
 
 // db
-connectDB(app);
+connectDB();
 
 // cron job
 cronStart();

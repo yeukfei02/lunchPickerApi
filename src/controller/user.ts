@@ -1,22 +1,12 @@
 import { Request, Response } from 'express';
-import mongoose from 'mongoose';
 import _ from 'lodash';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
 import User from '../model/user';
+import { addDataToUserService } from '../services/users';
 import { addDataToUserConnectionDetails, sendSuccessResponse, sendErrorResponse } from '../helpers/helpers';
-
-async function addDataToUserTable(email: string, password: string): Promise<void> {
-  const user = new User({
-    _id: new mongoose.Types.ObjectId(),
-    email: email,
-    password: bcrypt.hashSync(password, 10),
-  });
-
-  await user.save();
-}
 
 export const signup = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'signup');
@@ -27,7 +17,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
   if (!_.isEmpty(email) && !_.isEmpty(password)) {
     const record = await User.findOne({ email: email });
     if (_.isEmpty(record)) {
-      await addDataToUserTable(email, password);
+      await addDataToUserService(email, password);
 
       const data = {
         message: 'signup success!',
