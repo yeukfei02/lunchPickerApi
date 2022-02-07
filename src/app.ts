@@ -13,8 +13,6 @@ require('newrelic');
 import env from 'dotenv';
 env.config();
 
-import { connectDB } from './db/db';
-
 import mainRoutes from './routes/main';
 import userRoutes from './routes/user';
 import restaurantRoutes from './routes/restaurant';
@@ -25,6 +23,7 @@ import expoRoutes from './routes/expo';
 import stripeRoutes from './routes/stripe';
 import reactAdminRoutes from './routes/reactAdmin';
 
+import { connectDB } from './db/db';
 import { cronStart } from './cron/cron';
 
 const app = express();
