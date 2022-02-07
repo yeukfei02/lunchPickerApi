@@ -68,7 +68,7 @@ export const addDataToUserConnectionDetails = async (req: Request, routeName: st
     ip = '127.0.0.1';
   }
   if (ip.includes('::ffff:')) {
-    ip = ip.replace('::ffff:', '');
+    ip = ip.replace(/::ffff:/g, '');
   }
 
   let os = {};
