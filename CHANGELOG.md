@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.0...v3.0.1) (2022-02-08)
+
+
+### Bug Fixes
+
+* 🐛 fix req.ip text ([029c123](https://github.com/yeukfei02/lunchPickerApi/commit/029c1238f04ae169215e964b0f88ad360e29138d))
+* 🐛 fix to use replace all ([2718cc4](https://github.com/yeukfei02/lunchPickerApi/commit/2718cc40c562344f81f08d4ffe032ab72556650d))
+* 🐛 use back request-ip lib ([7456f7e](https://github.com/yeukfei02/lunchPickerApi/commit/7456f7eb5072ec0451db8ac19653ef76e865dc1c))
+
 ## [3.0.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.2...v3.0.0) (2022-02-07)
 
 
