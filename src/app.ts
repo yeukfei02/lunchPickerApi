@@ -1,5 +1,7 @@
-import express from 'express';
+import env from 'dotenv';
+env.config();
 
+import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
@@ -9,9 +11,6 @@ import rateLimit from 'express-rate-limit';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 require('newrelic');
-
-import env from 'dotenv';
-env.config();
 
 import mainRoutes from './routes/main';
 import userRoutes from './routes/user';
