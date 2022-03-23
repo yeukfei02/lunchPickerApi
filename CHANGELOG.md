@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.0...v3.0.1) (2022-02-08)
+
+
+### Bug Fixes
+
+* 🐛 fix req.ip text ([029c123](https://github.com/yeukfei02/lunchPickerApi/commit/029c1238f04ae169215e964b0f88ad360e29138d))
+* 🐛 fix to use replace all ([2718cc4](https://github.com/yeukfei02/lunchPickerApi/commit/2718cc40c562344f81f08d4ffe032ab72556650d))
+* 🐛 use back request-ip lib ([7456f7e](https://github.com/yeukfei02/lunchPickerApi/commit/7456f7eb5072ec0451db8ac19653ef76e865dc1c))
+
+## [3.0.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.2...v3.0.0) (2022-02-07)
+
+
+### Features
+
+* 🎸 add services files ([1871f06](https://github.com/yeukfei02/lunchPickerApi/commit/1871f06ecab3a85ed2a3b9791a7775a998ee8713))
+
+
+### Bug Fixes
+
+* 🐛 fix connectDB func ([27290ea](https://github.com/yeukfei02/lunchPickerApi/commit/27290ea912012c162f4a65b6c7aff2c841499a6c))
+* 🐛 fix stripe controller ([4b5dbf6](https://github.com/yeukfei02/lunchPickerApi/commit/4b5dbf69fe4bc1de4ca1497afa88780902355c45))
+* 🐛 use process.env.NODE_ENV ([91cbede](https://github.com/yeukfei02/lunchPickerApi/commit/91cbede0938c3ff9f7c2c4e9ce414da415b5082a))
+
+## [2.3.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.2...v2.3.0) (2022-02-07)
+
+
+### Features
+
+* 🎸 add services files ([1871f06](https://github.com/yeukfei02/lunchPickerApi/commit/1871f06ecab3a85ed2a3b9791a7775a998ee8713))
+
+
+### Bug Fixes
+
+* 🐛 fix connectDB func ([27290ea](https://github.com/yeukfei02/lunchPickerApi/commit/27290ea912012c162f4a65b6c7aff2c841499a6c))
+* 🐛 fix stripe controller ([4b5dbf6](https://github.com/yeukfei02/lunchPickerApi/commit/4b5dbf69fe4bc1de4ca1497afa88780902355c45))
+* 🐛 use process.env.NODE_ENV ([91cbede](https://github.com/yeukfei02/lunchPickerApi/commit/91cbede0938c3ff9f7c2c4e9ce414da415b5082a))
+
+## [2.2.0](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.2...v2.2.0) (2022-02-07)
+
+
+### Features
+
+* 🎸 add services files ([1871f06](https://github.com/yeukfei02/lunchPickerApi/commit/1871f06ecab3a85ed2a3b9791a7775a998ee8713))
+
+
+### Bug Fixes
+
+* 🐛 fix connectDB func ([27290ea](https://github.com/yeukfei02/lunchPickerApi/commit/27290ea912012c162f4a65b6c7aff2c841499a6c))
+* 🐛 fix stripe controller ([4b5dbf6](https://github.com/yeukfei02/lunchPickerApi/commit/4b5dbf69fe4bc1de4ca1497afa88780902355c45))
+* 🐛 use process.env.NODE_ENV ([91cbede](https://github.com/yeukfei02/lunchPickerApi/commit/91cbede0938c3ff9f7c2c4e9ce414da415b5082a))
+
+### [2.10.2](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.1...v2.10.2) (2022-02-07)
+
+
+### Bug Fixes
+
+* 🐛 fix test case ([09bcc3a](https://github.com/yeukfei02/lunchPickerApi/commit/09bcc3a4346f0ccb9335926fa5a514d028ce03dc))
+* 🐛 remove request-ip lib ([e9df0d7](https://github.com/yeukfei02/lunchPickerApi/commit/e9df0d77d71fc1d69ff8111548ee152c9577457c))
+* 🐛 update app.ts ([119defe](https://github.com/yeukfei02/lunchPickerApi/commit/119defe1bc8a9d848c48dceea4034b9548d446ec))
+
 ### [2.10.1](https://github.com/yeukfei02/lunchPickerApi/compare/v2.10.0...v2.10.1) (2022-01-12)
 
 
