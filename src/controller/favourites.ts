@@ -41,10 +41,10 @@ export const getFavourites = async (req: Request, res: Response): Promise<void> 
     ip = ip.replace(/::ffff:/g, '');
   }
 
-  const result = await Favourites.find({ ip: ip });
+  const favourites = await Favourites.find({ ip: ip });
   res.status(200).json({
     message: 'Get favourites!',
-    favourites: result,
+    favourites: favourites,
   });
 };
 
@@ -59,8 +59,8 @@ export const deleteAllFavourites = async (req: Request, res: Response): Promise<
     ip = ip.replace(/::ffff:/g, '');
   }
 
-  const result = await Favourites.deleteMany({ ip: ip });
-  if (!_.isEmpty(result)) {
+  const favourites = await Favourites.deleteMany({ ip: ip });
+  if (!_.isEmpty(favourites)) {
     const data = {
       message: 'Delete all favourites!',
     };
@@ -71,8 +71,8 @@ export const deleteAllFavourites = async (req: Request, res: Response): Promise<
 export const deleteFavouritesById = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'deleteFavouritesById');
 
-  const result = await Favourites.findByIdAndDelete(req.params._id);
-  if (!_.isEmpty(result)) {
+  const favourites = await Favourites.findByIdAndDelete(req.params._id);
+  if (!_.isEmpty(favourites)) {
     const data = {
       message: 'Delete favourites by id!',
     };
