@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.1...v3.0.2) (2022-04-11)
+
+
+### Bug Fixes
+
+* 🐛 add sortBy and update var name ([93f6f0b](https://github.com/yeukfei02/lunchPickerApi/commit/93f6f0bf9eac134234c7cb4b772383d40fc74da5))
+* 🐛 move dotenv to top ([1a2f6cd](https://github.com/yeukfei02/lunchPickerApi/commit/1a2f6cd839aaa34f209f2913f887c4dd54026157))
+* 🐛 remove postman collection json ([5e3a353](https://github.com/yeukfei02/lunchPickerApi/commit/5e3a3538e268de9065c32fc5b09931f0f3ea5f95))
+
 ### [3.0.1](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.0...v3.0.1) (2022-02-08)
 
 
