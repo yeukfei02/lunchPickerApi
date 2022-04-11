@@ -9,11 +9,17 @@ import { addDataToUserConnectionDetails, sendSuccessResponse } from '../helpers/
 export const getCategories = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getCategories');
 
-  const result = await Category.find({});
-  if (!_.isEmpty(result)) {
+  const categories = await Category.find({});
+  if (!_.isEmpty(categories)) {
+    const sortedCategories = _.sortBy(categories, [
+      function (item) {
+        return item.get('parent_aliases')[0];
+      },
+    ]);
+
     const data = {
       message: 'Get categories!',
-      categories: result,
+      categories: sortedCategories,
     };
     sendSuccessResponse(res, 200, data);
   } else {
@@ -25,9 +31,15 @@ export const getCategories = async (req: Request, res: Response): Promise<void> 
     if (!_.isEmpty(result) && !_.isEmpty(result.data)) {
       await addDataToCategoryService(result.data);
 
+      const sortedCategories = _.sortBy(result.data, [
+        function (item) {
+          return item.parent_aliases[0];
+        },
+      ]);
+
       res.status(200).json({
         message: 'Get categories!',
-        categories: result.data,
+        categories: sortedCategories,
       });
     }
   }
@@ -36,11 +48,11 @@ export const getCategories = async (req: Request, res: Response): Promise<void> 
 export const getCategoryByAlias = async (req: Request, res: Response): Promise<void> => {
   await addDataToUserConnectionDetails(req, 'getCategoryByAlias');
 
-  const result = await Category.findOne({ alias: req.params.alias });
-  if (!_.isEmpty(result)) {
+  const category = await Category.findOne({ alias: req.params.alias });
+  if (!_.isEmpty(category)) {
     const data = {
       message: 'Get categories!',
-      category: result,
+      category: category,
     };
     sendSuccessResponse(res, 200, data);
   } else {

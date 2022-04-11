@@ -8,8 +8,8 @@ import RestaurantDetailsReview from '../model/restaurantDetailsReview';
 export const addDataToRestaurantService = async (resultData: any): Promise<void> => {
   if (!_.isEmpty(resultData.businesses)) {
     resultData.businesses.map(async (item: any, i: number) => {
-      const record = await Restaurant.findOne({ id: item.id });
-      if (_.isEmpty(record)) {
+      const restaurant = await Restaurant.findOne({ id: item.id });
+      if (_.isEmpty(restaurant)) {
         const restaurant = new Restaurant({
           _id: new mongoose.Types.ObjectId(),
           id: item.id,
@@ -36,8 +36,8 @@ export const addDataToRestaurantService = async (resultData: any): Promise<void>
 };
 
 export const addDataToRestaurantDetailsService = async (resultData: any): Promise<void> => {
-  const record = await RestaurantDetails.findOne({ id: resultData.id });
-  if (_.isEmpty(record)) {
+  const restaurantDetails = await RestaurantDetails.findOne({ id: resultData.id });
+  if (_.isEmpty(restaurantDetails)) {
     const restaurantDetails = new RestaurantDetails({
       _id: new mongoose.Types.ObjectId(),
       id: resultData.id,
@@ -66,8 +66,8 @@ export const addDataToRestaurantDetailsService = async (resultData: any): Promis
 export const addDataToRestaurantDetailsReviewService = async (resultData: any): Promise<void> => {
   if (!_.isEmpty(resultData.reviews)) {
     resultData.reviews.map(async (item: any, i: number) => {
-      const record = await RestaurantDetailsReview.findOne({ id: item.id });
-      if (_.isEmpty(record)) {
+      const restaurantDetailsReview = await RestaurantDetailsReview.findOne({ id: item.id });
+      if (_.isEmpty(restaurantDetailsReview)) {
         const restaurantDetailsReview = new RestaurantDetailsReview({
           _id: new mongoose.Types.ObjectId(),
           id: item.id,

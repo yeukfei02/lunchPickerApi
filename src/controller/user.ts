@@ -15,8 +15,8 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
   const password = req.body.password;
 
   if (!_.isEmpty(email) && !_.isEmpty(password)) {
-    const record = await User.findOne({ email: email });
-    if (_.isEmpty(record)) {
+    const user = await User.findOne({ email: email });
+    if (_.isEmpty(user)) {
       await addDataToUserService(email, password);
 
       const data = {
@@ -72,11 +72,11 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const getAllUser = async (req: Request, res: Response): Promise<void> => {
-  const result = await User.find({});
+  const users = await User.find({});
 
   const data = {
     message: 'Get all user!',
-    users: result,
+    users: users,
   };
   sendSuccessResponse(res, 200, data);
 };
