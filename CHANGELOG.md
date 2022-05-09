@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.2...v3.0.3) (2022-05-09)
+
+
+### Bug Fixes
+
+* 🐛 add comment ([532ce7a](https://github.com/yeukfei02/lunchPickerApi/commit/532ce7a3c39c7b0243a5a2b86eadb1e101f0f005))
+* 🐛 remove not used travis badge ([6880847](https://github.com/yeukfei02/lunchPickerApi/commit/6880847f5a6ff9d449f7770c4ac8559f57837bc5))
+
 ### [3.0.2](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.1...v3.0.2) (2022-04-11)
 
 
