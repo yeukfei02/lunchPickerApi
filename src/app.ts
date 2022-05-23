@@ -27,7 +27,6 @@ import { cronStart } from './cron/cron';
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.set('port', port);
 
 // sentry
 Sentry.init({
