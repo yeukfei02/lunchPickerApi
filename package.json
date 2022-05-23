@@ -5,6 +5,10 @@
   "repository": "https://github.com/yeukfei02/lunchPickerApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=14.18.0",
+    "npm": ">=6.14.15"
+  },
   "dependencies": {
     "@sentry/node": "^6.15.0",
     "@sentry/tracing": "^6.15.0",
@@ -63,7 +67,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "git-cz": "^4.7.0",
-    "husky": "^4.2.5",
+    "husky": "^8.0.0",
     "jest": "^27.4.3",
     "nock": "^13.2.1",
     "nodemon": "^2.0.2",
@@ -83,12 +87,7 @@
     "test": "jest",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "commit": "git-cz",
-    "release": "standard-version"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn lint"
-    }
+    "release": "standard-version",
+    "prepare": "husky install"
   }
 }
