@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.4...v3.1.0) (2022-06-07)
+
+
+### Features
+
+* 🎸 add format command ([7cc520b](https://github.com/yeukfei02/lunchPickerApi/commit/7cc520ba016dcde697dd9b664644f8fb883d8343))
+
 ### [3.0.4](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.3...v3.0.4) (2022-05-23)
 
 
