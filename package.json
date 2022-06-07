@@ -86,6 +86,7 @@
     "heroku-postbuild": "yarn run build",
     "test": "jest",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
+    "format": "prettier --write ./src",
     "commit": "git-cz",
     "release": "standard-version",
     "prepare": "husky install"
