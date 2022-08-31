@@ -8,7 +8,7 @@ export const connectDB = async (): Promise<void> => {
       useUnifiedTopology: true,
     });
   } else {
-    // mongo atlas
+    // mongodb digitalocean
     await mongoose.connect(
       `mongodb+srv://lunch-picker-api:${process.env.MONGO_ATLAS_PASSWORD}@lunch-picker-db-21711215.mongo.ondigitalocean.com/lunch-picker-api?tls=true&authSource=admin&replicaSet=lunch-picker-db`,
       { useNewUrlParser: true, useUnifiedTopology: true },
