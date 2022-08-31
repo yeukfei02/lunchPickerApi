@@ -10,7 +10,7 @@ export const connectDB = async (): Promise<void> => {
   } else {
     // mongo atlas
     await mongoose.connect(
-      `mongodb+srv://yeukfei02:${process.env.MONGO_ATLAS_PASSWORD}@lunch-picker-goksl.mongodb.net/test?retryWrites=true&w=majority`,
+      `mongodb+srv://lunch-picker-api:${process.env.MONGO_ATLAS_PASSWORD}@lunch-picker-db-21711215.mongo.ondigitalocean.com/lunch-picker-api?tls=true&authSource=admin&replicaSet=lunch-picker-db`,
       { useNewUrlParser: true, useUnifiedTopology: true },
     );
 
