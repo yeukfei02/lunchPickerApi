@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/yeukfei02/lunchPickerApi/compare/v3.1.0...v3.1.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* 🐛 add yarn version in package.json ([3837156](https://github.com/yeukfei02/lunchPickerApi/commit/3837156deb1f50256748075743ea5ba8a2b71c06))
+* 🐛 fix husky ([05e030f](https://github.com/yeukfei02/lunchPickerApi/commit/05e030feeeeab3e6fb27184917627fe2e2a49c43))
+* 🐛 fix yarn version ([bd7d2b2](https://github.com/yeukfei02/lunchPickerApi/commit/bd7d2b24a432b4c831f58d719469dcbba05b54ec))
+* 🐛 update redis url ([38fad5a](https://github.com/yeukfei02/lunchPickerApi/commit/38fad5a238606e33054e335deeca1ad8c169a55a))
+
 ## [3.1.0](https://github.com/yeukfei02/lunchPickerApi/compare/v3.0.4...v3.1.0) (2022-06-07)
 
 
