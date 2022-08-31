@@ -27,9 +27,6 @@ export const getRedisUrl = (): string => {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     redisUrl = 'redis://127.0.0.1:6379/0';
   } else {
-    if (process.env.REDISCLOUD_URL) {
-      redisUrl = process.env.REDISCLOUD_URL;
-    }
     if (process.env.REDIS_URL) {
       redisUrl = process.env.REDIS_URL;
     }
