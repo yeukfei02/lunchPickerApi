@@ -7,7 +7,9 @@ import RestaurantDetailsReview from '../model/restaurantDetailsReview';
 
 export const addDataToRestaurantService = async (resultData: any): Promise<void> => {
   if (!_.isEmpty(resultData.businesses)) {
-    resultData.businesses.map(async (item: any, i: number) => {
+    for (let index = 0; index < resultData.businesses.length; index++) {
+      const item = resultData.businesses[index];
+
       const restaurant = await Restaurant.findOne({ id: item.id });
       if (_.isEmpty(restaurant)) {
         const restaurant = new Restaurant({
@@ -31,7 +33,7 @@ export const addDataToRestaurantService = async (resultData: any): Promise<void>
         });
         await restaurant.save();
       }
-    });
+    }
   }
 };
 
@@ -65,7 +67,9 @@ export const addDataToRestaurantDetailsService = async (resultData: any): Promis
 
 export const addDataToRestaurantDetailsReviewService = async (resultData: any): Promise<void> => {
   if (!_.isEmpty(resultData.reviews)) {
-    resultData.reviews.map(async (item: any, i: number) => {
+    for (let index = 0; index < resultData.reviews.length; index++) {
+      const item = resultData.reviews[index];
+
       const restaurantDetailsReview = await RestaurantDetailsReview.findOne({ id: item.id });
       if (_.isEmpty(restaurantDetailsReview)) {
         const restaurantDetailsReview = new RestaurantDetailsReview({
@@ -79,6 +83,6 @@ export const addDataToRestaurantDetailsReviewService = async (resultData: any): 
         });
         await restaurantDetailsReview.save();
       }
-    });
+    }
   }
 };
