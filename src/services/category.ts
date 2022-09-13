@@ -5,7 +5,9 @@ import Category from '../model/category';
 
 export const addDataToCategoryService = async (resultData: any): Promise<void> => {
   if (!_.isEmpty(resultData.categories)) {
-    resultData.categories.map(async (item: any, i: number) => {
+    for (let index = 0; index < resultData.categories.length; index++) {
+      const item = resultData.categories[index];
+
       const category = await Category.findOne({ alias: item.alias });
       if (_.isEmpty(category)) {
         const category = new Category({
@@ -18,6 +20,6 @@ export const addDataToCategoryService = async (resultData: any): Promise<void> =
         });
         await category.save();
       }
-    });
+    }
   }
 };
