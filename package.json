@@ -83,7 +83,8 @@
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev ./src/app.ts",
     "start": "NODE_ENV=production node ./dist/app.js",
-    "build": "rimraf dist && tsc",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
     "heroku-postbuild": "yarn run build",
     "test": "jest",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
