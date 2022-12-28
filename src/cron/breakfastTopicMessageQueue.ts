@@ -12,7 +12,7 @@ export const breakfastTopicMessageQueue = (scheduleTime: string, sendTopicMessag
     body: 'Open lunch picker in browser now!',
   };
   breakfastTopicMessageQueue.add(data, { repeat: { cron: scheduleTime, tz: 'Asia/Hong_Kong' } });
-  
+
   breakfastTopicMessageQueue.process((job, done) => {
     if (job && job.data) {
       const title = job.data.title;
