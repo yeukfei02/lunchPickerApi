@@ -7,6 +7,12 @@ const redisUrl = getRedisUrl();
 export const breakfastTopicMessageQueue = (scheduleTime: string, sendTopicMessage: any): void => {
   const breakfastTopicMessageQueue = new Queue('breakfast topic message', redisUrl);
 
+  const data = {
+    title: "Let's look for breakfast!",
+    body: 'Open lunch picker in browser now!',
+  };
+  breakfastTopicMessageQueue.add(data, { repeat: { cron: scheduleTime, tz: 'Asia/Hong_Kong' } });
+  
   breakfastTopicMessageQueue.process((job, done) => {
     if (job && job.data) {
       const title = job.data.title;
@@ -17,10 +23,4 @@ export const breakfastTopicMessageQueue = (scheduleTime: string, sendTopicMessag
       done();
     }
   });
-
-  const data = {
-    title: "Let's look for breakfast!",
-    body: 'Open lunch picker in browser now!',
-  };
-  breakfastTopicMessageQueue.add(data, { repeat: { cron: scheduleTime, tz: 'Asia/Hong_Kong' } });
 };
