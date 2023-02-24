@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/yeukfei02/lunchPickerApi/compare/v3.1.1...v3.2.0) (2023-02-24)
+
+
+### Features
+
+* 🎸 add commitlint lib ([ea3c130](https://github.com/yeukfei02/lunchPickerApi/commit/ea3c130882e9e1f93b1fcfd04c502c5fe42a567b))
+* 🎸 add prebuild script ([16b65a8](https://github.com/yeukfei02/lunchPickerApi/commit/16b65a83c8d2b833ebcce491dd1b1692fbd29099))
+* 🎸 update redis lib ([631ea39](https://github.com/yeukfei02/lunchPickerApi/commit/631ea3962a39e2552d5ce9f77061a8b9abcd4266))
+* 🎸 use digitalocean for this project ([1c409ca](https://github.com/yeukfei02/lunchPickerApi/commit/1c409ca24cb57c727fd71113a87d1dba250d61dc))
+
+
+### Bug Fixes
+
+* 🐛 fix cron job logic ([a304725](https://github.com/yeukfei02/lunchPickerApi/commit/a304725814e3ae3202bea678d1c850d3a318259f))
+* 🐛 fix lint ([9dcaee1](https://github.com/yeukfei02/lunchPickerApi/commit/9dcaee1ec5e925d446ebf9e8ffedb76e16087106))
+* 🐛 fix node version in test.yml ([a9ab82c](https://github.com/yeukfei02/lunchPickerApi/commit/a9ab82ce5003ecce3940c99f8103935a760b074c))
+* 🐛 fix old logic ([5fdefa8](https://github.com/yeukfei02/lunchPickerApi/commit/5fdefa82fa601745f8bc167c9b9757f869f42e6e))
+* 🐛 fix package.json and update readme.md ([05a8d01](https://github.com/yeukfei02/lunchPickerApi/commit/05a8d013985009fce68aa99acdaadca2bc850561))
+* 🐛 fix test.yml ([8627e76](https://github.com/yeukfei02/lunchPickerApi/commit/8627e76beafdae3ddb6bbe22b8a9fea37a48fd73))
+* 🐛 update comment ([9e91b72](https://github.com/yeukfei02/lunchPickerApi/commit/9e91b7295c4b5baf1472f16f9baac32219473d5e))
+
 ### [3.1.1](https://github.com/yeukfei02/lunchPickerApi/compare/v3.1.0...v3.1.1) (2022-08-31)
 
 
