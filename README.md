@@ -26,7 +26,7 @@ password: admin
 ## Requirement
 
 - install yarn
-- install node (v14+)
+- install node (v16+)
 - install mongodb
 
 ## Testing and run
