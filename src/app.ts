@@ -67,6 +67,7 @@ app.use(requestIp.mw());
 app.use(express.json());
 app.use(limiter);
 
+// routes
 app.use('/', mainRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/restaurant', restaurantRoutes);
